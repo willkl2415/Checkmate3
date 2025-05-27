@@ -1,1 +1,34 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check-Mate</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="layout">
+        <div id="left-panel">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Chess_piece_-_Red_Rook.png" alt="Check-Mate" style="width:80px;"><br><br>
+            <div id="narrative">
+                <h2>Check-Mate</h2>
+                <p>Your Defence Training Intelligence Assistant</p>
+                <ul>
+                    <li>Understands DSAT doctrine</li>
+                    <li>Searches JSP 822, DTSM 2</li>
+                    <li>Returns structured, cited answers</li>
+                </ul>
+            </div>
+        </div>
+        <div id="right-panel">
+            <form method="post" action="/ask">
+                <textarea name="query" rows="6" placeholder="Ask Check-Mate anything about DSAT..."></textarea><br>
+                <button type="submit" class="red-button">Submit</button>
+            </form>
+            <div id="response-box">
+                <h2>Check-Mate’s Response</h2>
+                <div id="response-text">{{ response if response else 'Awaiting your question...' }}</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
