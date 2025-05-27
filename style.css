@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+}
+#layout {
+    display: flex;
+    height: 100vh;
+}
+#left-panel {
+    width: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-right: 2px solid #ccc;
+}
+#right-panel {
+    flex: 1;
+    padding: 40px;
+    background-color: #ffffff;
+}
+textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
+}
+.red-button {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#response-box {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f0f4f8;
+    border-left: 4px solid #0057b8;
+}
