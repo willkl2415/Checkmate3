@@ -3,46 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Check-Mate</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container">
-        <!-- Left Panel -->
-        <div class="left-panel">
-            <img src="/static/img/chess-king.png" alt="Check-Mate Logo">
+        <div class="left-column">
+            <img src="{{ url_for('static', filename='img/checkmate-piece.png') }}" alt="Check-Mate Chess Piece" class="chess-image">
             <div class="narrative">
                 <h2>Check-Mate</h2>
                 <p>
-                    Check-Mate is an advanced AI-powered system engineered to cut through complexity.
+                    Check-Mate is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity –
+                    especially within the structured environments shaped by the Systems Approach to Training (SAT) and Defence Systems
+                    Approach to Training (DSAT).<br><br>
+                    Inspired by the strategic finality of the term, Check-Mate enables you to instantly search, filter, and interrogate
+                    huge volumes of training, policy, guidance, and operational documents using natural language, intuitive keywords,
+                    and intelligent filters.<br><br>
+                    Instead of navigating hundreds of pages manually, users pose a question – and Check-Mate responds with precise,
+                    context-grounded answers drawn directly from structured, authoritative sources.<br><br>
+                    Check-Mate isn’t just a support tool – it’s the final winning move.
                 </p>
-                <ul>
-                    <li>It doesn’t scan blindly</li>
-                    <li>It understands structure</li>
-                    <li>It recognises language patterns</li>
-                    <li>It interprets logic</li>
-                </ul>
-                <p>
-                    Ask a question, any question — and <strong>Check-Mate</strong> returns not just a result, but the precise answer, grounded in the correct context, drawn directly from authoritative documents.
-                </p>
-                <p>
-                    It pinpoints clauses, paragraphs, sentences, or sections where that answer resides.
-                </p>
-                <p>
-                    It works across training doctrine, technical frameworks, policies, guidance, and much more — regardless of how long they’ve been stored or how deeply they’re buried.
-                </p>
-                <p><strong>Check-Mate doesn’t search, it knows.</strong></p>
             </div>
         </div>
-
-        <!-- Right Panel -->
-        <div class="right-panel">
-            <form action="/ask" method="post">
-                <input type="text" name="query" placeholder="Enter your Question or Word" class="query-box" required>
-                <button type="submit" class="submit-btn">Submit</button>
+        <div class="right-column">
+            <form action="/ask" method="post" id="question-form">
+                <label for="query"><strong>Enter your Question or Word:</strong></label>
+                <input type="text" id="query" name="query" required>
+                <button type="submit">Ask Check-Mate</button>
             </form>
-            <div class="response-box">
-                <h3>Check-Mate’s Response</h3>
-                <p>{{ response | safe }}</p>
+            <div id="response">
+                {{ response|safe }}
             </div>
         </div>
     </div>
