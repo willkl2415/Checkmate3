@@ -3,37 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <title>Check-Mate</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+        }
+
+        .left-column {
+            width: 25%;
+            min-width: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .left-column img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .middle-column {
+            width: 40%;
+            padding: 30px;
+            background-color: #ffffff;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .middle-column h2 {
+            margin-top: 0;
+        }
+
+        .right-column {
+            width: 35%;
+            background-color: #f9f9f9;
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .right-column input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .right-column button {
+            padding: 12px;
+            background-color: #d62828;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .right-column button:hover {
+            background-color: #a4161a;
+        }
+
+        .right-column #answer-box {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            min-height: 100px;
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="left-column">
-            <img src="{{ url_for('static', filename='img/checkmate-piece.png') }}" alt="Check-Mate Chess Piece" class="chess-image">
-            <div class="narrative">
-                <h2>Check-Mate</h2>
-                <p>
-                    Check-Mate is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity –
-                    especially within the structured environments shaped by the Systems Approach to Training (SAT) and Defence Systems
-                    Approach to Training (DSAT).<br><br>
-                    Inspired by the strategic finality of the term, Check-Mate enables you to instantly search, filter, and interrogate
-                    huge volumes of training, policy, guidance, and operational documents using natural language, intuitive keywords,
-                    and intelligent filters.<br><br>
-                    Instead of navigating hundreds of pages manually, users pose a question – and Check-Mate responds with precise,
-                    context-grounded answers drawn directly from structured, authoritative sources.<br><br>
-                    Check-Mate isn’t just a support tool – it’s the final winning move.
-                </p>
-            </div>
-        </div>
-        <div class="right-column">
-            <form action="/ask" method="post" id="question-form">
-                <label for="query"><strong>Enter your Question or Word:</strong></label>
-                <input type="text" id="query" name="query" required>
-                <button type="submit">Ask Check-Mate</button>
-            </form>
-            <div id="response">
-                {{ response|safe }}
-            </div>
-        </div>
+
+    <!-- Left Column -->
+    <div class="left-column">
+        <img src="{{ url_for('static', filename='img/checkmate.png') }}" alt="Check-Mate Icon">
     </div>
+
+    <!-- Middle Column -->
+    <div class="middle-column">
+        <h2>Check-Mate</h2>
+        <p>
+            Check-Mate is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity –
+            especially within the structured environments shaped by the Systems Approach to Training (SAT) and Defence Systems
+            Approach to Training (DSAT).
+        </p>
+        <p>
+            It enables you to instantly search, filter, and interrogate huge volumes of training, policy, guidance, and operational
+            documents using natural language, intuitive keywords, and intelligent filters. In high-stakes systems, Check-Mate delivers
+            efficiency, speed, accuracy, effectiveness and assurance when it matters most.
+        </p>
+    </div>
+
+    <!-- Right Column -->
+    <div class="right-column">
+        <form method="post" action="/ask">
+            <input type="text" name="query" placeholder="Enter your question">
+            <button type="submit">Ask Check-Mate</button>
+        </form>
+        <div id="answer-box">{{ response|safe }}</div>
+    </div>
+
 </body>
 </html>
