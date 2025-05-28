@@ -1,9 +1,7 @@
-/* Layout container */
 body {
     margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #fff;
+    background-color: #f3f3f3;
 }
 
 .container {
@@ -12,90 +10,70 @@ body {
     height: 100vh;
 }
 
-/* Left Panel */
-.left-panel {
-    width: 38%;
+.left-column {
+    width: 35%;
+    background-color: #ffffff;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-right: 1px solid #ccc;
+    box-sizing: border-box;
+    border-right: 2px solid #ccc;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: left;
 }
 
 .chess-image {
-    width: 80px;
+    max-width: 100%;
+    height: auto;
     margin-bottom: 20px;
 }
 
 .narrative {
-    max-width: 85%;
-}
-
-.narrative h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.narrative ul {
-    padding-left: 20px;
-    margin-top: 10px;
-}
-
-.narrative p {
+    text-align: left;
     font-size: 14px;
-    margin-bottom: 12px;
+    line-height: 1.6;
 }
 
-/* Right Panel */
-.right-panel {
-    width: 62%;
+.right-column {
+    flex-grow: 1;
     padding: 40px;
-    background-color: #fff;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
 }
 
-.query-box {
+#question-form {
+    margin-bottom: 20px;
+}
+
+#query {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
+    padding: 12px;
+    margin-top: 8px;
     margin-bottom: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
-.submit-btn {
-    background-color: #c62828;
+button {
+    background-color: #b30000;
     color: white;
-    padding: 10px 22px;
-    font-size: 15px;
-    font-weight: bold;
+    padding: 12px 20px;
+    font-size: 16px;
     border: none;
-    border-radius: 3px;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
-.submit-btn:hover {
-    background-color: #a31f1f;
+button:hover {
+    background-color: #800000;
 }
 
-/* Response Section */
-.response-box {
-    margin-top: 40px;
-    background-color: #f4f7fb;
-    border-left: 5px solid #0d47a1;
+#response {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
     padding: 20px;
-    border-radius: 4px;
-}
-
-.response-box h3 {
-    margin-top: 0;
-    font-size: 20px;
-}
-
-.response-box p {
+    overflow-y: auto;
+    flex-grow: 1;
     font-size: 15px;
-    color: #333;
-    white-space: pre-wrap;
+    line-height: 1.5;
 }
