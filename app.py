@@ -1,7 +1,18 @@
 from flask import Flask, render_template, request
-from answer_engine import answer_question
+import json
+import os
 
 app = Flask(__name__)
+
+# Load chunks from the correct data directory
+CHUNKS_PATH = os.path.join("data", "chunks.json")
+
+try:
+    with open(CHUNKS_PATH, "r", encoding="utf-8") as f:
+        chunks = json.load(f)
+except FileNotFoundError:
+    chunks = []
+    print(f"ERROR: Cannot find {CHUNKS_PATH}. Please ensure the file exists.")
 
 @app.route("/")
 def index():
@@ -9,20 +20,31 @@ def index():
 
 @app.route("/ask", methods=["POST"])
 def ask():
-    user_input = request.form["query"]
+    query = request.form.get("query", "").lower()
+    if not query:
+        return render_template("index.html", response="Please enter a question.")
 
     try:
-        results = answer_question(user_input)
-        if isinstance(results, list) and results:
-            answer = ""
-            for match in results:
-                answer += f"<strong>{match.get('document', 'Unknown')} | {match.get('heading', 'Unknown')}</strong><br>{match.get('content', '')}<br><br>"
-        else:
-            answer = "No results found in the documents for your query."
-    except Exception as e:
-        answer = f"An error occurred: {str(e)}"
+        results = []
+        for chunk in chunks:
+            content = chunk.get("content", "").lower()
+            if query in content:
+                results.append(chunk)
 
-    return render_template("index.html", response=answer)
+        if results:
+            response = ""
+            for match in results:
+                document = match.get("document", "Unknown")
+                heading = match.get("heading", "No heading")
+                content = match.get("content", "")
+                response += f"<strong>{document} | {heading}</strong><br>{content}<br><br>"
+        else:
+            response = "No matching results found in the documents."
+
+    except Exception as e:
+        response = f"An error occurred: {str(e)}"
+
+    return render_template("index.html", response=response)
 
 if __name__ == "__main__":
     app.run(debug=False, host="0.0.0.0", port=10000)
