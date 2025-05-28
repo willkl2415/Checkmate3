@@ -1,12 +1,21 @@
 import json
+import os
 
-def load_chunks():
-    with open("chunks.json", "r", encoding="utf-8") as f:
-        return json.load(f)
+def answer_question(user_input):
+    chunks_path = os.path.join("data", "chunks.json")
+    with open(chunks_path, "r", encoding="utf-8") as f:
+        chunks = json.load(f)
 
-def answer_question(query):
-    query = query.lower()
-    for chunk in load_chunks():
-        if all(word in chunk["content"].lower() for word in query.split()):
-            return f"{chunk['document']} | {chunk['heading']}\n\n{chunk['content']}"
-    return "No relevant content found for your question in the loaded documents."
+    results = []
+    user_input_lower = user_input.lower()
+
+    for chunk in chunks:
+        content = chunk.get("content", "").lower()
+        if user_input_lower in content:
+            results.append({
+                "document": chunk.get("document", "Unknown"),
+                "heading": chunk.get("heading", "Unknown"),
+                "content": chunk.get("content", "")
+            })
+
+    return results
