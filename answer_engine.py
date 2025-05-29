@@ -1,26 +1,28 @@
 import json
+import re
 
-with open("chunks.json", "r", encoding="utf-8") as f:
-    chunks = json.load(f)
+def load_chunks():
+    with open("chunks.json", "r", encoding="utf-8") as file:
+        return json.load(file)
 
+def answer_question(query):
+    query = query.lower()
+    chunks = load_chunks()
+    matched_chunks = []
 
-def answer_question(question, selected_doc="", selected_section=""):
-    if not question.strip():
-        return "Please enter a valid question."
-
-    results = []
     for chunk in chunks:
-        if selected_doc and chunk["source"] != selected_doc:
-            continue
-        if selected_section and chunk.get("section", "") != selected_section:
-            continue
-        if question.lower() in chunk["content"].lower():
-            results.append(chunk)
+        content = chunk["content"].lower()
+        if all(term in content for term in query.split()):
+            matched_chunks.append(chunk)
 
-    if not results:
+    if not matched_chunks:
         return "No matching results found in the documents."
 
-    formatted = ""
-    for r in results:
-        formatted += f"<strong>{r['source']} | {r.get('section', 'Unknown')}</strong><br>{r['content']}<br><br>"
-    return formatted
+    result = ""
+    for chunk in matched_chunks:
+        section = chunk["section"]
+        content = chunk["content"].strip()
+        doc = chunk["document"]
+        result += f"<strong>{doc} | {section}</strong><br>{content}<br><br>"
+
+    return result
