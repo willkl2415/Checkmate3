@@ -6,45 +6,23 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <div class="left-column">
-            <img src="{{ url_for('static', filename='img/checkmate.png') }}" alt="Check-Mate Logo">
-        </div>
-        <div class="middle-column">
-            <h2>Check-Mate</h2>
-            <p>
-                <strong>Check-Mate</strong> is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity – 
-                especially within the structured environments shaped by the Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).
-            </p>
-            <p>
-                Inspired by the strategic finality of the term, Check-Mate enables you to instantly search, filter, and interrogate huge volumes of training, 
-                policy, guidance, and operational documents using natural language, intuitive keywords, and intelligent filters.
-            </p>
-            <p>
-                In high-stakes systems Check-Mate delivers efficiency, speed, accuracy, effectiveness and assurance when it matters most.
-            </p>
-        </div>
-        <div class="right-column">
-            <form method="POST">
-                <input type="text" name="question" placeholder="Enter your Question or Word" value="{{ question }}">
-                <select name="document">
-                    <option value="">Filter by document (optional)</option>
-                    {% for doc in documents %}
-                    <option value="{{ doc }}" {% if doc == selected_doc %}selected{% endif %}>{{ doc }}</option>
-                    {% endfor %}
-                </select>
-                <select name="section">
-                    <option value="">Filter by contents (optional)</option>
-                    {% if selected_doc in sections_by_doc %}
-                        {% for sec in sections_by_doc[selected_doc] %}
-                        <option value="{{ sec }}" {% if sec == selected_section %}selected{% endif %}>{{ sec }}</option>
-                        {% endfor %}
-                    {% endif %}
-                </select>
-                <button type="submit">Ask Check-Mate</button>
-            </form>
-            <div id="response">{{ response|safe }}</div>
-        </div>
+    <div class="left-column">
+        <img src="{{ url_for('static', filename='img/checkmate.png') }}" alt="Check-Mate">
+    </div>
+
+    <div class="middle-column">
+        <h2>Check-Mate</h2>
+        <p><strong>Check-Mate</strong> is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity – especially within the structured environments shaped by the <strong>Systems Approach to Training (SAT)</strong> and <strong>Defence Systems Approach to Training (DSAT)</strong>.</p>
+        <p>It enables you to instantly search, filter, and interrogate huge volumes of training, policy, guidance, and operational documents using natural language, intuitive keywords, and intelligent filters.</p>
+        <p>In high-stakes systems, <strong>Check-Mate</strong> delivers <strong>efficiency, speed, accuracy, effectiveness and assurance</strong> when it matters most.</p>
+    </div>
+
+    <div class="right-column">
+        <form method="post">
+            <input type="text" name="query" placeholder="Enter your Question or Word">
+            <button type="submit">Ask Check-Mate</button>
+        </form>
+        <div id="answer-box">{{ response|safe }}</div>
     </div>
 </body>
 </html>
