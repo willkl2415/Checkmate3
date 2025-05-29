@@ -2,8 +2,8 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: row;
     height: 100vh;
-    background-color: #f8f9fa;
 }
 
 .container {
@@ -12,58 +12,76 @@ body {
     width: 100%;
 }
 
-.left-panel {
+.left-column {
     width: 20%;
-    background-color: #eeeeee;
+    min-width: 200px;
+    background-color: #f0f0f0;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     padding: 20px;
+    box-sizing: border-box;
 }
 
-.middle-panel {
+.left-column img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.middle-column {
     width: 40%;
-    padding: 40px;
+    padding: 30px;
     background-color: #ffffff;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
-.middle-panel ul {
-    padding-left: 20px;
+.middle-column h2 {
+    margin-top: 0;
 }
 
-.right-panel {
+.right-column {
     width: 40%;
-    padding: 40px;
-    background-color: #f1f1f1;
+    background-color: #f9f9f9;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-input[type="text"] {
+.right-column input[type="text"],
+.right-column select {
     width: 100%;
     padding: 12px;
-    margin-bottom: 10px;
     font-size: 16px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
-button {
-    padding: 12px 20px;
-    background-color: #c22b2b;
+.right-column button {
+    padding: 12px;
+    background-color: #d62828;
     color: white;
     border: none;
+    border-radius: 6px;
     font-size: 16px;
-    border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #a62222;
+.right-column button:hover {
+    background-color: #a4161a;
 }
 
-.response-box {
+#response {
     margin-top: 20px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-left: 4px solid #1a3d8f;
-    border-radius: 4px;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    min-height: 150px;
+    white-space: pre-wrap;
+    overflow-y: auto;
 }
