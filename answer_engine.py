@@ -2,7 +2,7 @@ import json
 import re
 
 def load_chunks():
-    with open("chunks.json", "r", encoding="utf-8") as file:
+    with open("data/chunks.json", "r", encoding="utf-8") as file:
         return json.load(file)
 
 def answer_question(query):
