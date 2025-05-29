@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: check-mate
-    runtime: python
-    buildCommand: ""
+    name: checkmate3
+    env: python
+    buildCommand: "pip install -r requirements.txt"
     startCommand: "python app.py"
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.11
+      - key: FLASK_ENV
+        value: production
