@@ -6,15 +6,9 @@ body {
     height: 100vh;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
 .left-column {
     width: 20%;
-    min-width: 200px;
+    min-width: 180px;
     background-color: #f0f0f0;
     display: flex;
     justify-content: center;
@@ -51,8 +45,7 @@ body {
     justify-content: flex-start;
 }
 
-.right-column input[type="text"],
-.right-column select {
+.right-column input[type="text"] {
     width: 100%;
     padding: 12px;
     font-size: 16px;
@@ -75,13 +68,12 @@ body {
     background-color: #a4161a;
 }
 
-#response {
+#answer-box {
     margin-top: 20px;
     background-color: #fff;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    min-height: 150px;
+    min-height: 100px;
     white-space: pre-wrap;
-    overflow-y: auto;
 }
