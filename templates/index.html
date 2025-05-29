@@ -3,35 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Check-Mate</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container">
-        <div class="left-panel">
-            <img src="/static/img/layout_king.png" alt="Check-Mate Icon" />
+        <div class="left-column">
+            <img src="{{ url_for('static', filename='img/checkmate.png') }}" alt="Check-Mate Logo">
         </div>
-        <div class="middle-panel">
-            <h1>Check-Mate</h1>
-            <p><strong>Check-Mate</strong> is an advanced AI-powered system engineered to cut through complexity.</p>
-            <ul>
-                <li>It doesn’t scan blindly</li>
-                <li>It understands structure</li>
-                <li>It recognises language patterns</li>
-                <li>It interprets logic</li>
-            </ul>
-            <p>Ask a question — any question — and <strong>Check-Mate</strong> returns not just a result, but the precise answer, grounded in the correct context, drawn directly from authoritative documents.</p>
-            <p>It pinpoints clauses, paragraphs, sentences, or sections where that answer resides.</p>
-            <p>It works across training doctrine, technical frameworks, policies, guidance, and much more — regardless of how long they’ve been stored or how deeply they’re buried.</p>
-            <p><strong>Check-Mate doesn’t search, it knows.</strong></p>
+        <div class="middle-column">
+            <h2>Check-Mate</h2>
+            <p>
+                <strong>Check-Mate</strong> is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity – 
+                especially within the structured environments shaped by the Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).
+            </p>
+            <p>
+                Inspired by the strategic finality of the term, Check-Mate enables you to instantly search, filter, and interrogate huge volumes of training, 
+                policy, guidance, and operational documents using natural language, intuitive keywords, and intelligent filters.
+            </p>
+            <p>
+                In high-stakes systems Check-Mate delivers efficiency, speed, accuracy, effectiveness and assurance when it matters most.
+            </p>
         </div>
-        <div class="right-panel">
-            <form action="/ask" method="post">
-                <input type="text" name="query" placeholder="Enter your question">
+        <div class="right-column">
+            <form method="POST">
+                <input type="text" name="question" placeholder="Enter your Question or Word" value="{{ question }}">
+                <select name="document">
+                    <option value="">Filter by document (optional)</option>
+                    {% for doc in documents %}
+                    <option value="{{ doc }}" {% if doc == selected_doc %}selected{% endif %}>{{ doc }}</option>
+                    {% endfor %}
+                </select>
+                <select name="section">
+                    <option value="">Filter by contents (optional)</option>
+                    {% if selected_doc in sections_by_doc %}
+                        {% for sec in sections_by_doc[selected_doc] %}
+                        <option value="{{ sec }}" {% if sec == selected_section %}selected{% endif %}>{{ sec }}</option>
+                        {% endfor %}
+                    {% endif %}
+                </select>
                 <button type="submit">Ask Check-Mate</button>
             </form>
-            <div class="response-box">
-                {{ response|safe }}
-            </div>
+            <div id="response">{{ response|safe }}</div>
         </div>
     </div>
 </body>
