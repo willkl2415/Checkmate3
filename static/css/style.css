@@ -1,79 +1,69 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    display: flex;
+    height: 100vh;
+    background-color: #f8f9fa;
 }
 
 .container {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    width: 100%;
 }
 
-.left-column {
-    width: 35%;
-    background-color: #ffffff;
-    padding: 20px;
-    box-sizing: border-box;
-    border-right: 2px solid #ccc;
+.left-panel {
+    width: 20%;
+    background-color: #eeeeee;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.chess-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-.narrative {
-    text-align: left;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.right-column {
-    flex-grow: 1;
+.middle-panel {
+    width: 40%;
     padding: 40px;
     background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
 }
 
-#question-form {
-    margin-bottom: 20px;
+.middle-panel ul {
+    padding-left: 20px;
 }
 
-#query {
+.right-panel {
+    width: 40%;
+    padding: 40px;
+    background-color: #f1f1f1;
+}
+
+input[type="text"] {
     width: 100%;
     padding: 12px;
-    margin-top: 8px;
-    margin-bottom: 12px;
-    border: 1px solid #ccc;
+    margin-bottom: 10px;
     font-size: 16px;
-    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
-    background-color: #b30000;
-    color: white;
     padding: 12px 20px;
-    font-size: 16px;
+    background-color: #c22b2b;
+    color: white;
     border: none;
+    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #800000;
+    background-color: #a62222;
 }
 
-#response {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+.response-box {
+    margin-top: 20px;
+    background-color: #ffffff;
     padding: 20px;
-    overflow-y: auto;
-    flex-grow: 1;
-    font-size: 15px;
-    line-height: 1.5;
+    border-left: 4px solid #1a3d8f;
+    border-radius: 4px;
 }
