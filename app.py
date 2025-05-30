@@ -1,40 +1,45 @@
 from flask import Flask, render_template, request
-from answer_engine import answer_question
 import json
+from answer_engine import get_answer
 
 app = Flask(__name__)
 
-@app.route("/")
+with open("chunks.json", "r", encoding="utf-8") as f:
+    chunks = json.load(f)
+
+documents = sorted(set(chunk["document"] for chunk in chunks))
+
+document_sections = {}
+for chunk in chunks:
+    doc = chunk["document"]
+    heading = chunk["heading"]
+    if doc not in document_sections:
+        document_sections[doc] = []
+    if heading not in document_sections[doc]:
+        document_sections[doc].append(heading)
+
+@app.route("/", methods=["GET", "POST"])
 def index():
-    with open("chunks.json", "r", encoding="utf-8") as f:
-        chunks = json.load(f)
-    documents = sorted(set(chunk["document"] for chunk in chunks))
-    sections = sorted(set(chunk["heading"] for chunk in chunks))
-    return render_template("index.html", response="", document_filter="", section_filter="", documents=documents, sections=sections)
+    response = ""
+    question = ""
+    selected_document = ""
+    selected_heading = ""
 
-@app.route("/ask", methods=["POST"])
-def ask():
-    user_input = request.form.get("query", "")
-    selected_document = request.form.get("document", "")
-    selected_section = request.form.get("section", "")
+    if request.method == "POST":
+        question = request.form.get("question", "").strip()
+        selected_document = request.form.get("document", "")
+        selected_heading = request.form.get("section", "")
+        response = get_answer(question, selected_document, selected_heading)
 
-    try:
-        results = answer_question(user_input, selected_document, selected_section)
-        if results:
-            answer = ""
-            for match in results:
-                answer += f"<strong>{match['document']} | {match['heading']}</strong><br>{match['content']}<br><br>"
-        else:
-            answer = "No results found for your query."
-    except Exception as e:
-        answer = f"An error occurred: {str(e)}"
-
-    with open("chunks.json", "r", encoding="utf-8") as f:
-        chunks = json.load(f)
-    documents = sorted(set(chunk["document"] for chunk in chunks))
-    sections = sorted(set(chunk["heading"] for chunk in chunks))
-
-    return render_template("index.html", response=answer, document_filter=selected_document, section_filter=selected_section, documents=documents, sections=sections)
+    return render_template(
+        "index.html",
+        response=response,
+        question=question,
+        documents=documents,
+        document_sections=document_sections,
+        selected_document=selected_document,
+        selected_heading=selected_heading,
+    )
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False, host="0.0.0.0", port=5000)
