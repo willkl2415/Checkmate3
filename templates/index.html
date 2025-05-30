@@ -1,38 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Check-Mate</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        #left-column {
+            width: 350px;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid #ccc;
+        }
+
+        #right-column {
+            flex-grow: 1;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        textarea, select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: red;
+        }
+
+        #response-box {
+            white-space: pre-wrap;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div id="layout">
-        <div id="left-panel">
-            <img src="/static/img/layout-king.png" alt="Check-Mate" style="width:80px;"><br><br>
-            <div id="narrative">
-                <h2>Check-Mate</h2>
-                <p>Your Defence Training Intelligence Assistant</p>
-                <ul>
-                    <li>Understands DSAT doctrine</li>
-                    <li>Searches JSP 822, DTSM 2</li>
-                    <li>Returns structured, cited answers</li>
-                </ul>
-            </div>
-        </div>
-        <div id="right-panel">
-            <form method="POST">
-                <textarea name="query" placeholder="Enter your Question or Word"></textarea><br>
-                <select name="document">
-                    <option value="">All Documents</option>
-                    <option value="JSP 822 Vol 2">JSP 822 Vol 2</option>
-                    <option value="DTSM 2">DTSM 2</option>
-                </select><br>
-                <button type="submit">Ask Check-Mate</button>
-            </form>
-            <div id="response">
-                <h3>Check-Mate’s Response</h3>
-                <div>{{ response|safe }}</div>
-            </div>
+    <div id="left-column">
+        <img src="/static/img/checkmate.png" alt="Check-Mate">
+        <p><strong>Check-Mate</strong> is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity – especially within the structured environments shaped by the Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
+        <p>Inspired by the strategic finality of the term, Check-Mate enables you to instantly search, filter, and interrogate huge volumes of training, policy, guidance, and operational documents using natural language, intuitive keywords, and intelligent filters.</p>
+    </div>
+
+    <div id="right-column">
+        <h2>Ask Check-Mate</h2>
+        <form method="post" action="/ask">
+            <label for="query">Enter your Question or Word:</label>
+            <input type="text" id="query" name="query" placeholder="e.g. What is Role Analysis?" required>
+
+            <label for="document">Filter by Document (optional):</label>
+            <select name="document" id="document">
+                <option value="">-- All Documents --</option>
+                {% for doc in documents %}
+                <option value="{{ doc }}" {% if doc == document_filter %}selected{% endif %}>{{ doc }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="section">Filter by Section (optional):</label>
+            <select name="section" id="section">
+                <option value="">-- All Sections --</option>
+                {% for section in sections %}
+                <option value="{{ section }}" {% if section == section_filter %}selected{% endif %}>{{ section }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="response-box">
+            {{ response|safe }}
         </div>
     </div>
 </body>
