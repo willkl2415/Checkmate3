@@ -6,7 +6,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html", response="", document_filter="", section_filter="")
+    with open("chunks.json", "r", encoding="utf-8") as f:
+        chunks = json.load(f)
+    documents = sorted(set(chunk["document"] for chunk in chunks))
+    sections = sorted(set(chunk["heading"] for chunk in chunks))
+    return render_template("index.html", response="", document_filter="", section_filter="", documents=documents, sections=sections)
 
 @app.route("/ask", methods=["POST"])
 def ask():
@@ -25,7 +29,12 @@ def ask():
     except Exception as e:
         answer = f"An error occurred: {str(e)}"
 
-    return render_template("index.html", response=answer, document_filter=selected_document, section_filter=selected_section)
+    with open("chunks.json", "r", encoding="utf-8") as f:
+        chunks = json.load(f)
+    documents = sorted(set(chunk["document"] for chunk in chunks))
+    sections = sorted(set(chunk["heading"] for chunk in chunks))
+
+    return render_template("index.html", response=answer, document_filter=selected_document, section_filter=selected_section, documents=documents, sections=sections)
 
 if __name__ == "__main__":
     app.run(debug=True)
