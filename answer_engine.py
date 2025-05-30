@@ -1,28 +1,40 @@
 import json
-import re
 
-def load_chunks():
-    with open("chunks.json", "r", encoding="utf-8") as f:
-        return json.load(f)
+# Load the document chunks from chunks.json
+with open("chunks.json", "r", encoding="utf-8") as f:
+    chunks = json.load(f)
 
-def clean_text(text):
-    text = re.sub(r'\s+', ' ', text).strip()
-    return text
+def get_answer(query, selected_document=None, selected_section=None):
+    """
+    Searches for the query across all chunks, optionally filtered by document and section.
 
-def get_answer(question, chunks, selected_doc=None, selected_heading=None):
-    question_lower = question.lower()
+    Args:
+        query (str): The user input query or keyword.
+        selected_document (str): Optional filter by document name.
+        selected_section (str): Optional filter by section name.
+
+    Returns:
+        list of dict: List of matched chunks containing document, section, and content.
+    """
+    query_lower = query.lower()
     results = []
 
     for chunk in chunks:
-        doc_match = selected_doc is None or chunk['document'] == selected_doc
-        heading_match = selected_heading is None or chunk['heading'] == selected_heading
-        text_match = question_lower in chunk['content'].lower()
+        doc = chunk.get("document", "")
+        section = chunk.get("section", "")
+        content = chunk.get("content", "")
 
-        if doc_match and heading_match and text_match:
+        if selected_document and doc != selected_document:
+            continue
+        if selected_section and section != selected_section:
+            continue
+
+        # Match if query appears in the section or the content
+        if query_lower in section.lower() or query_lower in content.lower():
             results.append({
-                'document': chunk['document'],
-                'heading': chunk['heading'],
-                'content': clean_text(chunk['content'])
+                "document": doc,
+                "section": section,
+                "content": content
             })
 
     return results
