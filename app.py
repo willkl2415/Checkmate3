@@ -1,45 +1,32 @@
 from flask import Flask, render_template, request
-import json
 from answer_engine import get_answer
 
+import json
+
 app = Flask(__name__)
-
-with open("chunks.json", "r", encoding="utf-8") as f:
-    chunks = json.load(f)
-
-documents = sorted(set(chunk["document"] for chunk in chunks))
-
-document_sections = {}
-for chunk in chunks:
-    doc = chunk["document"]
-    heading = chunk["heading"]
-    if doc not in document_sections:
-        document_sections[doc] = []
-    if heading not in document_sections[doc]:
-        document_sections[doc].append(heading)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     response = ""
-    question = ""
-    selected_document = ""
-    selected_heading = ""
+    selected_document = None
+    selected_section = None
 
     if request.method == "POST":
-        question = request.form.get("question", "").strip()
-        selected_document = request.form.get("document", "")
-        selected_heading = request.form.get("section", "")
-        response = get_answer(question, selected_document, selected_heading)
+        query = request.form.get("query", "").strip()
+        selected_document = request.form.get("document") or None
+        selected_section = request.form.get("section") or None
 
-    return render_template(
-        "index.html",
-        response=response,
-        question=question,
-        documents=documents,
-        document_sections=document_sections,
-        selected_document=selected_document,
-        selected_heading=selected_heading,
-    )
+        if query:
+            results = get_answer(query, selected_document, selected_section)
+            if results:
+                formatted = ""
+                for item in results:
+                    formatted += f"<strong>{item['document']} – {item['section']}</strong><br>{item['content']}<br><br>"
+                response = formatted
+            else:
+                response = "<strong>No relevant information found in the selected documents.</strong>"
+
+    return render_template("index.html", response=response)
 
 if __name__ == "__main__":
-    app.run(debug=False, host="0.0.0.0", port=5000)
+    app.run(debug=True, host="0.0.0.0", port=10000)
