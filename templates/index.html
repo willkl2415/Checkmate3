@@ -1,102 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Check-Mate</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        #left-column {
-            width: 350px;
-            min-height: 100vh;
-            background-color: #f5f5f5;
-            padding: 20px;
-            box-sizing: border-box;
-            border-right: 1px solid #ccc;
-        }
-
-        #right-column {
-            flex-grow: 1;
-            padding: 30px;
-            box-sizing: border-box;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        h2 {
-            margin-top: 0;
-        }
-
-        textarea, select, input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 8px;
-            margin-bottom: 12px;
-            box-sizing: border-box;
-        }
-
-        button {
-            padding: 10px 15px;
-            background-color: darkred;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: red;
-        }
-
-        #response-box {
-            white-space: pre-wrap;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div id="left-column">
-        <img src="/static/img/checkmate.png" alt="Check-Mate">
-        <p><strong>Check-Mate</strong> is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity – especially within the structured environments shaped by the Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
-        <p>Inspired by the strategic finality of the term, Check-Mate enables you to instantly search, filter, and interrogate huge volumes of training, policy, guidance, and operational documents using natural language, intuitive keywords, and intelligent filters.</p>
-    </div>
-
-    <div id="right-column">
-        <h2>Ask Check-Mate</h2>
-        <form method="post" action="/ask">
-            <label for="query">Enter your Question or Word:</label>
-            <input type="text" id="query" name="query" placeholder="e.g. What is Role Analysis?" required>
-
-            <label for="document">Filter by Document (optional):</label>
-            <select name="document" id="document">
-                <option value="">-- All Documents --</option>
-                {% for doc in documents %}
-                <option value="{{ doc }}" {% if doc == document_filter %}selected{% endif %}>{{ doc }}</option>
-                {% endfor %}
-            </select>
-
-            <label for="section">Filter by Section (optional):</label>
-            <select name="section" id="section">
-                <option value="">-- All Sections --</option>
-                {% for section in sections %}
-                <option value="{{ section }}" {% if section == section_filter %}selected{% endif %}>{{ section }}</option>
-                {% endfor %}
-            </select>
-
-            <button type="submit">Submit</button>
-        </form>
-
-        <div id="response-box">
-            {{ response|safe }}
+    <div id="container">
+        <div id="sidebar">
+            <img src="{{ url_for('static', filename='img/checkmate.png') }}" alt="Check-Mate" style="width:100%;">
+            <p><strong>Check-Mate</strong> is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity – especially within the structured environments shaped by the Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
+        </div>
+        <div id="main">
+            <h1>Ask Check-Mate</h1>
+            <form method="POST">
+                <input type="text" name="question" placeholder="Enter your Question or Word" value="{{ question }}" required>
+                <button type="submit">Ask Check-Mate</button>
+                <select name="document">
+                    <option value="">Filter by Document (optional)</option>
+                    {% for doc in documents %}
+                        <option value="{{ doc }}" {% if doc == selected_document %}selected{% endif %}>{{ doc }}</option>
+                    {% endfor %}
+                </select>
+                <select name="section">
+                    <option value="">Filter by Section (optional)</option>
+                    {% if selected_document %}
+                        {% for section in document_sections[selected_document] %}
+                            <option value="{{ section }}" {% if section == selected_heading %}selected{% endif %}>{{ section }}</option>
+                        {% endfor %}
+                    {% endif %}
+                </select>
+            </form>
+            <div id="results">
+                <h2>Check-Mate’s Response</h2>
+                <p>{{ response|safe }}</p>
+            </div>
         </div>
     </div>
 </body>
