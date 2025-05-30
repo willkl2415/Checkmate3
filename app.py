@@ -1,18 +1,31 @@
 from flask import Flask, render_template, request
 from answer_engine import answer_question
+import json
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
-    response = ""
-    selected_doc = ""
-    if request.method == "POST":
-        query = request.form.get("query", "")
-        selected_doc = request.form.get("document", "")
-        if query:
-            response = answer_question(query, selected_doc)
-    return render_template("index.html", response=response)
+    return render_template("index.html", response="", document_filter="", section_filter="")
+
+@app.route("/ask", methods=["POST"])
+def ask():
+    user_input = request.form.get("query", "")
+    selected_document = request.form.get("document", "")
+    selected_section = request.form.get("section", "")
+
+    try:
+        results = answer_question(user_input, selected_document, selected_section)
+        if results:
+            answer = ""
+            for match in results:
+                answer += f"<strong>{match['document']} | {match['heading']}</strong><br>{match['content']}<br><br>"
+        else:
+            answer = "No results found for your query."
+    except Exception as e:
+        answer = f"An error occurred: {str(e)}"
+
+    return render_template("index.html", response=answer, document_filter=selected_document, section_filter=selected_section)
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=10000)
+    app.run(debug=True)
