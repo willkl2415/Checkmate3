@@ -3,26 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Check-Mate</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <div class="left-column">
-        <img src="{{ url_for('static', filename='img/checkmate.png') }}" alt="Check-Mate">
-    </div>
-
-    <div class="middle-column">
-        <h2>Check-Mate</h2>
-        <p><strong>Check-Mate</strong> is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity – especially within the structured environments shaped by the <strong>Systems Approach to Training (SAT)</strong> and <strong>Defence Systems Approach to Training (DSAT)</strong>.</p>
-        <p>It enables you to instantly search, filter, and interrogate huge volumes of training, policy, guidance, and operational documents using natural language, intuitive keywords, and intelligent filters.</p>
-        <p>In high-stakes systems, <strong>Check-Mate</strong> delivers <strong>efficiency, speed, accuracy, effectiveness and assurance</strong> when it matters most.</p>
-    </div>
-
-    <div class="right-column">
-        <form method="post">
-            <input type="text" name="query" placeholder="Enter your Question or Word">
-            <button type="submit">Ask Check-Mate</button>
-        </form>
-        <div id="answer-box">{{ response|safe }}</div>
+    <div id="layout">
+        <div id="left-panel">
+            <img src="/static/img/layout-king.png" alt="Check-Mate" style="width:80px;"><br><br>
+            <div id="narrative">
+                <h2>Check-Mate</h2>
+                <p>Your Defence Training Intelligence Assistant</p>
+                <ul>
+                    <li>Understands DSAT doctrine</li>
+                    <li>Searches JSP 822, DTSM 2</li>
+                    <li>Returns structured, cited answers</li>
+                </ul>
+            </div>
+        </div>
+        <div id="right-panel">
+            <form method="POST">
+                <textarea name="query" placeholder="Enter your Question or Word"></textarea><br>
+                <select name="document">
+                    <option value="">All Documents</option>
+                    <option value="JSP 822 Vol 2">JSP 822 Vol 2</option>
+                    <option value="DTSM 2">DTSM 2</option>
+                </select><br>
+                <button type="submit">Ask Check-Mate</button>
+            </form>
+            <div id="response">
+                <h3>Check-Mate’s Response</h3>
+                <div>{{ response|safe }}</div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
