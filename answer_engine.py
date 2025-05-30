@@ -1,28 +1,22 @@
 import json
-import re
 
-def load_chunks():
-    with open("data/chunks.json", "r", encoding="utf-8") as file:
-        return json.load(file)
+with open("data/chunks.json", "r", encoding="utf-8") as f:
+    chunks = json.load(f)
 
-def answer_question(query):
-    query = query.lower()
-    chunks = load_chunks()
-    matched_chunks = []
+def answer_question(query, selected_doc=""):
+    matches = []
+    query_lower = query.lower()
 
     for chunk in chunks:
-        content = chunk["content"].lower()
-        if all(term in content for term in query.split()):
-            matched_chunks.append(chunk)
+        content_lower = chunk["content"].lower()
+        if query_lower in content_lower:
+            if selected_doc == "" or chunk["document"] == selected_doc:
+                matches.append(chunk)
 
-    if not matched_chunks:
-        return "No matching results found in the documents."
-
-    result = ""
-    for chunk in matched_chunks:
-        section = chunk["section"]
-        content = chunk["content"].strip()
-        doc = chunk["document"]
-        result += f"<strong>{doc} | {section}</strong><br>{content}<br><br>"
-
-    return result
+    if matches:
+        response = ""
+        for match in matches:
+            response += f"<strong>{match['document']} | {match['heading']}</strong><br>{match['content']}<br><br>"
+        return response.strip()
+    else:
+        return f"<strong>{selected_doc or 'All Documents'} | No Match Found</strong><br>No results found in {selected_doc or 'any document'} for your query."
