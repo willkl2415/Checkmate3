@@ -1,33 +1,44 @@
-import os
 import docx
 import json
+import os
 
-def extract_text_from_docx(file_path):
-    doc = docx.Document(file_path)
-    paragraphs = [para.text.strip() for para in doc.paragraphs if para.text.strip()]
-    return paragraphs
+def extract_text_from_docx(filepath):
+    doc = docx.Document(filepath)
+    text_by_heading = {}
+    current_heading = "Unknown Section"
 
-def get_section_heading(paragraph, last_heading):
-    if paragraph.lower().startswith("section"):
-        return paragraph
-    return last_heading
+    for para in doc.paragraphs:
+        style = para.style.name
+        text = para.text.strip()
 
-def process_documents(doc_folder):
+        if style.startswith("Heading") and text:
+            current_heading = text
+            if current_heading not in text_by_heading:
+                text_by_heading[current_heading] = []
+        elif text:
+            text_by_heading.setdefault(current_heading, []).append(text)
+
+    return text_by_heading
+
+def ingest_documents(folder_path):
     chunks = []
-    for filename in os.listdir(doc_folder):
-        if filename.endswith(".docx"):
-            path = os.path.join(doc_folder, filename)
-            paras = extract_text_from_docx(path)
-            last_heading = "Unknown"
-            for para in paras:
-                last_heading = get_section_heading(para, last_heading)
-                chunks.append({
-                    "document": filename.replace(".docx", ""),
-                    "section": last_heading,
-                    "content": para
-                })
+    for filename in os.listdir(folder_path):
+        if filename.startswith("~$") or not filename.endswith(".docx"):
+            continue
+        path = os.path.join(folder_path, filename)
+        doc_name = os.path.splitext(filename)[0]
+        sections = extract_text_from_docx(path)
+
+        for heading, paras in sections.items():
+            content = "\n".join(paras)
+            chunks.append({
+                "document": doc_name,
+                "heading": heading,
+                "content": content
+            })
+
     with open("chunks.json", "w", encoding="utf-8") as f:
         json.dump(chunks, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
-    process_documents("docs")
+    ingest_documents("docs")
