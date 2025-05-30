@@ -1,26 +1,31 @@
 import json
-import re
 
-def match_query_to_chunk(chunk, query, document_filter, section_filter):
-    query = query.lower()
-    content = chunk["content"].lower()
-    heading = chunk["heading"].lower()
-    document = chunk["document"].lower()
+def get_answer(query, selected_document="", selected_section=""):
+    if not query:
+        return "Please enter a question."
 
-    if document_filter and document_filter.lower() != document:
-        return False
-    if section_filter and section_filter.lower() not in heading:
-        return False
-
-    return query in content or query in heading
-
-def answer_question(query, document_filter="", section_filter=""):
     with open("chunks.json", "r", encoding="utf-8") as f:
         chunks = json.load(f)
 
     matches = []
     for chunk in chunks:
-        if match_query_to_chunk(chunk, query, document_filter, section_filter):
+        content = chunk["content"].lower()
+        heading = chunk["heading"].lower()
+        document = chunk["document"]
+
+        if selected_document and chunk["document"] != selected_document:
+            continue
+        if selected_section and chunk["heading"] != selected_section:
+            continue
+
+        if query.lower() in content or query.lower() in heading:
             matches.append(chunk)
 
-    return matches
+    if not matches:
+        return "No relevant information found in the selected documents."
+
+    result = ""
+    for match in matches:
+        result += f"<b>{match['document']} – {match['heading']}</b><br>{match['content']}<br><br>"
+
+    return result
