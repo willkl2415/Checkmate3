@@ -1,32 +1,42 @@
 from flask import Flask, render_template, request
 from answer_engine import get_answer
-
 import json
+import os
 
 app = Flask(__name__)
 
+with open("chunks.json", "r", encoding="utf-8") as f:
+    chunks = json.load(f)
+
 @app.route("/", methods=["GET", "POST"])
 def index():
-    response = ""
-    selected_document = None
-    selected_section = None
+    response = []
+    query = ""
+    selected_document = ""
+    selected_section = ""
 
     if request.method == "POST":
-        query = request.form.get("query", "").strip()
-        selected_document = request.form.get("document") or None
-        selected_section = request.form.get("section") or None
+        query = request.form.get("query", "")
+        selected_document = request.form.get("document", "")
+        selected_section = request.form.get("section", "")
 
         if query:
-            results = get_answer(query, selected_document, selected_section)
-            if results:
-                formatted = ""
-                for item in results:
-                    formatted += f"<strong>{item['document']} – {item['section']}</strong><br>{item['content']}<br><br>"
-                response = formatted
-            else:
-                response = "<strong>No relevant information found in the selected documents.</strong>"
+            response = get_answer(chunks, query, selected_document, selected_section)
 
-    return render_template("index.html", response=response)
+    # Extract unique document names and section names for filters
+    documents = sorted(set(chunk["document"] for chunk in chunks))
+    sections = sorted(set(chunk["heading"] for chunk in chunks))
+
+    return render_template(
+        "index.html",
+        response=response,
+        query=query,
+        documents=documents,
+        sections=sections,
+        selected_document=selected_document,
+        selected_section=selected_section
+    )
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=10000)
+    port = int(os.environ.get("PORT", 5000))  # ✅ Corrected for Render
+    app.run(debug=True, host="0.0.0.0", port=port)
