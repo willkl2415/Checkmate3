@@ -1,40 +1,45 @@
 import json
-
-# Load the document chunks from chunks.json
-with open("chunks.json", "r", encoding="utf-8") as f:
-    chunks = json.load(f)
+import re
 
 def get_answer(query, selected_document=None, selected_section=None):
-    """
-    Searches for the query across all chunks, optionally filtered by document and section.
+    try:
+        with open("chunks.json", "r", encoding="utf-8") as f:
+            chunks = json.load(f)
+    except Exception as e:
+        return [f"Error loading chunks.json: {str(e)}"]
 
-    Args:
-        query (str): The user input query or keyword.
-        selected_document (str): Optional filter by document name.
-        selected_section (str): Optional filter by section name.
+    # Normalise query
+    query = query.strip().lower()
+    query_words = re.findall(r'\w+', query)
 
-    Returns:
-        list of dict: List of matched chunks containing document, section, and content.
-    """
-    query_lower = query.lower()
     results = []
-
     for chunk in chunks:
-        doc = chunk.get("document", "")
-        section = chunk.get("section", "")
-        content = chunk.get("content", "")
-
-        if selected_document and doc != selected_document:
+        # Optional document filter
+        if selected_document and chunk.get("document") != selected_document:
             continue
-        if selected_section and section != selected_section:
+        # Optional section filter
+        if selected_section and chunk.get("heading") != selected_section:
             continue
 
-        # Match if query appears in the section or the content
-        if query_lower in section.lower() or query_lower in content.lower():
-            results.append({
-                "document": doc,
-                "section": section,
-                "content": content
-            })
+        heading = chunk.get("heading", "").lower()
+        content = chunk.get("content", "").lower()
 
-    return results
+        # Match if any query word appears in heading or content
+        if any(word in heading or word in content for word in query_words):
+            result = {
+                "document": chunk.get("document", "Unknown"),
+                "heading": chunk.get("heading", "Unknown"),
+                "content": chunk.get("content", "No content available.")
+            }
+            results.append(result)
+
+    if not results:
+        return ["No relevant information found in the selected documents."]
+
+    # Format the results into readable blocks
+    formatted = []
+    for res in results:
+        block = f"**{res['document']} – {res['heading']}**\n{res['content']}"
+        formatted.append(block)
+
+    return formatted
