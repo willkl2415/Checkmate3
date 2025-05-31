@@ -1,54 +1,58 @@
-import os
-import docx
-from collections import defaultdict
+import json
 
 def get_answer(question, selected_document=None, selected_section=None):
-    docs_path = "docs"
-    question = question.strip().lower()
-    grouped_results = defaultdict(list)
-    debug_log = []
+    with open("data/chunks.json", "r", encoding="utf-8") as f:
+        chunks_data = json.load(f)
 
+    question = question.strip().lower()
     if not question:
         return "Please enter a valid question.", 0, False, ""
 
-    for filename in os.listdir(docs_path):
-        if filename.endswith(".docx"):
-            if selected_document and selected_document != filename:
-                continue
+    results = []
+    debug_log = []
+    scanned_docs = set()
 
-            filepath = os.path.join(docs_path, filename)
-            debug_log.append(f"Scanning file: {filename}")
+    for chunk in chunks_data:
+        document = chunk.get("document", "")
+        heading = chunk.get("heading", "")
+        content = chunk.get("content", "")
 
-            try:
-                doc = docx.Document(filepath)
-                for para in doc.paragraphs:
-                    text = para.text.strip()
-                    if not text:
-                        continue
-                    if question in text.lower():
-                        grouped_results[filename].append(text)
-            except Exception as e:
-                grouped_results[filename].append(f"[ERROR] Could not read file: {e}")
+        # Apply optional filters
+        if selected_document and selected_document != document:
+            continue
+        if selected_section and selected_section != heading:
+            continue
 
-    total_results = sum(len(v) for v in grouped_results.values())
+        # Scan for question match
+        if question in content.lower() or question in heading.lower():
+            results.append((document, heading, content))
+            scanned_docs.add(document)
+
+    total_results = len(results)
     trimmed = False
     trim_limit = 25
 
-    if not grouped_results:
-        return "\n".join(debug_log + ["No results found."]), 0, False, ""
+    if not results:
+        return "No results found.", 0, False, ""
 
-    response = "\n".join(debug_log) + "\n\n"
-    shown = 0
-    document_label = ""
+    response = ""
+    if not selected_document:
+        for doc in sorted(scanned_docs):
+            response += f"Scanning file: {doc}\n"
+    else:
+        response += f"Scanning file: {selected_document}\n"
 
-    for filename, matches in grouped_results.items():
-        response += f"Document: {filename}\n"
-        document_label = filename if selected_document else ""
-        for i, content in enumerate(matches, 1):
-            if not selected_document and shown >= trim_limit:
-                trimmed = True
-                break
-            response += f"Result {i}:\nContent: {content}\n\n"
-            shown += 1
+    if selected_section:
+        response += f"Scanning section: {selected_section}\n"
 
-    return response, total_results, trimmed, document_label
+    response += "\n"
+
+    for idx, (document, heading, content) in enumerate(results[:trim_limit], 1):
+        response += f"Document: {document}\n"
+        response += f"Section: {heading}\n"
+        response += f"Result {idx}:\nContent: {content}\n\n"
+
+    if total_results > trim_limit:
+        trimmed = True
+
+    return response.strip(), total_results, trimmed, selected_document or ""
