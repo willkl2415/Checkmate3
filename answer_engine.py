@@ -1,27 +1,44 @@
-# answer_engine.py
 import json
-import re
 
+# Load chunk data once
 with open("data/chunks.json", "r", encoding="utf-8") as f:
     chunks = json.load(f)
 
-def get_answer(question, document_filter=None, section_filter=None):
+def get_answer(question, selected_document=None, selected_section=None):
+    if not question or not question.strip():
+        return "Please enter a valid question."
+
     question = question.strip().lower()
-    matched_chunks = []
+    results = []
 
     for chunk in chunks:
-        if document_filter and chunk["document"] != document_filter:
-            continue
-        if section_filter and chunk.get("section") != section_filter:
-            continue
-        if question in chunk["content"].lower() or any(q in chunk["content"].lower() for q in question.split()):
-            matched_chunks.append(chunk)
+        content = chunk.get("content", "").lower()
+        document = chunk.get("document", "")
+        section = chunk.get("section", "")
 
-    if not matched_chunks:
-        return "No relevant content found for that query."
+        # Match content
+        if question in content:
+            # Apply optional filters
+            if selected_document and selected_document != document:
+                continue
+            if selected_section and selected_section != section:
+                continue
 
-    result = ""
-    for chunk in matched_chunks:
-        result += f"<b>{chunk.get('section', 'Uncategorised')}</b><br>{chunk['content']}<br><br>"
+            results.append({
+                "document": document,
+                "section": section,
+                "content": chunk["content"]
+            })
 
-    return result
+    if not results:
+        return "No relevant answers found. Try a different word or phrase."
+
+    # Format response
+    response = ""
+    for i, res in enumerate(results[:10], 1):
+        response += f"**Result {i}:**\n"
+        response += f"**Document:** {res['document']}\n"
+        response += f"**Section:** {res['section']}\n"
+        response += f"{res['content']}\n\n"
+
+    return response
