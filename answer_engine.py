@@ -1,44 +1,47 @@
-import json
-
-# Load chunk data once
-with open("data/chunks.json", "r", encoding="utf-8") as f:
-    chunks = json.load(f)
+import os
+import docx
 
 def get_answer(question, selected_document=None, selected_section=None):
-    if not question or not question.strip():
-        return "Please enter a valid question."
-
+    docs_path = "docs"
     question = question.strip().lower()
     results = []
 
-    for chunk in chunks:
-        content = chunk.get("content", "").lower()
-        document = chunk.get("document", "")
-        section = chunk.get("section", "")
+    if not question:
+        return "Please enter a valid question."
 
-        # Match content
-        if question in content:
-            # Apply optional filters
-            if selected_document and selected_document != document:
-                continue
-            if selected_section and selected_section != section:
-                continue
+    for filename in os.listdir(docs_path):
+        if filename.endswith(".docx"):
+            if selected_document and selected_document != filename:
+                continue  # skip if user selected a specific doc
 
-            results.append({
-                "document": document,
-                "section": section,
-                "content": chunk["content"]
-            })
+            filepath = os.path.join(docs_path, filename)
+            try:
+                doc = docx.Document(filepath)
+                for para in doc.paragraphs:
+                    text = para.text.strip()
+                    if not text:
+                        continue
+                    if question in text.lower():
+                        results.append({
+                            "document": filename,
+                            "section": "N/A",
+                            "content": text
+                        })
+            except Exception as e:
+                results.append({
+                    "document": filename,
+                    "section": "ERROR",
+                    "content": f"Could not read file: {e}"
+                })
 
     if not results:
-        return "No relevant answers found. Try a different word or phrase."
+        return "No relevant answers found. Try using a different word."
 
-    # Format response
+    # Format results
     response = ""
     for i, res in enumerate(results[:10], 1):
         response += f"**Result {i}:**\n"
         response += f"**Document:** {res['document']}\n"
-        response += f"**Section:** {res['section']}\n"
-        response += f"{res['content']}\n\n"
+        response += f"**Content:** {res['content']}\n\n"
 
     return response
