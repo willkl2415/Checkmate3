@@ -1,35 +1,34 @@
+# answer_engine.py
+
 import json
 import re
 
-with open("data/chunks.json", "r", encoding="utf-8") as f:
-    chunks = json.load(f)
+def get_answer(question, chunks):
+    question_lower = question.lower()
+    results = []
 
-def get_answer(query, document_filter="", section_filter=""):
-    query_lower = query.lower()
-    matches = []
+    for chunk in chunks:
+        content = chunk["content"].lower()
+        if question_lower in content or all(word in content for word in question_lower.split()):
+            results.append(chunk)
 
-    for i, chunk in enumerate(chunks):
-        doc = chunk.get("document", "")
-        section = chunk.get("section", "")
-        heading = chunk.get("heading", "")
-        content = chunk.get("content", "")
+    # Trim to a max of 100 results for display
+    trimmed = False
+    if len(results) > 100:
+        results = results[:100]
+        trimmed = True
 
-        if document_filter and doc != document_filter:
-            continue
-        if section_filter and section != section_filter:
-            continue
+    # Format result
+    answer_text = ""
+    for i, res in enumerate(results, 1):
+        answer_text += (
+            f"Document: {res['document']}\n"
+            f"Section: {res.get('section', 'Uncategorised')}\n"
+            f"Result {i}:\n"
+            f"{res['content']}\n\n"
+        )
 
-        combined = f"{heading} {content}".lower()
-        if query_lower in combined:
-            display_section = f"Section {section} – " if section else ""
-            result = (
-                f"Document: {doc}\n"
-                f"Result {len(matches) + 1}:\n"
-                f"Content: {display_section}{heading}\n{content}"
-            )
-            matches.append(result)
+    if not answer_text:
+        answer_text = "No relevant information found in the selected document(s)."
 
-        if len(matches) >= 50:
-            return matches, True
-
-    return matches, False
+    return answer_text, len(results), trimmed
