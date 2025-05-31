@@ -9,7 +9,7 @@ def get_answer(question, selected_document=None, selected_section=None):
     debug_log = []
 
     if not question:
-        return "Please enter a valid question."
+        return "Please enter a valid question.", 0, False, ""
 
     for filename in os.listdir(docs_path):
         if filename.endswith(".docx"):
@@ -30,25 +30,25 @@ def get_answer(question, selected_document=None, selected_section=None):
             except Exception as e:
                 grouped_results[filename].append(f"[ERROR] Could not read file: {e}")
 
-    # Format response
+    total_results = sum(len(v) for v in grouped_results.values())
+    trimmed = False
+    trim_limit = 25
+
     if not grouped_results:
-        return "\n".join(debug_log + ["No results found."])
+        return "\n".join(debug_log + ["No results found."]), 0, False, ""
 
     response = "\n".join(debug_log) + "\n\n"
-    total_displayed = 0
-    trim_limit = 25
-    trim_triggered = False
+    shown = 0
+    document_label = ""
 
     for filename, matches in grouped_results.items():
         response += f"Document: {filename}\n"
+        document_label = filename if selected_document else ""
         for i, content in enumerate(matches, 1):
-            if not selected_document and total_displayed >= trim_limit:
-                trim_triggered = True
+            if not selected_document and shown >= trim_limit:
+                trimmed = True
                 break
             response += f"Result {i}:\nContent: {content}\n\n"
-            total_displayed += 1
+            shown += 1
 
-    if trim_triggered:
-        response += "Results trimmed. Use the document filter to view all matches.\n"
-
-    return response
+    return response, total_results, trimmed, document_label
