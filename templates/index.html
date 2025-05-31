@@ -5,50 +5,48 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="layout">
-        <div class="sidebar">
-            <img src="{{ url_for('static', filename='checkmate.png') }}" alt="Check-Mate Logo">
-            <p>
-                Check-Mate is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity – especially within the structured environments shaped by the Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).
-            </p>
-        </div>
-        <div class="main">
-            <h1>Ask Check-Mate</h1>
-            <form method="POST">
-                <input type="text" name="question" placeholder="Enter your question..." value="{{ question }}">
-                
-                <label for="document">Filter by Document:</label>
-                <select name="document">
-                    <option value="">All Documents</option>
-                    {% for doc in documents %}
-                        <option value="{{ doc }}" {% if doc == request.form.document %}selected{% endif %}>{{ doc }}</option>
-                    {% endfor %}
-                </select>
-
-                <label for="section">Filter by Section:</label>
-                <select name="section">
-                    <option value="">All Sections</option>
-                    {% for sec in sections %}
-                        <option value="{{ sec }}" {% if sec == request.form.section %}selected{% endif %}>{{ sec }}</option>
-                    {% endfor %}
-                </select>
-
-                <button type="submit">Ask Check-Mate</button>
-            </form>
-
-            {% if question %}
-                {% if trimmed %}
-                    <h2>Check-Mate’s Response (Results trimmed to {{ result_count }})</h2>
-                    <p class="message">Use the document filter to view all matches.</p>
-                {% elif document_shown %}
-                    <h2>Showing {{ result_count }} results from: {{ document_shown }}</h2>
-                {% else %}
-                    <h2>Check-Mate’s Response ({{ result_count }} results)</h2>
-                {% endif %}
-
-                <pre>{{ answer }}</pre>
-            {% endif %}
-        </div>
+<div class="layout">
+    <div class="sidebar">
+        <img src="{{ url_for('static', filename='checkmate.png') }}" alt="Check-Mate">
+        <p>
+            Check-Mate is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity – especially within the structured environments shaped by the Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).
+        </p>
     </div>
+    <div class="main">
+        <h1>Ask Check-Mate</h1>
+        <form method="POST">
+            <input type="text" name="question" placeholder="Enter your question..." value="{{ question }}">
+            <label for="document">Filter by Document:</label>
+            <select name="document">
+                <option value="">All Documents</option>
+                {% for doc in documents %}
+                <option value="{{ doc }}" {% if doc == request.form.document %}selected{% endif %}>{{ doc }}</option>
+                {% endfor %}
+            </select>
+            <label for="section">Filter by Section:</label>
+            <select name="section">
+                <option value="">All Sections</option>
+                {% for sec in sections %}
+                <option value="{{ sec }}" {% if sec == request.form.section %}selected{% endif %}>{{ sec }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Ask Check-Mate</button>
+        </form>
+
+        {% if question %}
+            {% if trimmed %}
+            <h2>Check-Mate’s Response (Results trimmed to {{ result_count }})</h2>
+            {% elif document_shown %}
+            <h2>Showing {{ result_count }} results from: {{ document_shown }}</h2>
+            {% else %}
+            <h2>Check-Mate’s Response ({{ result_count }} results)</h2>
+            {% endif %}
+            <pre>{{ answer }}</pre>
+            {% if trimmed %}
+            <p class="message">Use the document filter to view all matches.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
 </body>
 </html>
