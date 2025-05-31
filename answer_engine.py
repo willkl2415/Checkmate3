@@ -9,12 +9,16 @@ def get_answer(question, selected_document=None, selected_section=None):
     if not question:
         return "Please enter a valid question."
 
+    debug_log = []  # Collect debug info to confirm progress
+
     for filename in os.listdir(docs_path):
         if filename.endswith(".docx"):
             if selected_document and selected_document != filename:
-                continue  # skip if user selected a specific doc
+                continue
 
             filepath = os.path.join(docs_path, filename)
+            debug_log.append(f"Scanning file: {filename}")
+
             try:
                 doc = docx.Document(filepath)
                 for para in doc.paragraphs:
@@ -35,10 +39,10 @@ def get_answer(question, selected_document=None, selected_section=None):
                 })
 
     if not results:
-        return "No relevant answers found. Try using a different word."
+        return "\n".join(debug_log) + "\n\nNo relevant answers found. Try using a different word."
 
     # Format results
-    response = ""
+    response = "\n".join(debug_log) + "\n\n"
     for i, res in enumerate(results[:10], 1):
         response += f"**Result {i}:**\n"
         response += f"**Document:** {res['document']}\n"
