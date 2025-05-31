@@ -35,16 +35,15 @@
 
         {% if question %}
             {% if trimmed %}
-            <h2>Check-Mate’s Response (Results trimmed to {{ result_count }})</h2>
+                <h2>Check-Mate’s Response (Results trimmed to {{ result_count }})</h2>
+                <p class="message">Use the document filter to view all matches.</p>
             {% elif document_shown %}
-            <h2>Showing {{ result_count }} results from: {{ document_shown }}</h2>
+                <h2>Showing {{ result_count }} results from: {{ document_shown }}</h2>
             {% else %}
-            <h2>Check-Mate’s Response ({{ result_count }} results)</h2>
+                <h2>Check-Mate’s Response ({{ result_count }} results)</h2>
             {% endif %}
+
             <pre>{{ answer }}</pre>
-            {% if trimmed %}
-            <p class="message">Use the document filter to view all matches.</p>
-            {% endif %}
         {% endif %}
     </div>
 </div>
