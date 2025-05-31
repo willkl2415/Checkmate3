@@ -1,41 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Check-Mate</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 800px; margin: auto; }
+        .title { font-size: 2em; margin-bottom: 20px; }
+        textarea { width: 100%; height: 300px; }
+        select, input[type="text"] { width: 100%; padding: 10px; margin-bottom: 10px; }
+        button { padding: 10px 20px; background-color: #e63946; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #d62828; }
+    </style>
 </head>
 <body>
-    <div id="container">
-        <div id="sidebar">
-            <img src="{{ url_for('static', filename='img/checkmate.png') }}" alt="Check-Mate" style="width:100%;">
-            <p><strong>Check-Mate</strong> is a very smart AI-enabled application designed to deliver absolute clarity in moments of complexity – especially within the structured environments shaped by the Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
-        </div>
-        <div id="main">
-            <h1>Ask Check-Mate</h1>
-            <form method="POST">
-                <input type="text" name="question" placeholder="Enter your Question or Word" value="{{ question }}" required>
-                <button type="submit">Ask Check-Mate</button>
-                <select name="document">
-                    <option value="">Filter by Document (optional)</option>
-                    {% for doc in documents %}
-                        <option value="{{ doc }}" {% if doc == selected_document %}selected{% endif %}>{{ doc }}</option>
-                    {% endfor %}
-                </select>
-                <select name="section">
-                    <option value="">Filter by Section (optional)</option>
-                    {% if selected_document %}
-                        {% for section in document_sections[selected_document] %}
-                            <option value="{{ section }}" {% if section == selected_heading %}selected{% endif %}>{{ section }}</option>
-                        {% endfor %}
-                    {% endif %}
-                </select>
-            </form>
-            <div id="results">
-                <h2>Check-Mate’s Response</h2>
-                <p>{{ response|safe }}</p>
-            </div>
-        </div>
+    <div class="container">
+        <div class="title">Ask Check-Mate</div>
+        <form method="POST">
+            <input type="text" name="question" placeholder="Enter your question..." value="{{ question }}">
+            <button type="submit">Ask Check-Mate</button>
+
+            <label for="document">Filter by Document (optional):</label>
+            <select name="document">
+                <option value="">All Documents</option>
+                {% for doc in documents %}
+                    <option value="{{ doc }}" {% if doc == request.form.document %}selected{% endif %}>{{ doc }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="section">Filter by Section (optional):</label>
+            <select name="section">
+                <option value="">All Sections</option>
+                {% for sec in sections %}
+                    <option value="{{ sec }}" {% if sec == request.form.section %}selected{% endif %}>{{ sec }}</option>
+                {% endfor %}
+            </select>
+        </form>
+
+        <h2>Check-Mate’s Response</h2>
+        <textarea readonly>{{ answer }}</textarea>
     </div>
 </body>
 </html>
