@@ -1,23 +1,23 @@
 import os
 import docx
+from collections import defaultdict
 
 def get_answer(question, selected_document=None, selected_section=None):
     docs_path = "docs"
     question = question.strip().lower()
-    results = []
+    grouped_results = defaultdict(list)
     debug_log = []
 
     if not question:
         return "Please enter a valid question."
 
-    # Look through every .docx file in the docs folder
     for filename in os.listdir(docs_path):
         if filename.endswith(".docx"):
             if selected_document and selected_document != filename:
                 continue
 
             filepath = os.path.join(docs_path, filename)
-            debug_log.append(f"Searching in: {filename}")
+            debug_log.append(f"Scanning file: {filename}")
 
             try:
                 doc = docx.Document(filepath)
@@ -26,27 +26,19 @@ def get_answer(question, selected_document=None, selected_section=None):
                     if not text:
                         continue
                     if question in text.lower():
-                        results.append({
-                            "document": filename,
-                            "section": "N/A",
-                            "content": text
-                        })
+                        grouped_results[filename].append(text)
             except Exception as e:
-                results.append({
-                    "document": filename,
-                    "section": "ERROR",
-                    "content": f"Could not read file: {e}"
-                })
+                grouped_results[filename].append(f"[ERROR] Could not read file: {e}")
 
-    # Combine debug log and results
-    if not results:
-        debug_log.append("No matches found for your question.")
-        return "\n".join(debug_log)
+    # Format response
+    if not grouped_results:
+        return "\n".join(debug_log + ["No results found."])
 
     response = "\n".join(debug_log) + "\n\n"
-    for i, res in enumerate(results[:10], 1):
-        response += f"Result {i}:\n"
-        response += f"Document: {res['document']}\n"
-        response += f"Content: {res['content']}\n\n"
+
+    for filename, matches in grouped_results.items():
+        response += f"Document: {filename}\n"
+        for i, content in enumerate(matches, 1):
+            response += f"Result {i}:\nContent: {content}\n\n"
 
     return response
