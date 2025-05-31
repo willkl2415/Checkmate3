@@ -1,66 +1,56 @@
-# ingest.py
 import os
 import json
 from docx import Document
 
-SOURCE_FOLDER = "docs"
-OUTPUT_FILE = "data/chunks.json"
-
-def extract_section(paragraph, section_headers):
-    text = paragraph.text.strip()
-    for header in section_headers:
-        if text.startswith(header):
-            return header
-    return None
-
-def parse_document(path, doc_name, section_headers):
-    doc = Document(path)
-    current_section = "Uncategorised"
+def extract_chunks_from_docx(file_path, document_name):
+    doc = Document(file_path)
     chunks = []
+    current_heading = ""
+    current_section = ""
+    buffer = []
 
     for para in doc.paragraphs:
         text = para.text.strip()
         if not text:
             continue
-        new_section = extract_section(para, section_headers)
-        if new_section:
-            current_section = new_section
+        if para.style.name.startswith("Heading"):
+            if buffer:
+                chunks.append({
+                    "document": document_name,
+                    "heading": current_heading,
+                    "section": current_section,
+                    "content": " ".join(buffer).strip()
+                })
+                buffer = []
+            current_heading = text
+            match = re.match(r"^(\d+(\.\d+)*)(\s+.*)?", text)
+            current_section = match.group(1) if match else ""
+        else:
+            buffer.append(text)
+
+    if buffer:
         chunks.append({
-            "document": doc_name,
+            "document": document_name,
+            "heading": current_heading,
             "section": current_section,
-            "content": text
+            "content": " ".join(buffer).strip()
         })
 
     return chunks
 
-def main():
+if __name__ == "__main__":
+    docs_folder = "docs"
+    output_path = "data/chunks.json"
     all_chunks = []
-    section_structure = {
-        "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx": [
-            "1 Preface", "2 Introduction to Individual Training", "3 Management of Training System",
-            "4 Analysis of Individual Training", "5 Designing Individual Training",
-            "6 Delivery of Individual Training", "7 Evaluation of Individual Training (Assurance)",
-            "8 Defence Trainer Capability", "9 Defence Direction on Remedial Training in Initial Training",
-            "10 Defence Direction on Robust Training", "11 Document Information", "12 Applicability", "13 Diversity and Inclusion"
-        ],
-        "DTSM 2 Analysis of Individual Training 2023 Edition V1.0.docx": [
-            "1 How to use this Manual", "2 Introduction to Analysis of Training", "3 TNA Governance",
-            "4 Scoping Exercise", "5 Role Analysis", "6 Training Gap Analysis",
-            "7 Training Objectives", "8 Training Options Analysis", "9 Training Needs Report",
-            "10 Annexes", "11 Document Information"
-        ]
-    }
 
-    for filename in os.listdir(SOURCE_FOLDER):
-        if filename.startswith("~$") or not filename.endswith(".docx"):
-            continue
-        path = os.path.join(SOURCE_FOLDER, filename)
-        headers = section_structure.get(filename, [])
-        all_chunks.extend(parse_document(path, filename, headers))
+    for filename in os.listdir(docs_folder):
+        if filename.endswith(".docx"):
+            path = os.path.join(docs_folder, filename)
+            chunks = extract_chunks_from_docx(path, filename)
+            all_chunks.extend(chunks)
 
     os.makedirs("data", exist_ok=True)
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         json.dump(all_chunks, f, indent=2, ensure_ascii=False)
 
-if __name__ == "__main__":
-    main()
+    print(f"Ingested {len(all_chunks)} chunks.")
