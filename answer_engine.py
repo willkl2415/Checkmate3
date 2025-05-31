@@ -1,34 +1,35 @@
-# answer_engine.py
 import json
-import os
+import re
 
-# Load the document chunks from the JSON file
 with open("data/chunks.json", "r", encoding="utf-8") as f:
     chunks = json.load(f)
 
-def get_answer(query, selected_doc="", selected_section=""):
-    results = []
+def get_answer(query, document_filter="", section_filter=""):
     query_lower = query.lower()
+    matches = []
 
-    for chunk in chunks:
-        document = chunk.get("document", "")
+    for i, chunk in enumerate(chunks):
+        doc = chunk.get("document", "")
+        section = chunk.get("section", "")
         heading = chunk.get("heading", "")
         content = chunk.get("content", "")
 
-        # Filter by selected document (if any)
-        if selected_doc and document != selected_doc:
+        if document_filter and doc != document_filter:
+            continue
+        if section_filter and section != section_filter:
             continue
 
-        # Filter by selected section (if any)
-        if selected_section and heading != selected_section:
-            continue
+        combined = f"{heading} {content}".lower()
+        if query_lower in combined:
+            display_section = f"Section {section} – " if section else ""
+            result = (
+                f"Document: {doc}\n"
+                f"Result {len(matches) + 1}:\n"
+                f"Content: {display_section}{heading}\n{content}"
+            )
+            matches.append(result)
 
-        # Match query in content or heading (case-insensitive)
-        if query_lower in content.lower() or query_lower in heading.lower():
-            results.append({
-                "document": document,
-                "section": heading,
-                "content": content.strip()
-            })
+        if len(matches) >= 50:
+            return matches, True
 
-    return results
+    return matches, False
