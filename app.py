@@ -1,54 +1,54 @@
-import os
-import json
 from flask import Flask, render_template, request
 from answer_engine import get_answer
+import json
+import os
 
 app = Flask(__name__)
 
-# Load section names from chunks.json
-section_set = set()
-try:
-    with open("data/chunks.json", "r", encoding="utf-8") as f:
-        chunks = json.load(f)
-        for chunk in chunks:
-            section = chunk.get("section", "Uncategorised")
-            section_set.add(section)
-except:
-    section_set = {"Uncategorised"}
+# Load document chunks
+with open("data/chunks.json", "r", encoding="utf-8") as f:
+    chunks_data = json.load(f)
 
-sections = sorted(section_set)
+# Document and section indexing for dropdowns
+documents = sorted(set(chunk["document"] for chunk in chunks_data))
+document_sections = {}
+for chunk in chunks_data:
+    doc = chunk["document"]
+    section = chunk.get("heading", "Uncategorised")
+    if doc not in document_sections:
+        document_sections[doc] = set()
+    document_sections[doc].add(section)
+for doc in document_sections:
+    document_sections[doc] = sorted(document_sections[doc])
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    answer = ""
-    question = ""
-    selected_document = ""
+    query = ""
+    selected_doc = ""
     selected_section = ""
-    result_count = 0
-    is_trimmed = False
-    doc_display = ""
+    results = []
+    show_filter_hint = False
 
     if request.method == "POST":
-        question = request.form.get("question", "").strip()
-        selected_document = request.form.get("document", "").strip()
+        query = request.form.get("query", "").strip()
+        selected_doc = request.form.get("document", "").strip()
         selected_section = request.form.get("section", "").strip()
-        answer, result_count, is_trimmed, doc_display = get_answer(
-            question, selected_document, selected_section
-        )
 
-    docs_folder = "docs"
-    documents = [f for f in os.listdir(docs_folder) if f.endswith(".docx")]
+        if query:
+            results = get_answer(query, selected_doc, selected_section)
+            show_filter_hint = len(results) > 10
 
     return render_template(
         "index.html",
-        answer=answer,
-        question=question,
+        response=results,
+        query=query,
         documents=documents,
-        sections=sections,
-        result_count=result_count,
-        trimmed=is_trimmed,
-        document_shown=doc_display
+        document_sections=document_sections,
+        selected_doc=selected_doc,
+        selected_section=selected_section,
+        show_filter_hint=show_filter_hint
     )
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(debug=True, host="0.0.0.0", port=port)
