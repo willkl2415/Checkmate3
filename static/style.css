@@ -6,24 +6,26 @@ body {
 
 .layout {
     display: flex;
+    min-height: 100vh;
 }
 
 .sidebar {
-    width: 280px;
+    width: 300px;
     background: #eeeeee;
     padding: 20px;
     box-sizing: border-box;
-    height: 100vh;
 }
 
 .sidebar img {
     width: 100%;
+    max-height: 300px;
+    object-fit: contain;
     margin-bottom: 20px;
 }
 
 .sidebar p {
     font-size: 0.95em;
-    line-height: 1.4em;
+    line-height: 1.5em;
 }
 
 .main {
@@ -38,6 +40,7 @@ select {
     padding: 10px;
     font-size: 1em;
     margin-bottom: 15px;
+    box-sizing: border-box;
 }
 
 button {
@@ -47,6 +50,7 @@ button {
     border: none;
     font-size: 1em;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 button:hover {
@@ -60,5 +64,10 @@ pre {
     white-space: pre-wrap;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-family: Arial, sans-serif;
 }
 
+.message {
+    font-weight: bold;
+    margin-top: 10px;
+}
