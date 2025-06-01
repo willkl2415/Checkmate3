@@ -9,7 +9,7 @@
   {
     "id": "1fb4a69c-9c3d-400c-9ad3-58a36b8eced1",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "2",
+    "section": "822",
     "toc_section": "Uncategorised",
     "content": "JSP 822, Volume 2 sets out Defence Policy on Individual Training in Defence. The volume contains the majority of Defence Learning and Development policies for Individual Training in Defence; where Defence Learning and Development policy sits outside of Volume 2, it is clearly referenced throughout the volume, and in the Document Information chapter in Volume 1. The volume is made up of Direction and Guidance: Policy Directives provides the Direction that must be followed in accordance with\u00a0statute or\u00a0policy mandated by Defence\u00a0or on Defence by Central Government."
   },
@@ -72,7 +72,7 @@
   {
     "id": "bf7bb4c7-83ff-4c4d-b258-2083f5cede3c",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "4",
     "toc_section": "Uncategorised",
     "content": "The governance, management and assurance (DSAT, Element 4) of training are collectively known as a MTS.  A MTS is an iterative mechanism to ensure that the training being delivered remains meaningful and continues to contribute to delivering Defence effect. The outputs of the DSAT Elements, combined with the correct implementation of the MTS, delivers a Training System that meets the required Quality Management Standard (QMS).   For the MTS to be effective, bodies such as boards and working groups must be established to ensure that the DSAT process remains on track and the Training System remains appropriate to the need. As an integral part of the MTS, activities that directly contribute to meeting the QMS are also embedded within each Element.  The MTS mostly draws in products from the DSAT process (to avoid duplication) in order to record and demonstrate that the QMS is being met.  All stakeholders of the Training System will have some involvement in the MTS."
   },
@@ -86,7 +86,7 @@
   {
     "id": "326ed449-a094-405b-8920-fe9d963e3d33",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "2",
     "toc_section": "Uncategorised",
     "content": "The Training Requirements Authority Training Requirements Authority (TRA).  The TRA represents the end-user of the trained output and is the ultimate authority for the derivation and maintenance of the Role Performance Statement (Role PS) and/or Framework(s).  The TRA is responsible for the evaluation of the effect of the training in achieving the Role PS and/or Framework(s) wherever the training is delivered.  The TRA often sits at the Service Command (SC) level and sets the requirement for a new training activity, or a variation to an existing one, as well as some aspects of the assurance of the training. The TRA is often a nominated post at 2* level but it is common practice for TRA responsibilities to be delegated, by letter, to an individual (or organisation) who has more knowledge of the specific requirement. The Training Delivery Authority"
   },
@@ -156,7 +156,7 @@
   {
     "id": "c1d14133-1587-4ecd-bb73-a4484c2bdbcf",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "5.16",
     "toc_section": "Uncategorised",
     "content": "This section primarily focuses on the Customer Executive Board (CEB) which is the principal group for training governance for all training, meaning all training must have an associated CEB. Also covered within this section, is policy direction on the groups that govern Joint/Defence training. Detailed information on the equivalent groups, within each of the single Services, can be found in specific single Service training policy, listed in the Preface of this volume. Although training governance groups are identified and/or established during the development of a training activity, training governance does not end once the training activity has been created. Training Governance is a continuous process, hence the MTS activity \u2013 Continuous Governance (5.16)."
   },
@@ -177,35 +177,35 @@
   {
     "id": "ff2b1545-15b5-4052-be62-c00dc6cb4929",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "3",
     "toc_section": "Uncategorised",
     "content": "CEBs in a Joint and Defence Training Requirements. In all instances, a CEB is to be formed as early as possible in the process to manage, govern and assure Joint and Defence training requirements.  In many cases the roles are already agreed but where the nomination of Lead TRAs, TDAs and Training Providers cannot be agreed between Service/Joint Commands, this is to be referred to the TSLD PAG for resolution. The matrix of Lead TRAs and Lead TDAs for training in Joint and Defence training environments is held on the .  It is the responsibility of SCs to keep this matrix up to date. Defence Level / Joint Training Governance Groups People Leadership Team (PLT).  This is a 3* led Defence level Board that is chaired by the Chief of Defence People (CDP).  It is the highest-level governance body for training issues.  Amongst other objectives, the PLT manages training strategic performance and risks, and provides the management and governance of Defence Training and Education."
   },
   {
     "id": "5668e39a-fc2f-4030-907d-f9a13e4d703c",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1",
     "toc_section": "Uncategorised",
     "content": "Talent, Skills, Learning and Development Policy and Assurance Group (TSLD PAG).  This is a 1* Defence level group chaired by Hd TSLD and provides strategic Direction on Defence Training, Education, Skills, Recruiting and Resettlement matters.  It is the principal forum for the governance and assurance of such activities throughout Defence. Working groups/steering groups (WGs/SGs). There are several standing Defence level WGs and SGs that assist with policy, assurance and governance of training across Defence. MTS Activities and Outputs"
   },
   {
     "id": "c44c50e7-11bf-4e69-8e8d-4a17eeaf949f",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "5.1",
+    "section": "1",
     "toc_section": "Uncategorised",
     "content": "The MTS activities (processes, outputs and deliverables) are listed at Figure 1, the Inventory of DSAT Activities.  They are listed numerically from 5.1 to 5.16 and from 4.1 to 4.4. This section provides direction on those mandated MTS activities numbered 5.1 to 5.16. MTS activities that are numbered 4.1 to 4.4 can be found in Chapter 7 (activities 4.1, 4.1.1 & 4.1.2) and Volume 4 (activities 4.2-4.4). The Statement of Requirement (SoR) SoR - 5.1.  The DSAT process will begin with a SoR which states that there is a (real or perceived) need for personnel to have specific Knowledge, Skills and  Attitude (KSA) due to a new or changed requirement.  A SoR may necessitate a change to an existing training activity or require a completely new training activity to be designed, both of which require the use of the DSAT process.  It may also result in no change to any training.  Criteria that will affect the SoR include: changing Defence priorities; new equipment coming into service; results of external assurance; workforce changes; skills gaps, or pinch point trades; and changing legislation or government policy."
   },
   {
     "id": "ee8461a1-db74-415f-a11c-8f434f9f0d7d",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "5.2",
     "toc_section": "Uncategorised",
     "content": "Responsible Persons.  A SoR is most likely to be produced by a stakeholder such as the Customer or Service/Joint Command and is submitted to the relevant TRA.  The TRA must consider the SoR and provide a response which will result in either no action being taken or TNA work commencing. MTS Activities in the Analysis of Individual Training Requirements Initiate TrAD - 5.2. The TrAD is the document which defines who is responsible for what, during the life of a training activity.  It is the signed contract between the TRA, TDA and Training Provider and is a key document in the holding to account process.   A TrAD must be initiated at the end of the scoping exercise stage, once a training need has been identified.  The TrAD is then populated as the DSAT process progresses and is submitted to the CEB for endorsement later in the process (5.9)."
   },
   {
     "id": "57d07f37-61a4-4574-abcf-c3a5c8a94360",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "5.3",
     "toc_section": "Uncategorised",
     "content": "Responsible Persons.  The TRA is responsible for initiating the TrAD.  Its content is then agreed and signed by all relevant stakeholders. Although it is mandatory for all training to have an associated TrAD, and each TrAD must have the minimum prescribed content listed above, there is no mandatory TrAD template. Suggested templates for a TrAD can be . Risk/Assumption Management - 5.3.  Risk/assumption management must start at the beginning of the DSAT process.  Risks/assumptions are to be held on risk/assumption registers at all levels (e.g. training establishment, SC or SC\u2019s subordinate training HQ) and are to be managed iaw relevant Defence risk management policies.  Risks/assumptions must be reviewed regularly during all Elements of the DSAT process and updated with any new and emerging risks."
   },
@@ -219,56 +219,56 @@
   {
     "id": "d4cc2ce1-dacb-4b81-92ae-6ea32480c7f3",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "4",
+    "section": "5.5",
     "toc_section": "Uncategorised",
     "content": "Responsible Persons.  Pipeline management is the responsibility of the SCs. Statement of Trained Requirement (SOTR) - 5.5.  The SOTR identifies the trained output required by the employing SC, by year, for a period of 4 Training Years.  The aim of the process is to develop an accurate SOTR before the commencement of the Training Year (TY). Responsible Persons.  The SOTR is produced by the SCs\u2019 SOTR Co-ordination Organisations who own and develop it with key stakeholders."
   },
   {
     "id": "d9ab1d43-f573-4f0d-841c-551600d3d4f8",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "5.6",
     "toc_section": "Uncategorised",
     "content": "MTS Activities in Designing Individual Training Trained Output Requirement Review - 5.6.  A Trained Output Requirement Review takes place to ensure that, based on the Role PS and/or Framework(s), and the draft training objectives (TOs, the training requirement would still be met.  The review can be carried out at a CEB, or if waiting for the next CEB would hold up the design process, at a CEB WG, or Out of Committee. Responsible Persons.  It is the responsibility of the TRA to ensure that the requirement would be met by the proposed training solution."
   },
   {
     "id": "58be3e65-1997-4c9b-91d8-d6780f794067",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "1",
+    "section": "5.7",
     "toc_section": "Uncategorised",
     "content": "Risk/Assumption Management - 5.7.  Risks/assumptions are to be held on risk/assumption registers at all levels (e.g. training establishment, SC or SC\u2019s subordinate training HQ) and are to be managed iaw relevant Defence risk management policies.  Risks/assumptions must be reviewed regularly during all Elements of the DSAT process and updated with any new and emerging risks. Safe System of Training. A key consideration in Risk / Assumption Management is Safe System of Training (SST). Volume 1 contains the policy on SST. Responsible Persons.  The CEB is the forum where Training Provider, the TDA and TRA discuss and manage risks/assumptions.  The TRA is to determine whether the risks must be transferred to a higher authority such as the appropriate Service or Joint Command.  For cross-Service or cross-Command risks/assumptions the appropriate higher authority forum is likely to be the TSLD PAG."
   },
   {
     "id": "cc2ab99e-6522-4d80-b4ae-ed3db64b8dfc",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "5.8",
     "toc_section": "Uncategorised",
     "content": "Training Design Review - 5.8.  Review of training design ensures that the design Element has generated the outputs necessary to deliver a successful training activity, based upon the training need.  The review can be carried out at desk level and endorsed at a CEB, or if waiting for the next CEB would hold up commencement of training delivery, at a CEB WG, or Out of Committee. Responsible Persons.  It is ultimately the responsibility of the TRA to review the training design. TrAD \u2013 Review and Approval - 5.9. Authority to begin training is given by updating the TrAD and submitting it to the appropriate governance body (CEB or CEB WG) for endorsement.  Without an endorsed TrAD, training delivery cannot begin.  The TrAD can be endorsed Out of Committee if this would speed up the process as long as all stakeholders are in agreement."
   },
   {
     "id": "24a7e50d-0f75-4adf-bc77-8445f35b9fcb",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "5.10",
     "toc_section": "Uncategorised",
     "content": "Responsible Persons.  The TRA is responsible for updating the TrAD. Its content is then agreed and signed by all relevant stakeholders. MTS Activities in the Delivery of Individual Training Statement of Training Task (SOTT) - 5.10.  The SOTT is the document generated by the TDA by taking the agreed output-based requirement articulated in the SOTR and developing it into a deliverable training plan for the following TY."
   },
   {
     "id": "1ec4b49e-6e6d-4531-a9cb-ef1b2f8b11b1",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "5.11",
     "toc_section": "Uncategorised",
     "content": "Responsible Persons.  The TDA completes the SOTT and it is endorsed formally at the CEB in the training year before training begins. Defence Trainer Capability (DTC) - 5.11.  Defence must ensure that its trainers inspire, motivate and challenge trainees in order to get the very best from them.  To be fully effective, trainers fulfil the Roles of the specialist trainer and that of leader, including: understanding the key attributes of a trainer; effective delivery techniques; the realities of training; coaching; and the use of technology.  The DTC will deliver trainers that are fit for purpose and whose training and development are linked to the . Responsible Persons.  The Training Provider, specifically the Commanding Officer of a Training Establishment (COTE) is responsible for ensuring DTC policy is adhered to."
   },
   {
     "id": "4ebe4d26-700c-4108-8a72-f98f6c05978d",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "3",
+    "section": "5.12",
     "toc_section": "Uncategorised",
     "content": "Commander\u2019s Risk Assessment (CRA) - 5.12.  This captures the risks of training, and the risks to training staff and trainees.  The CRA must contain the health and safety assessment of the training activity specific to the Training Provider and mitigation measures taken. Detailed policy on the CRA can be found in Volume 4. Responsible Persons.  The Training Provider, specifically the Commanding Officer of a Training Establishment (COTE) is responsible for producing and maintaining a CRA. Training Quality Manual (TQM) \u2013 5.13.  The TQM is the CEB-endorsed document that sets the requirements, both in process and output terms, necessary to set and maintain the Defence-mandated QMS.  Each TQM will be unique to the specific requirements of the Training System for which it is written. It is recommended that a TQM should be reviewed every 3 years."
   },
   {
     "id": "c5a5cf5b-fb6e-4e60-9e3b-05fe239fa75a",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "5.13.1",
     "toc_section": "Uncategorised",
     "content": "Training Quality Policy (TQP) \u2013 5.13.1.  This should set out the rules regarding the establishment and maintenance of the QMS to ensure that the Training System delivers training that meets Defence mandated training requirements. Training targets \u2013 5.13.1.  These ensure that the Training System remains effective, efficient and appropriate to the training need.  They should be designed to ensure that the Training System meets the requirements for the trained output.  They should also be measurable and consistent with the Training Quality Policy. Quality records \u2013 5.13.1.  Records should be established and maintained to provide evidence of conformity to requirements and of the effective operation of the MTS.  Records should remain legible, readily identifiable and retrievable.  A documented procedure should be established to define the controls needed for the identification, storage, protection, retrieval, retention time and disposal of records.  In addition, documents required by the MTS will need to be controlled."
   },
@@ -282,14 +282,14 @@
   {
     "id": "6cb98be6-23db-45ba-ad9b-fdf62a7b6f7f",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "5.15",
     "toc_section": "Uncategorised",
     "content": "MTS Activities in the Assurance of Individual Training Continuous Improvement (CI) \u2013 5.15.  The TRA, supported by other stakeholders, must seek to ensure that the Training System continuously improves.  This is not a function that takes place at a specific point in the DSAT process but should (as the name suggests) be continuous.  CI should not only be applied to the training activity to improve the training (both in terms of cost effectiveness and training delivery) but also to the Training System as a whole. Responsible Persons. All personnel involved in any aspect of delivering a Training System have CI responsibilities."
   },
   {
     "id": "436eb78c-afd5-4fed-ac68-6ffcbc91b584",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "5.16",
     "toc_section": "Uncategorised",
     "content": "Continuous Governance \u2013 5.16. Governance activities do not stop once a Training System has been created. Throughout the lifetime of any training activity, governance is a constant, meaning that the various governance groups established in the development of the training activity must continue, to ensure the training activity is still meeting its original requirement. Responsible Persons. Due to the variety of governance groups that exist, responsibilities will vary depending on the group. Responsible persons, and their responsibilities will be identified, and agreed when the group is being established. Analysis of Individual Training"
   },
@@ -345,28 +345,28 @@
   {
     "id": "02a53ec3-3ea2-420c-bfac-6689360b70b8",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1",
     "toc_section": "Uncategorised",
     "content": "Responsibility.  It is expected that the TRA will take the lead on the production of the DSAT activities, processes and outputs required to be completed during Element 1.  The TRA may wish to delegate specific tasks but will retain overall responsibility for them.  The TRA will also be expected to ensure that those activities deemed critical to the development of the Training System are conducted. The TRA is ultimately responsible to the Customer for the work conducted during this Element. Involvement of the non-training specialist.  Stakeholders often have a limited knowledge of the MTS and are unfamiliar with the TNA process.  At the start of a TNA, time is often well spent in educating those who are to be involved in the TNA about the process.  They should be aware of their responsibilities, including the provision of information and staffing routines.  Whilst it is not usually the TNA author\u2019s responsibility to the implement the training solution, post TNA, it is possible that they may be involved in subsequent working groups, to provide training support advice. Exploiting existing training activities.  The need to design training from scratch on a \u2018blank sheet of paper\u2019 is a very unusual occurrence, as it is much more likely that existing training can be modified.  It follows, therefore that it is often desirable to analyse the current training first.  Where current role information, Role PS, Framework(s) or Training Objectives (TOs) do not exist for any current training, more comprehensive Role Analysis (RA), may be required, before any determination of a training requirement can be made.  Analysis of similar, existing, training is also useful to support this."
   },
   {
     "id": "698490f6-dc6b-4210-af57-99a2de27383c",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1",
     "toc_section": "Uncategorised",
     "content": "Where, for organisational, contractual, or other reasons, activities are distributed and/or responsibilities delegated other than as recommended, then this should be agreed at the CEB and annotated on the TrAD.  In all cases, any variance from the MTS must still be DSAT QMS compliant and auditable. Table 1: Mandatory Analysis DSAT Activities for New Training Requirements TNA Steering Group"
   },
   {
     "id": "6d69316f-dc5c-4382-a62c-72ef45c7473f",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "2",
+    "section": "1.1",
     "toc_section": "Uncategorised",
     "content": "TNA Steering Group (TNASG) \u2013 1.1.  To ensure validity and assurance of the process, the TNA should be governed by a dedicated SG representing all stakeholders.  It should also be \u2018fit for purpose\u2019 and appropriate to the need, with more resources and controls required to support a large and complex training requirement, than a small one.  A dedicated SG working to an agreed TNA methodology should manage every TNA.  The owner of the requirement should chair the TNASG, supported by the relevant stakeholders who can provide technical, user, quality, and Defence expertise.  The role of the TNASG is to ensure that the training requirements are identified and met. Training Support Plan (TSP) \u2013 1.1.1.  The TNASG should manage the TNA via the production and maintenance of a TSP.  The TSP should identify any constraints on the TNA in terms of training policy or funding, ensuring that all the actions required to produce cost-effective training support are identified and the appropriate agencies tasked.  The TSP should also specify when the TNA activities are to be conducted, who is responsible for the management and conduct of the TNA process and when and how the outputs are to be assured.  The TSP, governed by the TNASG should identify the milestones sufficient to meet the Ready for Training Date (RFTD).  A RFTD should be considered at this stage, agreed and stated later as a \u2018hard stop\u2019 point, as part of the Training Authority Document (TrAD), which is produced at the end of Element 2 (Design). Scoping Exercise"
   },
   {
     "id": "64f4bc05-7409-4643-8e49-f97c139a1ac8",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1.2",
     "toc_section": "Uncategorised",
     "content": "Scoping Exercise 1.2. The scoping exercise involves the initial analysis of the requirement and suggests options for meeting the requirement including a broad order estimate of the resource implications associated with each option.  This is articulated in the Scoping Exercise Report (1.2).  The scoping exercise acquires as much relevant information as possible about the training need and the Customer requirement.  It may identify that the most cost-effective means of achieving the requirement is NOT via a training solution in which case the TNA would cease. The scoping exercise does not have to be a long document and can utilise electronic references such as minutes of meetings, records of conversations to provide an auditable trail. Activities undertaken as part of the Scoping Exercise should include: TNA Terms of Reference (ToR) \u2013 1.2.1.  Clear TNA ToRs will guide the subsequent analysis stages.  They should be agreed and clearly understood by the TRA, stakeholders and the personnel undertaking the DSAT activities.    Although the layout of ToRs may be adjusted to meet specific circumstances there are a number of key areas that should be considered:"
   },
@@ -387,7 +387,7 @@
   {
     "id": "514c5c69-5e2e-42d4-afd7-0888d3f3f2c7",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1.2.2",
     "toc_section": "Uncategorised",
     "content": "TNA Plan.  In order to estimate the timescales for the TNA it may be necessary to generate a plan, for inclusion with the ToRs.  A plan should detail the milestone dates for each activity to enable reviews by the relevant stakeholders.  The TNASG is responsible for ensuring that these activities take place.  It need not be detailed but as a minimum it should include what is to be done, by whom and when. Training Audience (and Throughput) Description \u2013 1.2.2.  An estimate of who will be affected by the new or changed Defence requirement is required to ensure that it is representative and to determine throughput and input standards. It should include an estimate of the population to be trained in terms of their personal characteristics, the annual throughput, and the input standard.  This information can then be used to inform and refine the SOTR (5.5). Constraints Analysis \u2013 1.2.3.  Any constraints affecting the TNA need to be analysed and recorded. Constraints may be identified in strategic trends, doctrine, concept documents (e.g. the Concept of Employment for a capability) or can be determined through contextual analysis (such as via PESTLE or other frameworks).  They should also involve consideration of all the Defence Lines of Development (DLoDs).  Key constraints include:"
   },
@@ -408,7 +408,7 @@
   {
     "id": "75ca105c-6ce6-433d-9baf-1f2f10cc825b",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "375",
+    "section": "1.2.4",
     "toc_section": "Uncategorised",
     "content": "Risk Register and Assumptions Register Risk Register \u2013 1.2.4.  Identification, tracking and mitigation of risk are requirements both of the QMS and during delivery.  It should therefore be seen as an iterative activity that builds and becomes more meaningful as the DSAT process progresses.  There is nothing specific or unique regarding risk assessment process in the training environment, as opposed to any other, therefore users should adopt standard risk management practices, such as those laid out in JSP 375 and in the Cabinet Office\u2019s Management of Risk Best Practice Guidance.  Where risks are identified, a plan for mitigation should be enacted and resources allocated, where necessary. Risk management is conducted continuously and reoccurs throughout the DSAT process. Assumptions Register \u2013 1.2.4.  An Assumptions Register, or Master Data Assumptions List should contain all relevant unconfirmed statements to be taken as facts.  In the context of a new or changed requirement, they usually relate to policy and the use of previous or associated studies.  In a TNA, assumptions must be stated to ensure that the direction, outcomes, and effectiveness of the TNA are within defined boundaries. For example, if the new requirement involves equipment using emerging technology, then analysis may be more subjective than objective during product development stages and therefore must be stated. As the DSAT process progresses and information becomes available then assumptions can be removed and replaced with fact.  Assumptions management is conducted continuously and reoccurs throughout the DSAT process."
   },
@@ -450,7 +450,7 @@
   {
     "id": "783d1eed-7efa-4f1a-b982-32f477b7f6c7",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1.3",
     "toc_section": "Uncategorised",
     "content": "Role Analysis Role Analysis (RA) \u2013 1.3.  The duties, tasks, sub-tasks and task-elements performed by an individual constitute \u2018the Role\u2019.  The RA is the process of examining a specific Role in detail, in order to identify all the component duties and tasks, the Conditions under which the Role is performed, and the Standards to be achieved when performing the Role.  The \u2018person in the Role\u2019 should also be considered (see also Detailed Audience Description). In this way, it will be possible to identify the Knowledge, Skills and Attitudes/behaviours necessary for effective performance.  The RA should consider: Role objectives."
   },
@@ -471,21 +471,21 @@
   {
     "id": "5b234003-9b18-4c33-b90b-20601b8fe314",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1.3.1",
     "toc_section": "Uncategorised",
     "content": "Role-related factors influencing skill fade. Activities undertaken as part of the Role Analysis should include: Identification of Role \u2013 1.3.1.  A Role does not exist in isolation but within the context of a particular organisation and situation.  This context may affect not only the way the RA is conducted but also the eventual design of the training solution."
   },
   {
     "id": "b3704127-aafb-434a-ad78-fb6dad5ada0b",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1.3.2",
     "toc_section": "Uncategorised",
     "content": "Production of Role Scalar \u2013 1.3.2.  A Role Scalar is produced by analysing the duties, tasks, sub-tasks and task-elements (Performance) that have to be performed and recording them diagrammatically.  The Production of the Role Scalar is a key part of the RA process as it defines the minimum Performance to be achieved. DIF Analysis \u2013 1.3.3.  DIF Analysis is a method of analysing Role information through the Difficulty, Importance and Frequency of tasks and sub-tasks, with the aim of enabling early training decisions, such as the generation of Initial Training Categories. KSA Analysis \u2013 1.3.4.  A KSA Analysis is a systematic analysis of \u2018Performance\u2019 and/or \u2018Standards\u2019 in order to identify the necessary KSA required to perform a Role."
   },
   {
     "id": "5adaf9fd-a10a-474a-965b-d9499cc2fd9a",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1.3.5",
     "toc_section": "Uncategorised",
     "content": "Initial Training Categorisation \u2013 1.3.5.  A thoroughly conducted RA will be wide ranging and will include consideration of levels of supervision, work conditions, task criticality, difficulties and distastes, frequency of task performance, Role-related skill fade factors, percentage of personnel performing the Role and consequences of inadequate performance.  All of this information, in conjunction with information on trainee entry standards, trainee throughput and knowledge of the likely training environment, can lead to conclusions regarding the balance between training delivered as part of the TPS and training delivered as part of the WTS.  These conclusions are expressed through the use of training categories.  A number of techniques may be used to derive training categories, with the main analytical tool being the DIF Analysis already conducted (1.3.3). Role Performance Statement and / or Framework(s) Role Performance Statement (Role PS) \u2013 1.3.6.  A Role PS is produced and maintained by the TRA and is a detailed statement of the tasks, sub-tasks and so forth that are required to be undertaken by an individual to achieve the articulated workplace Performance. It includes the Conditions under which the tasks will be undertaken, the Standards that must be achieved, and adds an indication of the importance of the training required to achieve the task Performance.  It forms the basis for all subsequent work leading to the production of TOs.  This ensures that the need for training and associated resources is justified by the needs of the Role.  It also ensures that the training undertaken remains focused on the Role.  Whilst a single Role PS can be produced to cover all the duties associated with a Role, a Role PS may alternatively be written for a specific duty where it is shared across many Roles (such as the duty of firefighting).  The Role PS is developed using:"
   },
@@ -499,21 +499,21 @@
   {
     "id": "bd6ed5f7-3fc8-4a0a-bf1a-3bed62132976",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1.3.6",
     "toc_section": "Uncategorised",
     "content": "Training category. Role Scalar. Framework 1.3.6.  The user may wish, as a result of the RA (particularly the KSA Analysis (1.3.4)), to consider the production of a Framework, in addition to, or instead of, a Role PS.  This could be done if a people focus, rather than pure task focus, is required."
   },
   {
     "id": "7cd66d6c-9b35-4c62-8443-f0103b9363d5",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1.4",
     "toc_section": "Uncategorised",
     "content": "Training Gap Analysis Training Gap Analysis (TGA) \u2013 1.4.  The purpose of the TGA is to identify the additional training requirement of the affected Role holders by determining the training gap between the Performance, as stated in the Role PS and/or Framework(s), and any existing training Performance Standard(s).  This analysis also enables the impact upon Defence capability to be assessed if the new or changed Defence capability is implemented without additional training.  The TGA should provide: An update of the information contained in the Scoping Exercise Report and RA (if required)."
   },
   {
     "id": "38074c84-f824-48c1-80f4-63e9f953de37",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1.4.1",
     "toc_section": "Uncategorised",
     "content": "The additional learning requirements, if any, of the Role holders in terms of KSA at the sub-task and task-element levels. A summary statement of the tasks identified for training. Statements of Training Gaps 1.4.1. These are statements in terms of the Performance delta between the requirements of the Role PS and/or Framework(s) and any existing TOs and EOs, including associated specialist qualifications, for each affected Role holder."
   },
@@ -527,28 +527,28 @@
   {
     "id": "8903ae12-58ab-4743-9c98-71e519c36baa",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "2",
+    "section": "1.5",
     "toc_section": "Uncategorised",
     "content": "Initial Training Objectives (TOs) \u2013 1.5.  At this point TOs should be drafted in broad terms by using the Role Scalar, Role PS and/or a Framework.  It is advisable to consider the findings of the KSA analysis during the production of the draft TOs, and vice versa.  TOs, as well as their dependent EOs and KLPs will be further refined and developed during Element 2 (Design) (2.1).  It may be that the draft TOs created at this stage are sufficient and do not need further refinement but they are not endorsed at this stage. Training Options Analysis Training Options Analysis (TOA) \u2013 1.6.  The TOA should primarily make a recommendation as to a cost-effective training solution that meets the identified tasks or competences that require training.  The TOA should comprise a Fidelity Analysis, Location/Environment implications and Methods & Media options."
   },
   {
     "id": "39dff8f9-5720-4a6c-9f1b-2559472bf472",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1.6.1",
     "toc_section": "Uncategorised",
     "content": "Activities undertaken as part of the Training Options Analysis should include: Fidelity Analysis \u2013 1.6.1.  The term \u2018fidelity\u2019 denotes how closely a set of procedures were implemented as they were supposed to have been.  Fidelity can be defined as, \u2018the exact correspondence with fact or with a given quality, condition, or event; accuracy (e.g. the fidelity of the movie to the book or the degree to which an electronic system accurately reproduces the sound or image of its input signal)\u2019.  This analysis should be conducted as a result of the production of a Role PS and/or Framework(s) derived from the RA, and include any existing Training Performance Standards. Fidelity Analysis considers each relevant Performance objective in the Role PS and/or Framework(s) to assess the extent to which the training environment should replicate the workplace (real) environment to enable training to be effective. Location/Environment implications \u2013 1.6.2.  The training environment and implications of location may well impact on the suitability of different training solutions. For example expensive or scarce training resources including simulators, real equipment or specialist instructors may only be available in some locations.  It is therefore important to determine an estimate of where the balance between training to be delivered in a training establishment and workplace training will fall."
   },
   {
     "id": "8cf23257-e438-41b2-ad72-dc70b7cfb16d",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "2",
+    "section": "1.6.3",
     "toc_section": "Uncategorised",
     "content": "Methods & Media options \u2013 1.6.3.  The training Methods and Media options selected will depend upon the type of training, training policy, training throughput and good practice.  An assessment is required of the relative training effectiveness of each Method and Media option to bridge the training gaps (as determined in 1.4.1), based upon the TGA of each option and the Defence need. Cost Benefits Analysis (CBA) \u2013 1.6.4.  It is important that costing and investment appraisal are undertaken strictly in accordance with the current Defence or TLB policies and conventions.  If training specialists become involved with costing or investment appraisal, they should obtain current advice from the TNASG or other authoritative body.  CBA activity does not start at this stage of the TNA but the result of it is included in the Training Needs Report hence its inclusion here.  Like many aspects of DSAT, CBA is an iterative process with initial activity commencing much earlier in the TNA process, as appropriate.  The CBA will likely be further refined during the Method & Media selection process in Element 2 (Design, Stage 2, 2.5).  An estimate of the financial risks and/or opportunities associated with each training solution option should be undertaken and will be a significant factor in selecting training solution options.  Training analysts are unlikely to be qualified to conduct financial risk analysis at anything other than a superficial level and should therefore seek specialist advice and support. Options Evaluation \u2013 1.6.5.  The final activity of the TNA is to decide on training options.  To evaluate the merits of the training options (determined at 1.6.2A) one of them should be selected as a baseline.  The selection of a baseline will depend on the context, which then permits the construction of a table to display the relative merits of each option against the baseline.  Options can be assessed via several criteria:"
   },
   {
     "id": "2d631527-6831-4ffd-a4c5-99434ec62750",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1.1.1",
     "toc_section": "Uncategorised",
     "content": "The extent to which the option meets the requirements. Through-life cost, including the costs of maintenance, trainers and integration with existing training locations/environments. Implementation time, which may prove important to meet an operational need or a RFTD (1.1.1)."
   },
@@ -562,14 +562,14 @@
   {
     "id": "46fea146-6b1b-499c-92f8-4b84b1acf40e",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "1.7",
     "toc_section": "Uncategorised",
     "content": "It will typically be appropriate for the options evaluation to be undertaken in consultation with SMEs before presentation to the TNASG for endorsement. Training Needs Report Training Needs Report \u2013 1.7. The Training Needs Report specifies the training requirement and recommends a training solution through the evaluation of options.  It should include the resources required to design and support the training.  Training Needs Reports should collate all the information from the scoping exercise and analyses stages, adding an Implementation Plan and TNE strategy.  It should also include a description of the TNA methodology in terms of the data gathering and analysis techniques and clearly reference the data sources consulted.  The TNA can then be written up as a Training Needs Report that provides or supports detailed user and system requirements.  Training Needs Reports should include:"
   },
   {
     "id": "3adfa40e-e013-4fbd-a8e7-dabed57d87b7",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "2",
     "toc_section": "Uncategorised",
     "content": "Identification of the Performance requirement: a Role PS and/or Framework(s) for each Role holder, as identified in the RA. Identification of the training requirement: the results of the TGA. A Role PS and/or Framework(s) for the Role(s) affected by the recommended training solution with recommended training categories and supportive notes to amplify specific requirements to be included as appropriate to assist designers with the production of the FTS (during Element 2, Design, 2.2)."
   },
@@ -583,14 +583,14 @@
   {
     "id": "7e2a056d-eda4-461e-96b2-53c2175ceda0",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "2",
+    "section": "1.9.1",
     "toc_section": "Uncategorised",
     "content": "The TNASG endorsed training solution, resulting from the CBA (1.9.1) and final selection using the Options Evaluation (1.9.2).  Fidelity requirements and associated risks, assumptions, constraints should be included in the Report. Recommended training solution.  As a result of this iterative process of analysis, the user should now be in a position to make an informed and fully justifiable recommendation as to the most effective training solution that fully meets the training requirement.  The recommendation is then endorsed at the TNASG.  If it is not, the TNA process should be repeated until a suitable training solution is generated (this is very unlikely as the process is designed to deliver the optimal solution, but endorsement cannot be assumed).  Element 2 (Design) cannot commence until the training solution has been endorsed. With any recommended training solution, it should also be emphasised the importance of funding any recommended training solution throughout the life of the training activity."
   },
   {
     "id": "baef1f15-8c99-407f-9093-9185a75cd7cc",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "2",
+    "section": "3",
     "toc_section": "Uncategorised",
     "content": "Designing Individual Training Introduction This chapter provides Direction and Guidance on the processes and outputs associated with the design of the training activity (the 3-stage design process), which is Element 2 of the DSAT process."
   },
@@ -604,21 +604,21 @@
   {
     "id": "da6b5e57-1c8c-4adc-8780-c9f34dc7205a",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "2.2",
     "toc_section": "Uncategorised",
     "content": "FTS \u2013 2.2.  The FTS details the totality of the training that must be achieved to meet the requirements articulated in the Role PS and/or Framework(s). EOs and KLPs \u2013 2.3. To aid development of the Learning Scalar and LSpec, EOs and KLPs are produced. Design Stage 2."
   },
   {
     "id": "38c1e22d-b2cf-41da-866c-7f06b89deff3",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "2.4",
     "toc_section": "Uncategorised",
     "content": "AStrat \u2013 2.4.  The AStrat articulates the summative and formative assessments for the \u2018how\u2019, \u2018when\u2019 and \u2018in what manner\u2019 training is to be assessed. Selection of Methods & Media \u2013 2.5.  This activity ensures the most appropriate, effective and efficient selection of training Methods & Media, including any constraints that may limit options. Design Stage 3."
   },
   {
     "id": "5cff870a-c52d-46d7-8c1b-50ee3cd82e0a",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "3",
+    "section": "2.6",
     "toc_section": "Uncategorised",
     "content": "Learning Scalar and LSpecs \u2013 2.6.  Design Stage 3 structures the TOs and their dependent EOs and KLPs in the Learning Scalar, and brings together the collective outputs of analysis and design in the production of LSpecs.  LSpecs enable the delivery of lessons for all training activities (including for workplace training).  This is the content required for the Training Provider to deliver lessons. Responsibilities.  Both the TRA and TDA are ultimately responsible to the CEB and Customer for the work conducted during the Design Element: It is expected that the TRA will take the lead on Design Stage 1, the TRA may wish to delegate specific tasks but will retain overall responsibility for them."
   },
@@ -632,35 +632,35 @@
   {
     "id": "4642617e-cd49-4e62-84d8-8fa85cd7edab",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "1",
+    "section": "2.1",
     "toc_section": "Uncategorised",
     "content": "Individual Training Objectives Individual Training Objectives (TOs) \u2013 2.1.  TOs ensure that the training activity has a definite purpose such that the Defence need is met.  They help ensure that the associated trainers, support staff and trainees have a clear understanding of what the trainees are required to learn and have learnt it by the end of the lesson. TOs form the basis of the detailed design of each lesson within a course as well as identification of appropriate training resources.  They may also be used in support of the award of civilian accreditation.  Therefore, the development and maintenance of accurate TOs is essential. TOs were drafted during Element 1 (TNA Stage 2, 1.7 Initial TOs), and these initial TOs are refined and developed during Design Stage 1. Formal Training Statement (FTS)"
   },
   {
     "id": "fdfa2d47-8568-4698-88e9-e322bd92cbd4",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "2.2",
     "toc_section": "Uncategorised",
     "content": "Formal Training Statement (FTS) \u2013 2.2.  TOs are the key component of the subsequent training statements that form the FTS which should be made up of a Training Performance Statement (TPS), a Workplace Training Statement (WTS), and a Residual Training Gap Statement (RTGS). TPS \u2013 2.2.1.  The TPS details TOs (in terms of Performance, Conditions and Standards) to be attained by trainees.  The TPS TOs are managed and/or delivered by the TDA. WTS \u2013 2.2.2.  The WTS details TOs (in terms of Performance, Conditions and Standards) to be attained by trainees following assignment to a Role.  The WTS TOs are managed and/or delivered by the employing unit."
   },
   {
     "id": "0913549e-d106-4319-a284-ec4c7cd81db0",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "2.2.3",
     "toc_section": "Uncategorised",
     "content": "RTGS \u2013 2.2.3.  The RTGS is the difference between the totality of the training received and the Role PS and/or Framework(s).  It is the gap where an element of the Role PS and/or Framework(s) has not been allocated a training activity.  The Residual Training Gap is expressed in terms of Performance, Conditions, and Standards.  The RTGS also states the reasons and consequences of any identified RTG, and management of any associated risks. It should be made clear on the documentation where TOs, that appear first as part of a TPS and later as part of a WTS, are linked.  For example, if a trainee were to learn the theory of rotor track and balance in a training environment, then practise it in the workplace, a numbering system should be used in the TPS and WTS to show the linkage. Enabling Objectives / Key learning Points"
   },
   {
     "id": "94b481fb-1e85-4e93-aa8e-ab9fbed60e77",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "2.3",
     "toc_section": "Uncategorised",
     "content": "Enabling Objectives (EOs) \u2013 2.3.  An EO is defined as a statement of Performance, Conditions and Standards that describes the KSA necessary for the trainee to achieve all or part of a TO.  An EO sets the destination of a learning event and specifies what trainees can do at the end of a period of training that they could not do at the start.  Where Conditions and/or Standards are common to a number of EOs, there is no requirement to duplicate the Conditions and Standards elements.  In hierarchical terms, an EO is subordinate to a TO. Key Learning Points (KLPs) \u2013 2.3.  The material required to achieve the EO is further broken down into a number of relevant KLPs. KLPs state the Knowledge and Skill requirements, as well as the Attitude needs.  The KLPs provide a sequenced framework for the development of the training activity and specify a Learning Outcome.  KLPs are subordinate to EOs. Assessment Strategy"
   },
   {
     "id": "f2f64755-0d8e-4cfd-ab69-8272cb3ae4ea",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "2.4",
     "toc_section": "Uncategorised",
     "content": "Assessment Strategy (AStrat) \u2013 2.4.  Tests and assessments are used for a variety of purposes, but most importantly they are used to ensure that the TOs have been achieved by the trainees.  The AStrat is the document describing the overarching assessment policy for the course/module and the associated rationale. An AStrat will give clear direction on: summative assessment of each TO."
   },
@@ -681,14 +681,14 @@
   {
     "id": "c3ee07b5-2226-4f80-a00a-7014620bd5a8",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "2.4.1",
     "toc_section": "Uncategorised",
     "content": "a \u2018Return to Unit\u2019 policy for infringement of values and standards etc. Activities conducted as part of a AStrat should include: Refinement of Knowledge, Skills and Attitude (KSA) \u2013 2.4.1.  Prior to the development of the ASpec, from the AStrat, it is important to revisit the KSA Analysis (1.3.4), which was conducted as part of Element 1.  Refinement of the KSA Analysis will ensure that the ASpec is appropriate to the requirement and ensures that assessment is developed taking into account what is to be assessed."
   },
   {
     "id": "106d717c-7964-4df2-9967-81ed172859ec",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "1",
+    "section": "2.4.2",
     "toc_section": "Uncategorised",
     "content": "Assessment Specification (ASpec) \u2013 2.4.2.  While the AStrat gives an overview of the training assessment, where testing is required, the detail is provided in the ASpec.  An ASpec is defined as a specification describing the organisation, type of test, marking details, pass/fail criteria for the assessment of TOs and the consequences of failure.  It provides practical details required to assess the achievement of the Standards specified by an associated TO. Selection of Methods and Media Selection of Methods & Media \u2013 2.5.  It is important to consider the most appropriate and effective blend of training Methods & Media that provides the most effective balance of performance, cost and time in achieving the required KSA.  During Element 1 Methods & Media options (1.6.3) were developed and considered as part of the CBA (1.7.1), in order to ensure that the Options Analysis (1.7.2) recommended a training solution with realistic Methods & Media options.  These options should now be further refined as part of the Design process by exploring, in order:"
   },
@@ -702,7 +702,7 @@
   {
     "id": "78960dd8-eb39-4695-87ce-e6cbea4a733d",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "2.6",
     "toc_section": "Uncategorised",
     "content": "Learning Scalar \u2013 2.6.  In order to assist with the development of the LSpec, it may be useful to order any EOs and KLPs (2.3) that are linked to the TOs (2.1), into a scalar that will assist in the sequencing of the training activity.  A Learning Scalar will also help to teach in order (building KSA), prepare lesson plans/events, and develop the LSpec. Learning Specification (LSpec) \u2013 2.6.  A key Aspect of the Training System is its execution, i.e. the training being delivered to trainees.  It is therefore at this stage that the result of the previous Analysis and Design stages are brought together to enable the trainer to produce lesson plans to ensure effective training wherever it is delivered.  This is done through the generation of LSpecs; the main purpose of which is to control the execution of training i.e. what is taught and how it is taught. Delivery of Individual Training"
   },
@@ -723,14 +723,14 @@
   {
     "id": "5dfd6a64-8ecd-49de-9ef2-d224b502eb4a",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "3",
     "toc_section": "Uncategorised",
     "content": "Where, for organisational, contractual, or other reasons, activities are distributed and/or responsibilities delegated other than as recommended, then this should be agreed at the CEB and annotated on the TrAD.  In all cases, any variance from the MTS must still be DSAT QMS compliant and auditable. Table 3: Mandatory Delivery DSAT Activities for New Training Requirements Preparing Training"
   },
   {
     "id": "a9d69cee-8aea-4173-bf25-a29e10b7ff84",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "3.1",
     "toc_section": "Uncategorised",
     "content": "Preparing training \u2013 3.1.  Preparing training ensures that the Training Provider, and specifically the trainer, has completed preparation for the delivery of the lesson.  This includes the use of the LSpec and ASpec to generate lesson or event plans and assessments suitable to the training environment.  Consideration should also be given to the development of a remedial training strategy. The effectiveness of training delivery will be measured by the Training Provider and appropriate governance body according to whether the intended outcomes (the TOs) have been achieved successfully.  This is determined through the formal assessment process, but there will also be other, indirect outcomes of training (e.g. motivation to learn and creating independent learners) which will need to be considered when planning and preparing effective training.  These are not as easy to measure, but they are important if trainees are to perform to the best of their ability. Lesson / Event planning \u2013 3.1.1.  Lesson/event planning is an essential part of the training delivery process.  A good lesson plan considers all the needs and expectations of the training audience (1.5.2), ensures risks have been considered and mitigation is in place to address them. Lesson/event plans must be based on the LSpec and take a learner-centric approach.  They are created by the trainer using the LSpec and a trainer should request support in developing their Lesson Plan should they need it. Assessment of learning \u2013 3.1.2.  Assessment is an essential aspect of any training which must be properly understood and applied.  Assessment requires the trainer to determine whether learning has occurred which requires making a judgement on trainee Performance and progress, then to decide whether the trainee is sufficiently competent in a particular Role or Task to be qualified for employment and/or work with or without supervision.  The proper conduct of assessment in training can have a major impact on training time and resources, but ultimately will contribute directly to Defence outputs.  Trainers should be able to administer assessments in training in a fair, valid and reliable manner in accordance with the AStrat and ASpecs.  This is achieved through the use of an up-to-date ASpec when planning an assessment; assessing all of the EOs and KLPs as specified in the ASpec and not make any changes that alter these; as well as the standardisation of conduct and moderation of marking:"
   },
@@ -744,14 +744,14 @@
   {
     "id": "d36421df-bebf-4584-aa96-daeb159dc935",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "3.2",
     "toc_section": "Uncategorised",
     "content": "Remedial training strategy \u2013 3.2. The vision for Defence training to create an environment that attracts and retains high-quality people through the provision of training that, whilst stressing the importance of the team and team ethos, is focused on the individual from recruitment to entering productive Service.  Training is by necessity challenging \u2013 it has to transform people from civilians into professional Service personnel (SP) capable of operating in the harshest of global environments and pressured situations.  It must imbue SP with an attitude of responsibility, self-discipline and selflessness: fundamental components of military ethos that are essential to maintaining operational effectiveness. Programming, Scheduling and Resourcing of Training This activity ensures that the key requirements for the successful programming and scheduling of training, as well as factors that affect resourcing (such as workforce, infrastructure and environment), are taken into consideration."
   },
   {
     "id": "78a8b9bd-0bcb-4c4a-a362-a0a91dadf8b3",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "3.3",
     "toc_section": "Uncategorised",
     "content": "Programming training \u2013 3.3.  The Training Provider should produce and maintain an annual programme of all training activities.  Any changes which arise within the current Training Year (TY) should also be reflected in the annual programme of training activities.  There is no suggested methodology for programming; A common sense approach should be used and a clear understanding of the freedoms and constraints available to programmers will ensure that training activities: Use available resources efficiently and to maximum effect; Match the most effective and efficient Method & Media to the desired learning outcome;"
   },
@@ -779,7 +779,7 @@
   {
     "id": "cca579c5-9e24-40cf-a9b3-a46e0a0b83f2",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "3.3",
     "toc_section": "Uncategorised",
     "content": "Scheduling training \u2013 3.3.  Once training activities are programmed the elements should be sequenced, or scheduled, in order that the training is conducted in the correct order to optimise both the acquisition and retention of the KSA.  This ensures that training is built up and TOs and their dependent EOs and KLPs are delivered in the order that maintains the integrity of their dependencies (i.e. that the achievement of a TO may require dependent EOs/KLPs to be conducted in a particular sequence in order to ensure that the trainees\u2019 KSA is built up progressively).  This, however, may not always be necessary.  The course schedule or programme is usually produced by the Course Design Cell as part of the course documentation.  Particularly in larger training organisations, it is essential that trainers stick to the planned course programme. Where there is a need to change the course programme, this should always be approved by the course manager and trainers should aim to avoid short notice changes wherever possible. Resourcing training \u2013 3.3.  Resourcing the training activity is intimately tied into its programming and scheduling.  The Training Provider, supported by the TDA and other stakeholders, should ensure that the activity is properly resourced.  This is in order to implement and maintain the Training System, continuously strive to improve its effectiveness, and enhance Customer satisfaction by meeting the TRA\u2019s training requirements. Resources include: Human resource.  The personnel involved in all aspects of DSAT, particularly in the delivery and evaluation of the training activity should be trained and competent to carry out their Roles.  It is the responsibility of the TDA, enforced by the Training Provider, to ensure that all training staff are provided with the appropriate training and have relevant experience."
   },
@@ -793,7 +793,7 @@
   {
     "id": "c911d158-418f-40f9-8cdc-ae6d3a507591",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "3.3.1",
     "toc_section": "Uncategorised",
     "content": "supporting services. JPA Competences/Qualifications/TAFMIS/DLMC \u2013 3.3.1.  When competences /qualifications gained by the trainees are properly recorded, Workforce Planning Teams can ensure that the right people are placed in the right Roles, based upon their KSA.  Poor information management and capture of this information will adversely affect Defence outputs. Processes should be put in place to ensure the accurate and timely capture of new competences and qualifications resulting from the training activity.  JPA is the Defence information management system that captures and records this information for career and workforce purposes.  Where new competences, resulting from a new or changed training activity, need to be added to JPA, reference should be made to JSP 794. Piloting of training activity \u2013 3.4.  To help identify any issues or problems early, a pilot course should be conducted.  Piloting of a training activity is defined as, 'the first delivery of a newly designed training activity under \u2018realistic\u2019 conditions'.  The purpose is not only to prove what works, but also to highlight problem areas so they can be revised as necessary.  Checking the training activity in this manner will ensure it is cost-effective and, therefore, meets the requirement.  The aim of a pilot is to establish how well the designed training activity performs when used for real with actual trainees."
   },
@@ -807,7 +807,7 @@
   {
     "id": "ee2579d9-54f5-41fa-a7cb-a9121aee5fa4",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "3.5",
     "toc_section": "Uncategorised",
     "content": "Field Trial. Management of Training Deficiency (Inability to train / Failure of training) Management of training deficiency \u2013 3.5.  Managing risks to the trained output (i.e. the KSA of the trainees undergoing individual training) is different from assessing and managing risks associated with the Training System.  The responsibility for the management of training deficiency lies with the Training Provider.  Where risks or issues resulting from identified training deficiencies cannot be mitigated by the Training Provider, such training deficiency-based risks should be elevated for treatment or toleration etc.  Identifying and raising training deficiencies shows the stakeholders where training shortfalls exist or where risks have been taken owing to either an inability to train certain TOs (due to weather constraints or equipment casualties, for example) or a training failure that has been picked up through the assurance process.  Such deficiencies suggest that trainees may not hold the competences that the training should have delivered.  These are essentially unplanned but unavoidable training gaps which should therefore be captured, and the appropriate governance body informed so that a decision can be made to treat, tolerate or transfer (to the receiving unit) the training deficiency. A Training Deficiency is not the same as the Residual Training Gap.  The Residual Training Gap is agreed by the TRA early on in the DSAT process and is articulated in the RTGS."
   },
@@ -828,42 +828,42 @@
   {
     "id": "e09ae619-7708-47c1-bc05-da8218dd6ac7",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "2",
+    "section": "1.8",
     "toc_section": "Uncategorised",
     "content": "Training Needs Evaluation Training Needs Evaluation (TNE) \u2013 1.8.  Whilst the TNE is the final part of the TNA process (Element 1), it is discussed in this part of the JSP as it is an evaluation activity.  The purpose of the TNE is to evaluate the effectiveness and efficiency of the TNA process and the training solution that was recommended at the end of Stage 2 (Analysis). Evaluation Strategy"
   },
   {
     "id": "c31e2af0-1738-497e-b6ad-9f0f46035a23",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "4.1",
     "toc_section": "Uncategorised",
     "content": "Evaluation Strategy \u2013 4.1.  Writing an Evaluation Strategy is a key activity that is the responsibility of the TRA.  Evaluation is defined as \u2018the process of making a judgement as to the worth of training to Defence.  It allows Defence to monitor the impact of training and assess what has been achieved, whether it was necessary, appropriate, effective, efficient (i.e. represents VfM) and how it contributed to the achievement of Defence outputs. Responsibilities.  The production of the Evaluation Strategy is the responsibility of the TRA and should be set out in the TQM (Element 3, 5.13). The Evaluation Strategy is likely to include the elements InVal and ExVal, which collectively make up the whole approach to evaluation."
   },
   {
     "id": "5949d74c-f7b8-4fef-af4b-f333c1a06742",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "4.1.1",
     "toc_section": "Uncategorised",
     "content": "Internal Validation (InVal) InVal \u2013 4.1.1.  InVal is a process used by the Training Provider to determine the efficiency and effectiveness of training delivery.  To achieve this, InVal measures: The immediate reaction of a trainee to a training activity."
   },
   {
     "id": "562adb49-c21d-4bc9-ad6d-84f722026d0c",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "3",
     "toc_section": "Uncategorised",
     "content": "The learning transfer achieved by the training activity. Responsible Person. The Training Provider is responsible for ensuring a robust InVal process is in place for all of its courses, and that all InVal data is utilised correctly and effectively. Although the Training Provider normally conducts InVal, responsibility for the actual conduct of InVal may sit with an alternative body, in accordance with Chapter 3, Para 3.1.6. External Validation (ExVal)"
   },
   {
     "id": "147cc063-45c2-407d-bb34-26b30d61a218",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "4.1.2",
     "toc_section": "Uncategorised",
     "content": "ExVal \u2013 4.1.2.  ExVal uses both qualitative and quantitative data to determine whether the training remains relevant to the workplace or role.  ExVal is applied after trainees have completed a training activity and have had the opportunity to apply what they have learnt in the workplace. Responsible Persons.  It is the responsibility of TRA to conduct ExVal.  The TRA may employ an ExVal team for the planning, coordination and implementation of the ExVal and for the dissemination of the results. Defence Trainer Capability"
   },
   {
     "id": "d104b2f2-745e-489a-bdcb-62c390a1a766",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "2014",
     "toc_section": "Uncategorised",
     "content": "Introduction Training and education of people is a key enabler in delivering Defence Missions and must be agile to the rapidly changing contexts and demands. Defence seeks to maximise talent through training and education and building a sustainable diverse and skilled workforce for the future. Defence must meet the expectations of the workforce and both motivate and engage people. Defence training and education therefore has a pivotal role in delivering this People Strategy and it is underpinned by a robust and effective Defence Trainer Capability (DTC). House of Commons Defence Committee (HCDC) Inquiries, audit reports and research provide evidence that safety in training must remain paramount, with risks reduced to as low as reasonably practicable (ALARP) and tolerable. In response to report findings, the DTC was initiated in 2014. DTC professionalises the training cadre and through its robust governance and assurance processes ensures that all Defence trainers, trainer supervisors and training managers are suitably qualified and experienced. It outlines the requirement for a professional development pathway to continuously meet the required quality standard and competence and attracts externally recognised national qualifications."
   },
@@ -891,7 +891,7 @@
   {
     "id": "deffff94-732a-466b-ac4e-95b290c0cfcd",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "2",
+    "section": "1",
     "toc_section": "Uncategorised",
     "content": "The DTS is responsible for the assessment and development of Defence Trainers (Phase 1, 2 or 3).  A key role is the supervision of the completion of the Workplace Portfolio for Defence Trainers.  DTS may also be responsible for the assessment and development of those delivering training which relates to any WTS. Defence Trainer Supervisor course.   The Defence Trainer Supervisor course (DTS) is mandated for all Defence Trainer Supervisors.  DTS Stage 1 (residential training) is mandated for supervisors of all Defence Trainers. Completion of DTS Stage 1 results in the award of the \u2018Instructional > Defence Trainer Supervisor > Joint\u2019 JPA competency at Foundation level.  DTS Stage 2 (workplace training) is only mandated for supervisors of Defence Trainers in Phases 1 & 2. Completion of DTS Stage 2 results in the award of the \u2018Instructional > Defence Trainer Supervisor > Joint\u2019 JPA competency at Practitioner level. Defence Trainer Manager (DTM)"
   },
@@ -1129,7 +1129,7 @@
   {
     "id": "b1701e74-522b-47bd-adcc-1cf797f117fb",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "8",
     "toc_section": "Uncategorised",
     "content": "The following pressures could contribute to training being classified as robust.  The list is not intended to be prescriptive but, rather, provide examples.  Equally, the list is not exhaustive, and it must be read in conjunction with the points made above.  Some examples of Robust Training activity are at Table 8.  This list is intended to be illustrative rather than exhaustive: Psychological pressures. rapidly and or frequently changing priorities"
   },
@@ -1157,7 +1157,7 @@
   {
     "id": "829efc4e-f348-4c23-af78-897550f734a4",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "5",
     "toc_section": "Uncategorised",
     "content": "tiredness/controlled sleep deprivation. Table 5: Examples of Robust Training Risks with Robust Training"
   },
@@ -1178,7 +1178,7 @@
   {
     "id": "0e0cd67f-f915-4210-9087-7fee2213aecb",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "5",
+    "section": "822",
     "toc_section": "Uncategorised",
     "content": "Exertional Collapse, Universal Training Precautions (UTP) and Physical Activity Opt- Out policy has been moved from this chapter to JSP 822, Vol 4, Chapter 5 (Defence Direction for Trainee Management) in consultation with the Defence Training Assurance and Care & Welfare Working Groups, as this policy is relevant to all training, not just Robust Training. This direction is applicable to all activities in the support of the delivery of Care and Welfare of all trainees. Document Information Document Coverage"
   },
@@ -1199,7 +1199,7 @@
   {
     "id": "39fdb6e0-56ed-4eea-b58f-a30a9194f917",
     "document": "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx",
-    "section": "Uncategorised",
+    "section": "822",
     "toc_section": "Uncategorised",
     "content": "The policy in this document does not apply to training deemed \u2018Informal\u2019 or \u2018On-the-Job\u2019. Organisational Learning is captured under the Defence Organisational Learning Strategy (DOLS) Framework owned by Joint Warfare in UKStratCom and is not within the scope of JSP 822. Diversity and Inclusion"
   },
