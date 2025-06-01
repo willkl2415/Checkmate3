@@ -17,8 +17,8 @@ def get_answer(question, document_filter=None, section_filter=None):
         if document_filter and chunk["document"] != document_filter:
             continue
 
-        # Filter by ToC section if available
-        if section_filter and chunk.get("toc_section") != section_filter:
+        # Filter by ToC-aligned section (with whitespace safety)
+        if section_filter and chunk.get("toc_section", "").strip() != section_filter.strip():
             continue
 
         # Basic keyword matching
@@ -33,6 +33,6 @@ def get_answer(question, document_filter=None, section_filter=None):
                 "score": score
             })
 
-    # Sort results by keyword relevance
+    # Sort by keyword relevance
     matched_chunks.sort(key=lambda x: x["score"], reverse=True)
     return matched_chunks
