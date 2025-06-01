@@ -1,7 +1,10 @@
 services:
   - type: web
     name: checkmate3
-    env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT"
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "true"
     plan: free
