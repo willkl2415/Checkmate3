@@ -2,7 +2,7 @@
 import re
 import json
 
-# Load the ToC-enhanced chunks.json
+# Load clean chunks.json with correct "section"
 with open("data/chunks.json", "r", encoding="utf-8") as f:
     chunks = json.load(f)
 
@@ -13,26 +13,21 @@ def get_answer(question, document_filter=None, section_filter=None):
     matched_chunks = []
 
     for chunk in chunks:
-        # Filter by document
         if document_filter and chunk["document"] != document_filter:
             continue
-
-        # Filter by ToC-aligned section (with whitespace safety)
-        if section_filter and chunk.get("toc_section", "").strip() != section_filter.strip():
+        if section_filter and chunk.get("section", "").strip() != section_filter.strip():
             continue
 
-        # Basic keyword matching
         content = chunk["content"].lower()
         score = sum(1 for word in keywords if word in content)
 
         if score > 0:
             matched_chunks.append({
                 "document": chunk["document"],
-                "section": chunk.get("toc_section", chunk.get("section", "Uncategorised")),
+                "section": chunk.get("section", "Uncategorised"),
                 "content": chunk["content"],
                 "score": score
             })
 
-    # Sort by keyword relevance
     matched_chunks.sort(key=lambda x: x["score"], reverse=True)
     return matched_chunks
