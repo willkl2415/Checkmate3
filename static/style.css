@@ -1,73 +1,81 @@
+/* static/style.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f9f9f9;
+    padding: 0;
 }
 
-.layout {
+.container {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
 }
 
-.sidebar {
-    width: 300px;
-    background: #eeeeee;
+.left-panel {
+    width: 30%;
+    background-color: #f3f3f3;
     padding: 20px;
-    box-sizing: border-box;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
 }
 
-.sidebar img {
-    width: 100%;
-    max-height: 300px;
-    object-fit: contain;
+.right-panel {
+    width: 70%;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
     margin-bottom: 20px;
 }
 
-.sidebar p {
-    font-size: 0.95em;
-    line-height: 1.5em;
+.description {
+    font-size: 14px;
+    color: #333;
 }
 
-.main {
-    flex: 1;
-    padding: 40px;
-    box-sizing: border-box;
-}
-
-input[type="text"],
-select {
+form input[type="text"],
+form select {
     width: 100%;
     padding: 10px;
-    font-size: 1em;
     margin-bottom: 15px;
-    box-sizing: border-box;
+    font-size: 14px;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #e63946;
-    color: white;
-    border: none;
-    font-size: 1em;
-    cursor: pointer;
-    margin-bottom: 20px;
+.button-row {
+    display: flex;
+    gap: 10px;
 }
 
-button:hover {
-    background-color: #d62828;
-}
-
-pre {
-    background-color: #fff;
-    padding: 15px;
-    font-size: 1em;
-    white-space: pre-wrap;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: Arial, sans-serif;
-}
-
-.message {
+.ask-button {
+    background-color: #99FF33;
+    color: black;
+    padding: 10px 16px;
     font-weight: bold;
-    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.clear-button {
+    background-color: #FF0000;
+    color: white;
+    padding: 10px 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.response-box {
+    margin-top: 30px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.result {
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
 }
