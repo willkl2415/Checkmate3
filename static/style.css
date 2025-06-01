@@ -26,8 +26,8 @@ body {
 }
 
 .logo {
-    width: 85%;
-    max-height: 300px;
+    width: 90%;
+    max-height: 250px;
     object-fit: contain;
     margin: 20px auto;
     display: block;
