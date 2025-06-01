@@ -11,24 +11,27 @@ body {
 }
 
 .left-panel {
-    width: 38%;
+    width: 30%;
     background-color: #f3f3f3;
-    padding: 30px;
-    padding-right: 25px;
+    padding: 25px 25px 25px 25px;
     overflow-y: auto;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .right-panel {
-    width: 62%;
+    width: 68%;
     padding: 40px;
     overflow-y: auto;
 }
 
 .logo {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    margin-bottom: 20px;
 }
 
 .left-panel h2 {
