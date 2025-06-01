@@ -11,15 +11,16 @@ body {
 }
 
 .left-panel {
-    width: 30%;
+    width: 38%;
     background-color: #f3f3f3;
-    padding: 25px;
+    padding: 30px;
+    padding-right: 25px;
     overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
 }
 
 .right-panel {
-    width: 70%;
+    width: 62%;
     padding: 40px;
     overflow-y: auto;
 }
@@ -31,15 +32,16 @@ body {
 }
 
 .left-panel h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 15px;
     color: #222;
 }
 
 .left-panel p {
-    font-size: 13.5px;
+    font-size: 13.8px;
     color: #333;
-    margin-bottom: 12px;
+    line-height: 1.5;
+    margin-bottom: 14px;
 }
 
 form input[type="text"],
@@ -53,6 +55,7 @@ form select {
 .button-row {
     display: flex;
     gap: 10px;
+    margin-top: 10px;
 }
 
 .ask-button {
