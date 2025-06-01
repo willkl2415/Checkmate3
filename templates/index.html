@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <title>Check-Mate</title>
     <link rel="stylesheet" href="/static/style.css">
+    <script>
+        function autoSubmitForm() {
+            document.getElementById('query-form').submit();
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -19,15 +24,15 @@
             <p><strong>Check-Mate</strong> isn’t just a nice to have. It’s your final move.</p>
         </div>
         <div class="right-panel">
-            <form method="POST">
+            <form method="POST" id="query-form">
                 <input type="text" name="question" placeholder="Ask a question..." value="{{ question }}">
-                <select name="document">
+                <select name="document" onchange="autoSubmitForm()">
                     <option value="">All Documents</option>
                     {% for doc in documents %}
                         <option value="{{ doc }}" {% if selected_doc == doc %}selected{% endif %}>{{ doc }}</option>
                     {% endfor %}
                 </select>
-                <select name="section">
+                <select name="section" onchange="autoSubmitForm()">
                     <option value="">All Sections</option>
                     {% for section in sections %}
                         <option value="{{ section }}" {% if selected_section == section %}selected{% endif %}>{{ section }}</option>
