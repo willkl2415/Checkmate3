@@ -1,12 +1,19 @@
 # app.py
 import os
+import json
+import logging
 from flask import Flask, render_template, request
 from answer_engine import get_answer
-import json
+
+logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
-with open("data/chunks.json", "r", encoding="utf-8") as f:
+chunks_path = "data/chunks.json"
+if not os.path.exists(chunks_path):
+    raise FileNotFoundError("chunks.json not found in /data directory.")
+
+with open(chunks_path, "r", encoding="utf-8") as f:
     chunks_data = json.load(f)
 
 documents = sorted(set(chunk["document"] for chunk in chunks_data))
@@ -35,8 +42,13 @@ def index():
         selected_section = request.form.get("section", "")
 
         if question:
-            results = get_answer(question, selected_doc, selected_section)
-            answer = "Check-Mate’s Response"
+            try:
+                results = get_answer(question, selected_doc, selected_section)
+                answer = "Check-Mate’s Response"
+            except Exception as e:
+                logging.exception("Error processing question:")
+                results = []
+                answer = f"An error occurred: {str(e)}"
 
     sections = sorted(document_sections.get(selected_doc, set())) if selected_doc else []
     return render_template("index.html", question=question, answer=answer, results=results, documents=documents, sections=sections, selected_doc=selected_doc, selected_section=selected_section)
