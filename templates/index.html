@@ -1,62 +1,55 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Check-Mate</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="layout">
-        <div class="sidebar">
-            <h3>Welcome to Check-Mate</h3>
-            <img src="{{ url_for('static', filename='checkmate.png') }}" alt="Check-Mate Logo">
-            <p>
-                <strong>Check-Mate</strong> is a go-to application for Training Consultants, Analysts, Designers, and Decision-Makers who demand accuracy, assurance, and speed – without compromise.<br><br>
-                <strong>Check-Mate</strong> is a cutting-edge AI solution built to deliver instant clarity in high-complexity environments – especially those shaped by Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).<br><br>
-                Inspired by the finality of the phrase in chess, <strong>Check-Mate</strong> empowers you to instantly search, filter, and interrogate massive volumes of structured documentation – training, guidance, standards, and more – using OpenAI’s natural language and intelligent keyword filters.<br><br>
-                Ask a question. Get an answer. Not in 30 minutes—but in 5 seconds. Drawn directly from authoritative sources, every response is precise, context-rich, and ready for action.<br><br>
-                <strong>Check-Mate</strong> doesn’t just speed things up—it delivers time savings of up to 99.7%, transforming slow, manual searches into rapid, evidence-based decisions.<br><br>
-                <strong>Check-Mate</strong> isn’t just a nice to have. It’s your final move.
-            </p>
+    <div class="container">
+        <div class="left-panel">
+            <img src="/static/checkmate.png" alt="Check-Mate Logo" class="logo">
+            <div class="description">
+                <h2>Check-Mate</h2>
+                <p>Check-Mate is a go-to application for Training Consultants, Analysts, Designers, and Decision-Makers who demand accuracy, assurance, and speed – without compromise.</p>
+                <p>Check-Mate is a cutting-edge AI solution built to deliver instant clarity in high-complexity environments – especially those shaped by Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
+                <p>Ask a question. Get an answer. Not in 30 minutes—but in 5 seconds. Drawn directly from authoritative sources, every response is precise, context-rich, and ready for action.</p>
+            </div>
         </div>
-
-        <div class="main">
-            <h1>Ask Check-Mate</h1>
+        <div class="right-panel">
             <form method="POST">
-                <input type="text" name="question" placeholder="Enter your question or word and press Ask Check-Mate" value="{{ question }}">
-
-                <label for="document">Filter by Document:</label>
+                <input type="text" name="question" placeholder="Ask a question..." value="{{ question }}">
                 <select name="document">
                     <option value="">All Documents</option>
                     {% for doc in documents %}
-                        <option value="{{ doc }}" {% if doc == request.form.document %}selected{% endif %}>{{ doc }}</option>
+                        <option value="{{ doc }}" {% if selected_doc == doc %}selected{% endif %}>{{ doc }}</option>
                     {% endfor %}
                 </select>
-
-                <label for="section">Filter by Section:</label>
                 <select name="section">
                     <option value="">All Sections</option>
-                    {% for sec in sections %}
-                        <option value="{{ sec }}" {% if sec == request.form.section %}selected{% endif %}>{{ sec }}</option>
+                    {% for section in sections %}
+                        <option value="{{ section }}" {% if selected_section == section %}selected{% endif %}>{{ section }}</option>
                     {% endfor %}
                 </select>
-
-                <button type="submit">Ask Check-Mate</button>
+                <div class="button-row">
+                    <button type="submit" class="ask-button">Ask Check-Mate</button>
+                    <button type="submit" name="clear" value="true" class="clear-button">Clear Search</button>
+                </div>
             </form>
 
-            {% if question %}
-                {% if trimmed %}
-                    <h2>Check-Mate’s Response (Results trimmed to {{ result_count }})</h2>
-                {% elif document_shown %}
-                    <h2>Showing {{ result_count }} results from: {{ document_shown }}</h2>
-                {% else %}
-                    <h2>Check-Mate’s Response ({{ result_count }} results)</h2>
-                {% endif %}
-
-                <pre>{{ answer }}</pre>
-
-                {% if trimmed %}
-                    <p class="message">Use the document filter to view all matches.</p>
-                {% endif %}
+            {% if answer %}
+                <div class="response-box">
+                    <h3>Check-Mate’s Response ({{ results|length }} result{{ results|length != 1 and 's' or '' }})</h3>
+                    {% for result in results %}
+                        <div class="result">
+                            <strong>Document:</strong> {{ result.document }}<br>
+                            <strong>Section:</strong> {{ result.section }}<br>
+                            <strong>Result {{ loop.index }}:</strong><br>
+                            {{ result.content }}
+                        </div>
+                    {% endfor %}
+                </div>
             {% endif %}
         </div>
     </div>
