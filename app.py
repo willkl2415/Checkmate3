@@ -1,4 +1,3 @@
-# app.py
 import os
 import json
 import logging
@@ -9,14 +8,18 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
-chunks_path = "data/chunks.json"
-if not os.path.exists(chunks_path):
-    raise FileNotFoundError("chunks.json not found in /data directory.")
-
-with open(chunks_path, "r", encoding="utf-8") as f:
+# Load chunks.json for search data
+with open("data/chunks.json", "r", encoding="utf-8") as f:
     chunks_data = json.load(f)
 
+# Load ToC map for fixed section filters
+with open("data/toc_map.json", "r", encoding="utf-8") as f:
+    toc_map = json.load(f)
+
+# Build document list
 documents = sorted(set(chunk["document"] for chunk in chunks_data))
+
+# Build fallback auto section map
 document_sections = {}
 for chunk in chunks_data:
     doc = chunk["document"]
@@ -46,12 +49,26 @@ def index():
                 results = get_answer(question, selected_doc, selected_section)
                 answer = "Check-Mate’s Response"
             except Exception as e:
-                logging.exception("Error processing question:")
+                logging.exception("Error during answer processing")
                 results = []
                 answer = f"An error occurred: {str(e)}"
 
-    sections = sorted(document_sections.get(selected_doc, set())) if selected_doc else []
-    return render_template("index.html", question=question, answer=answer, results=results, documents=documents, sections=sections, selected_doc=selected_doc, selected_section=selected_section)
+    # Use ToC if available, else fallback to derived sections
+    if selected_doc in toc_map:
+        sections = toc_map[selected_doc]
+    else:
+        sections = sorted(document_sections.get(selected_doc, set())) if selected_doc else []
+
+    return render_template(
+        "index.html",
+        question=question,
+        answer=answer,
+        results=results,
+        documents=documents,
+        sections=sections,
+        selected_doc=selected_doc,
+        selected_section=selected_section
+    )
 
 if __name__ == "__main__":
     app.run(debug=True)
