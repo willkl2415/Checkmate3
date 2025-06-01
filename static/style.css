@@ -13,7 +13,7 @@ body {
 .left-panel {
     width: 30%;
     background-color: #f3f3f3;
-    padding: 20px;
+    padding: 25px;
     overflow-y: auto;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
 }
@@ -27,12 +27,19 @@ body {
 .logo {
     max-width: 100%;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.description {
-    font-size: 14px;
+.left-panel h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.left-panel p {
+    font-size: 13.5px;
     color: #333;
+    margin-bottom: 12px;
 }
 
 form input[type="text"],
