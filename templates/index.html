@@ -10,12 +10,13 @@
     <div class="container">
         <div class="left-panel">
             <img src="/static/checkmate.png" alt="Check-Mate Logo" class="logo">
-            <div class="description">
-                <h2>Check-Mate</h2>
-                <p>Check-Mate is a go-to application for Training Consultants, Analysts, Designers, and Decision-Makers who demand accuracy, assurance, and speed – without compromise.</p>
-                <p>Check-Mate is a cutting-edge AI solution built to deliver instant clarity in high-complexity environments – especially those shaped by Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
-                <p>Ask a question. Get an answer. Not in 30 minutes—but in 5 seconds. Drawn directly from authoritative sources, every response is precise, context-rich, and ready for action.</p>
-            </div>
+            <h2>Welcome to Check-Mate</h2>
+            <p><strong>Check-Mate</strong> is a go-to application for Training Consultants, Analysts, Designers, and Decision-Makers who demand accuracy, assurance, and speed – without compromise.</p>
+            <p><strong>Check-Mate</strong> is a cutting-edge AI solution built to deliver instant clarity in high-complexity environments – especially those shaped by Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
+            <p>Inspired by the finality of the phrase in chess, <strong>Check-Mate</strong> empowers you to instantly search, filter, and interrogate massive volumes of structured documentation – training, guidance, standards, and more – using OpenAI’s natural language and intelligent keyword filters.</p>
+            <p>Ask a question. Get an answer. Not in 30 minutes—but in 5 seconds. Drawn directly from authoritative sources, every response is precise, context-rich, and ready for action.</p>
+            <p><strong>Check-Mate</strong> doesn’t just speed things up—it delivers time savings of up to 99.7%, transforming slow, manual searches into rapid, evidence-based decisions.</p>
+            <p><strong>Check-Mate</strong> isn’t just a nice to have. It’s your final move.</p>
         </div>
         <div class="right-panel">
             <form method="POST">
@@ -40,7 +41,7 @@
 
             {% if answer %}
                 <div class="response-box">
-                    <h3>Check-Mate’s Response ({{ results|length }} result{{ results|length != 1 and 's' or '' }})</h3>
+                    <h3>{{ answer }} ({{ results|length }} result{{ results|length != 1 and 's' or '' }})</h3>
                     {% for result in results %}
                         <div class="result">
                             <strong>Document:</strong> {{ result.document }}<br>
