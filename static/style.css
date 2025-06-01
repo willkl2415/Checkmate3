@@ -11,32 +11,31 @@ body {
 }
 
 .left-panel {
-    width: 30%;
+    width: 25%;
     background-color: #f3f3f3;
-    padding: 25px 25px 25px 25px;
+    padding: 30px 20px;
     overflow-y: auto;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
 }
 
 .right-panel {
-    width: 68%;
+    width: 75%;
     padding: 40px;
     overflow-y: auto;
 }
 
 .logo {
-    width: 100%;
+    width: 85%;
     max-height: 300px;
     object-fit: contain;
-    margin-bottom: 20px;
+    margin: 20px auto;
+    display: block;
 }
 
 .left-panel h2 {
     font-size: 22px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: #222;
 }
 
@@ -45,6 +44,7 @@ body {
     color: #333;
     line-height: 1.5;
     margin-bottom: 14px;
+    text-align: left;
 }
 
 form input[type="text"],
