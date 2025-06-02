@@ -1,44 +1,20 @@
 [
   {
-    "id": "660e08c6-a4b8-4f37-8096-b4c527b3f311",
+    "id": "1",
+    "document": "DTSM 2 Analysis of Individual Training 2023 Edition V1.0.docx",
+    "section": "5.7 Production of Role Scalar",
+    "content": "A Role Scalar is produced by analysing the duties, tasks, sub-tasks and task-elements..."
+  },
+  {
+    "id": "2",
     "document": "DTSM 2 Analysis of Individual Training 2023 Edition V1.0.docx",
     "section": "8.7 Frameworks",
-    "content": "The user may wish, as a result of the RA (particularly the KSA Analysis), to consider the production of either a competence framework or competency framework, or both; either in addition to, or instead of, a Role PS. This could be done if a people focus, rather than pure task focus, is required.\nCompetency & Competence. The human element of operational capability is a complex area to analyse. It is, however, important to understand both the people and training aspects, as different methodologies of analysis fit different needs, and, within the Defence context, they are sometimes confused. The relationship between competency, competence and performance needs to be understood in a consistent manner:\nCompetency (plural: competencies) is the underlying characteristic(s) of an individual which results in effective and/or superior performance within a Role. OJAR/SJAR is an example of an organisational level competency framework that is common to all Service personnel. Professional competency frameworks can also be used in order to provide guidance to defined professional groups, such as the Royal Navy\u2019s Command Competency Framework, where there is a need for longer term individual professional development and/or selection."
+    "content": "The user may wish, as a result of the RA (particularly the KSA Analysis), to consider..."
   },
   {
-    "id": "745b2dde-95d1-4867-9560-3e0a6dabb94b",
-    "document": "DTSM 2 Analysis of Individual Training 2023 Edition V1.0.docx",
-    "section": "8.7 Frameworks",
-    "content": "Competence (plural: competences) is the measured ability of an individual to consistently perform a particular occupational skill or range of skills to a required Standard, under prescribed Conditions. The Role PS serves as the statement of the"
-  },
-  {
-    "id": "382db220-f21e-4a48-a6a6-e19be55c8972",
+    "id": "3",
     "document": "DTSM 2 Analysis of Individual Training 2023 Edition V1.0.docx",
     "section": "8.7 Recommended Further Reading",
-    "content": "Competence Retention Analysis Handbook.\nCompetence Retention Analysis (CRA) is a scientific methodology developed as a practical approach to predicting the retention of different knowledge and skills that underpin military tasks at the workforce level. CRA is intended to assist Defence to reduce the impact of skill fade and enhance competence retention. It is relevant to two audiences as follows:\nTraining analysts can use the outputs of CRA during the Training Needs Analysis (TNA) process to justify training solutions and the training budget; and"
-  },
-  {
-    "id": "53d0da0c-f7ba-4769-97ba-fffe102871db",
-    "document": "DTSM 2 Analysis of Individual Training 2023 Edition V1.0.docx",
-    "section": "8.7 Recommended Further Reading",
-    "content": "Training designers can use the outputs of CRA during the design phase to inform the scheduling of refresher training or practice intervals, and during the development of training to mitigate knowledge and skills fade. CRA can also be used retrospectively to improve training design and to inform decision making about the specification of training priorities (initial and refresher), where issues are identified during the TNA evaluation process.\nLink:\nTraining Gap Analysis"
-  },
-  {
-    "id": "6e9035ff-31f5-468b-9b75-5a4891cf79ba",
-    "document": "DTSM 2 Analysis of Individual Training 2023 Edition V1.0.docx",
-    "section": "8.7 Recommended Further Reading",
-    "content": "Introduction\nThe purpose of the TGA is to identify the additional training requirement of the affected Role holders by determining the training gap between the Performance as stated in the Role PS / Framework(s), and any existing training Performance Standard(s). This analysis also enables the impact upon Defence capability to be assessed if the new or changed Defence capability is implemented without additional training. The TGA should provide:\nan update of the information contained in the Scoping Exercise Report and RA (if required)."
-  },
-  {
-    "id": "92ada1b5-4489-4ff8-811e-0406a4819cc7",
-    "document": "DTSM 2 Analysis of Individual Training 2023 Edition V1.0.docx",
-    "section": "8.7 Recommended Further Reading",
-    "content": "the additional learning requirements, if any, of the Role holders in terms of KSA at the sub-task and task-element levels.\na summary statement of the tasks identified for training.\nstatements of Training Gaps24, in terms of any Performance delta, between the requirements of the Role PS / Framework(s) and any existing TOs."
-  },
-  {
-    "id": "1f1f8842-1616-4cfe-b122-3a3b9ca6d5b4",
-    "document": "DTSM 2 Analysis of Individual Training 2023 Edition V1.0.docx",
-    "section": "8.7 Recommended Further Reading",
-    "content": "The decision whether to provide additional training or not, by providing a summary of the implications of the new Performance requirements when compared to existing training. This should be presented as statements for each task, identifying additional workplace and unit training requirements with a statement of any associated penalties regarding reduction in capability. If the option to continue existing training with existing resources is an acceptable risk for all Role PS identified in the RA, then the TNA is complete and a TOA may not be required.\nWhilst the TNA is designed to look at the gap that cannot be delivered by existing training, it should also consider the resource implications on existing training activities and the ability of those Training Providers to deliver in respect of a change in training throughput."
+    "content": "Competence Retention Analysis Handbook. CRA is a scientific methodology..."
   }
 ]
