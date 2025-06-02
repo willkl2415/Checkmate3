@@ -1,61 +1,54 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Check-Mate</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <script>
-        function autoSubmitForm() {
-            document.getElementById('query-form').submit();
-        }
-    </script>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
 <body>
     <div class="container">
         <div class="left-panel">
+            <img src="/static/checkmate_logo.png" class="logo" alt="Check-Mate Logo">
             <h2>Welcome to Check-Mate</h2>
-            <img src="/static/checkmate.png" alt="Check-Mate Logo" class="logo">
             <p><strong>Check-Mate</strong> is a go-to application for Training Consultants, Analysts, Designers, and Decision-Makers who demand accuracy, assurance, and speed – without compromise.</p>
             <p><strong>Check-Mate</strong> is a cutting-edge AI solution built to deliver instant clarity in high-complexity environments – especially those shaped by Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
             <p>Inspired by the finality of the phrase in chess, <strong>Check-Mate</strong> empowers you to instantly search, filter, and interrogate massive volumes of structured documentation – training, guidance, standards, and more – using OpenAI’s natural language and intelligent keyword filters.</p>
-            <p>Ask a question. Get an answer. Not in 30 minutes—but in 5 seconds. Drawn directly from authoritative sources, every response is precise, context-rich, and ready for action.</p>
-            <p><strong>Check-Mate</strong> doesn’t just speed things up—it delivers time savings of up to 99.7%, transforming slow, manual searches into rapid, evidence-based decisions.</p>
-            <p><strong>Check-Mate</strong> isn’t just a nice to have. It’s your final move.</p>
+            <p>Ask a question. Get an answer. Not in 30 minutes – but in 5 seconds.</p>
         </div>
-
         <div class="right-panel">
-            <form method="POST" id="query-form">
-                <input type="text" name="question" placeholder="Ask a question..." value="{{ question }}">
-                <select name="document" onchange="autoSubmitForm()">
-                    <option value="">All Documents</option>
+            <form method="POST">
+                <input type="text" name="question" placeholder="Ask your question..." value="{{ question | default('') }}" required>
+                <select name="selected_doc">
+                    <option value="All Documents">All Documents</option>
                     {% for doc in documents %}
                         <option value="{{ doc }}" {% if selected_doc == doc %}selected{% endif %}>{{ doc }}</option>
                     {% endfor %}
                 </select>
-                <select name="section" onchange="autoSubmitForm()">
-                    <option value="">All Sections</option>
-                    {% for section in sections %}
+                <select name="selected_section">
+                    <option value="All Sections">All Sections</option>
+                    {% for section in available_sections %}
                         <option value="{{ section }}" {% if selected_section == section %}selected{% endif %}>{{ section }}</option>
                     {% endfor %}
                 </select>
-                <div class="button-row">
-                    <button type="submit" class="ask-button">Ask Check-Mate</button>
-                    <button type="submit" name="clear" value="true" class="clear-button">Clear Search</button>
-                </div>
+                <label style="display:block; margin-top:10px;">
+                    <input type="checkbox" name="include_subsections" {% if include_subsections %}checked{% endif %}>
+                    Include Subsections
+                </label>
+                <br><br>
+                <button type="submit" class="ask-button">Ask Check-Mate</button>
+                <a href="/" class="clear-button">Clear Search</a>
             </form>
 
             {% if answer %}
-                <div class="response-box">
-                    <h3>{{ answer }} ({{ results|length }} result{{ results|length != 1 and 's' or '' }})</h3>
-                    {% for result in results %}
-                        <div class="result">
-                            <strong>Document:</strong> {{ result.document }}<br>
-                            <strong>Section:</strong> {{ result.section }}<br>
-                            <strong>Result {{ loop.index }}:</strong><br>
-                            {{ result.content }}
-                        </div>
-                    {% endfor %}
-                </div>
+                <h3>Check-Mate’s Response ({{ results|length }} result{{ 's' if results|length != 1 else '' }})</h3>
+                {% for result in results %}
+                    <div class="result-box">
+                        <p><strong>Document:</strong> {{ result['document'] }}</p>
+                        <p><strong>Section:</strong> {{ result['section'] }}</p>
+                        <p><strong>Result {{ loop.index }}:</strong><br>{{ result['content'] }}</p>
+                    </div>
+                {% endfor %}
+                <p><em>Use the document filter to view all matches.</em></p>
             {% endif %}
         </div>
     </div>
