@@ -1,20 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Defence Training Support Manual 2
 Analysis of Individual Training
 2023 Edition
@@ -62,7 +45,7 @@ Contents
 10	Annexes	56
 A - Initial KSA Analysis (KSA) Example	56
 B - Role Performance Statement (Role PS) Example	56
-C ñ Fidelity Analysis Example	56
+C ‚Äì Fidelity Analysis Example	56
 11	Document Information	60
 11.1	Document Coverage	60
 11.2	Document Information	60
@@ -81,8 +64,26 @@ Throughout this document there are references to other DTSMs, these references c
 The DTSMs currently available are:
 
 DTSM
-NumberDTSM
-NameSharePoint LinkDTSM 1Governance of Individual TrainingLinkDTSM 2Analysis of Individual Training RequirementsLinkDTSM 3Designing Individual TrainingLinkDTSM 4Delivery of Individual TrainingLinkDTSM 5Evaluation of Individual TrainingLink
+Number
+DTSM
+Name
+SharePoint Link
+DTSM 1
+Governance of Individual Training
+Link
+DTSM 2
+Analysis of Individual Training Requirements
+Link
+DTSM 3
+Designing Individual Training
+Link
+DTSM 4
+Delivery of Individual Training
+Link
+DTSM 5
+Evaluation of Individual Training
+Link
+
 2 Introduction to Analysis of Training
 2.1 Training Needs Analysis
 
@@ -146,13 +147,13 @@ e. Changes to organisational structure, or changed competence requirements.
 
 7. As a general rule, a TNA should be used when a change in Defence capability is likely to have a significant impact on the training resources required to generate trained output. The TNA should be fit for purpose, provide an auditable trail and determine the most cost- effective training solution. The TNA may vary in complexity from a simple scoping exercise to an extensive process requiring a dedicated team of Needs Analysts.
 
-8. Non-training specialist involvement in a TNA. Stakeholders often have a limited knowledge of the MTS and are unfamiliar with the TNA process. At the start of a TNA, time is often well spent in educating those who are to be involved in the TNA about the process. They should be aware of their responsibilities, including the provision of information and staffing routines. Whilst it is not usually the TNA authorís responsibility to the implement the training solution, post TNA, it is possible that they may be involved in subsequent working groups, to provide training support advice.
+8. Non-training specialist involvement in a TNA. Stakeholders often have a limited knowledge of the MTS and are unfamiliar with the TNA process. At the start of a TNA, time is often well spent in educating those who are to be involved in the TNA about the process. They should be aware of their responsibilities, including the provision of information and staffing routines. Whilst it is not usually the TNA author‚Äôs responsibility to the implement the training solution, post TNA, it is possible that they may be involved in subsequent working groups, to provide training support advice.
 
-9. Exploiting existing training activities. The need to design training from scratch on a ëblank sheet of paperí is a very unusual occurrence, as it is much more likely that existing training can be modified. It follows, therefore that it is often desirable to analyse the current training first. Where current role information, Role PS / Framework(s) or TOs do not exist for any current training, more comprehensive RA may be required, before any determination of a training requirement can be made. Analysis of similar, existing, training is also useful to support this.
+9. Exploiting existing training activities. The need to design training from scratch on a ‚Äòblank sheet of paper‚Äô is a very unusual occurrence, as it is much more likely that existing training can be modified. It follows, therefore that it is often desirable to analyse the current training first. Where current role information, Role PS / Framework(s) or TOs do not exist for any current training, more comprehensive RA may be required, before any determination of a training requirement can be made. Analysis of similar, existing, training is also useful to support this.
 10. Audit trail. A TNA should generate a clear audit trail which plots the sequence of events and decisions leading to a training solution. The justification and supporting evidence used as the basis for these decisions should be readily apparent (such as: references to, and/or copies of, academic research literature; the deliberations of the Analysts; minutes of TNASG meetings and Defence/Contractor publications). A quality audit trail requires full disclosure of, and rationale for, the methodology, tools and data sources used in the analysis, with copies of any specialist or bespoke software made available to the TNASG.
 11. Iterative/selective nature of TNAs. Whilst a TNA is carried out by completing a number of activities in sequence, it is important to note that the process is iterative in nature. Many influencing factors, risks and assumptions are liable to change during the conduct of a TNA. It is therefore important that at every stage of a TNA, the key outputs are reviewed to ensure their continuing validity, and that stages of the process be repeated if necessary. Processes for reviewing the TNA outputs should be capable of amendment where changes are required. Tight control should be exercised by the TNASG, which approves all changes to the TNA. Follow-on changes to the training requirement and the impact on training may be managed through a system of configuration control but this does not remove the responsibility of the TNASG for ensuring that changes are reflected in the TNA.
 
-12. It should be noted that the cheapest option is not necessarily the most cost-effective option in meeting the training requirement. Also, the cheapest option is not necessarily to continue existing training within existing resources. Therefore, ëeffectivenessí is the key as it is the extent to which the training has prepared the individual for the Defence effect which matters. Cost is ëefficiencyí focused to optimise the use of resources to enable the execution of training (and required learning) and ensure Value for Money (VfM).
+12. It should be noted that the cheapest option is not necessarily the most cost-effective option in meeting the training requirement. Also, the cheapest option is not necessarily to continue existing training within existing resources. Therefore, ‚Äòeffectiveness‚Äô is the key as it is the extent to which the training has prepared the individual for the Defence effect which matters. Cost is ‚Äòefficiency‚Äô focused to optimise the use of resources to enable the execution of training (and required learning) and ensure Value for Money (VfM).
 
 3 TNA Governance
 3.1 Introduction
@@ -209,7 +210,7 @@ effective for a TNA to explore all possible options and identify the most suitab
 
 3.2 Training Support Plan
 
-6. The TNASG should manage the TNA via the production and maintenance of a TSP. The TSP should identify any constraints on the TNA in terms of training policy or funding, ensuring that all the actions required to produce cost-effective training support are identified and the appropriate agencies tasked. The TSP should also specify when the TNA activities are to be conducted, who is responsible for the management and conduct of the TNA process and when and how the outputs are to be assured. Figure 2 illustrates the TSP in the wider TNA context. The TSP, governed by the TNASG should identify the milestones sufficient to meet the RFTD5. A RFTD should be considered at this stage, agreed and stated later as a ëhard stopí point, as part of the Training Authority Document (TrAD), which is produced at the end of Element 2 (Design).
+6. The TNASG should manage the TNA via the production and maintenance of a TSP. The TSP should identify any constraints on the TNA in terms of training policy or funding, ensuring that all the actions required to produce cost-effective training support are identified and the appropriate agencies tasked. The TSP should also specify when the TNA activities are to be conducted, who is responsible for the management and conduct of the TNA process and when and how the outputs are to be assured. Figure 2 illustrates the TSP in the wider TNA context. The TSP, governed by the TNASG should identify the milestones sufficient to meet the RFTD5. A RFTD should be considered at this stage, agreed and stated later as a ‚Äòhard stop‚Äô point, as part of the Training Authority Document (TrAD), which is produced at the end of Element 2 (Design).
 
 
 Figure 1: Training Support Plan (TSP) in the TNA Context
@@ -276,7 +277,7 @@ d. size and annual training throughput requirements of each of the training audi
 
 a. Individual. Users should identify all individuals who require training, and possibly at what stages in the training continuum they will be required to be trained. If possible, analysts should also identify the relevant individual career training pipelines and identify the optimal stage for any new training to be delivered. Users should identify the appropriate rank and branch/specialisation of all individuals requiring training; and consider individuals who could require training from across all Defence Lines of Development (DLoDs), and not limit thinking to a single area.
 
-b. Team and sub-team. Seldom will individuals operate alone; they will almost always constitute part of a team. Users should therefore identify the teams and sub- teams that will require training.  A team is a sub-division of an individual unitís
+b. Team and sub-team. Seldom will individuals operate alone; they will almost always constitute part of a team. Users should therefore identify the teams and sub- teams that will require training.  A team is a sub-division of an individual unit‚Äôs
 
 6 The Defence Human Factors Integration Policy for Defence Systems (JSP 912) also requires the development of a Target Audience Description so there is the potential for re-use of information here.
 
@@ -304,7 +305,7 @@ i. Personal data. Such as age, sex, rank, length of Service, ethnicity, cultural
 
 j. Geographic location / organisational distribution. These factors may result in certain constraints/considerations.
 
-10. Subject matter competence. Information needs to be collected on (or assumptions made about) the role-related competences (KSAs) in which the training audience is already proficient. The training audienceís level of KSA with respect to the Performance requirements is a factor, which depends mainly on previous related training, experience and recruitment profiles. Information should be obtained on:
+10. Subject matter competence. Information needs to be collected on (or assumptions made about) the role-related competences (KSAs) in which the training audience is already proficient. The training audience‚Äôs level of KSA with respect to the Performance requirements is a factor, which depends mainly on previous related training, experience and recruitment profiles. Information should be obtained on:
 
 a. experience with the training performance (and how it was obtained).
 
@@ -318,15 +319,15 @@ e. perception of the impact of mastering the Performance requirements on self, w
 
 11. Existing competences. When identifying the training audience, analysts should also establish whether individuals will be required to have any existing competences or experience levels prior to exploiting the new capability (pre-requisite analysis). Some of these competences may also be required by trainer/training support staff to enable them to assess performance and develop training activities. Example criteria include:
 
-a. establishing whether or not an individualís existing competences are sufficient for them to safely operate or maintain the new capability.
+a. establishing whether or not an individual‚Äôs existing competences are sufficient for them to safely operate or maintain the new capability.
 
 b. identifying what level of rank is required to exploit the capability.
 
 c. establishing the minimum level of experience required (such as, number of flying hours, previous command experience, specific operational experience etc).
 
-d. establishing the minimum qualification required (such as, charge qualified, command qualified, category ëAí nuclear watch keeper etc).
+d. establishing the minimum qualification required (such as, charge qualified, command qualified, category ‚ÄòA‚Äô nuclear watch keeper etc).
 
-12. Pre-requisites analysis. Pre-requisites analysis can be used to inform the training solution recommendations and is an important measure of competence/entry standard prior to training. This enables more accurate measures of competence ëbefore and afterí training to be taken, thereby facilitating measures of effectiveness of the training solution in delivering the required output standards.
+12. Pre-requisites analysis. Pre-requisites analysis can be used to inform the training solution recommendations and is an important measure of competence/entry standard prior to training. This enables more accurate measures of competence ‚Äòbefore and after‚Äô training to be taken, thereby facilitating measures of effectiveness of the training solution in delivering the required output standards.
 
 13. Training throughput. An estimate of training throughput numbers (total audience and annual throughput requirements) will inform requirements for the size and capacity of the potential training solution and must be made available to inform the SOTR process. The SOTR forecasts annual throughput requirements 4 years in advance, in order to help generate the required capability. Throughput numbers may be required in support of a variety of related training solutions for each distinct training audience group. Throughput figures should be calculated separately for each type of training required and for all affected Defence people, MoD civilians and Contractors. Training throughput figures should be presented in table or graph format, along with any throughput assumptions. Training throughput figures for all training audiences can then be used as separate requirements to be considered by users in generating potential training solutions. These factors should be considered when estimating the throughput numbers:
 
@@ -384,7 +385,7 @@ b. assumptions, freedoms and constraints14.
 
 11 That is, in order to potentially optimise efficiency and effectiveness.
 12 For example, access to training areas and the capacity of existing training solutions or infrastructure.
-13 To be undertaken in accordance with the Cabinet Officeís Management of Risk Best Practice Guidance.
+13 To be undertaken in accordance with the Cabinet Office‚Äôs Management of Risk Best Practice Guidance.
 14 Including current resourcing such as course design and the digital skills of trainers and designers.
 
 c. the conclusions, outputs or recommendations of previous relevant studies (if any).
@@ -396,7 +397,7 @@ h. confirmation (or otherwise) that there is a training requirement that will fu
 i. recommended possible training solution option(s) to be taken forward into the analysis and design stages.
 j. a section on risk.
 
-17. Training solution recommendations. Training solution recommendations should be examined by the relevant stakeholders at the TNASG. Taking into account time and resources, it will decide the most appropriate way of taking the requirement forward. Where a training solution is recommended and agreed at the TNASG, a plan for subsequent analysis and design activities should be produced. If a training solution is not recommended, the DSAT process should be halted at this point. However, a response to the question, ëwhat should we do to address these deficiencies?í should be given. The problem may not have anything to do with training and may require:
+17. Training solution recommendations. Training solution recommendations should be examined by the relevant stakeholders at the TNASG. Taking into account time and resources, it will decide the most appropriate way of taking the requirement forward. Where a training solution is recommended and agreed at the TNASG, a plan for subsequent analysis and design activities should be produced. If a training solution is not recommended, the DSAT process should be halted at this point. However, a response to the question, ‚Äòwhat should we do to address these deficiencies?‚Äô should be given. The problem may not have anything to do with training and may require:
 
 a. a revision of procedures and/or improvements to management and supervision.
 
@@ -416,7 +417,7 @@ b. Policy. Influences concerning policy 15 can affect the TNA strategy and can i
 requirements, minimum qualification levels for prospective role holders and/or tasks, and any accreditation or legislative issues.
 c. Previous/associated studies. Reference to and use of previous or associated studies is strongly recommended. Information sources include previous TNAs, Human Factors (HF) studies and evaluation reports on similar requirement(s). For major projects, where more than one TNA is being undertaken, it can be useful to indicate the relationship between the various TNAs.
 d. Potential training services. The major types of training Methods & Media likely to be considered or examined should be included at this stage and then re-examined later. This will reflect the current training policy and should specify any areas requiring particular attention, such as the possible need for synthetic training, embedded training or Public/Private Partnership or Private Finance Initiative (PPP/PFI) solutions. These are only possible options and may change during the TOA/EA as a result of developments in policy, technology etc. An estimate of the cost of these services should be provided. Any new training solutions may have to utilise existing training facilities and associated established support elements (ie course design) which should be recorded in the report.
-e. Methodology. The TNA methodology should be tailored to suit the specific training requirement but should always provide a full audit trail. For example, in the case of a small change to training policy, a TGA followed by a TOA to establish the most cost-effective Methods & Media would be sufficient. Equally, if the training is to fit into an existing training activity using similar delivery techniques and Media, then a full blown TNA may be unnecessary. The outputs from the scoping exercise and subsequent analyses should be agreed during Stage 1 of the TNA, which will allow the user to select the correct methodology and tools based on the constraints and information available at the time. Analysis should not be conducted as a ëcheck list exerciseí, but should only be undertaken if it adds value to the TNA. TNA is an iterative process and the TNA outputs are therefore subject to continuous review.
+e. Methodology. The TNA methodology should be tailored to suit the specific training requirement but should always provide a full audit trail. For example, in the case of a small change to training policy, a TGA followed by a TOA to establish the most cost-effective Methods & Media would be sufficient. Equally, if the training is to fit into an existing training activity using similar delivery techniques and Media, then a full blown TNA may be unnecessary. The outputs from the scoping exercise and subsequent analyses should be agreed during Stage 1 of the TNA, which will allow the user to select the correct methodology and tools based on the constraints and information available at the time. Analysis should not be conducted as a ‚Äòcheck list exercise‚Äô, but should only be undertaken if it adds value to the TNA. TNA is an iterative process and the TNA outputs are therefore subject to continuous review.
 f. Resources. An estimate of the resource allocation should be made to include the following:
 
 (1) sources of information required including documentation and access to SMEs.
@@ -429,7 +430,7 @@ f. Resources. An estimate of the resource allocation should be made to include t
 
 5.1 Introduction
 
-1. The duties, tasks16, sub-tasks and task-elements performed by an individual constitute ëthe Roleí17. The RA is the process of examining a specific Role in detail, in order to identify all the component duties and tasks, the Conditions under which the Role is performed, and the Standards to be achieved when performing the Role. The ëperson in the Roleí should also be considered. In this way, it will be possible to identify the Knowledge, Skills and Attitudes/behaviours necessary for effective performance. The RA should examine:
+1. The duties, tasks16, sub-tasks and task-elements performed by an individual constitute ‚Äòthe Role‚Äô17. The RA is the process of examining a specific Role in detail, in order to identify all the component duties and tasks, the Conditions under which the Role is performed, and the Standards to be achieved when performing the Role. The ‚Äòperson in the Role‚Äô should also be considered. In this way, it will be possible to identify the Knowledge, Skills and Attitudes/behaviours necessary for effective performance. The RA should examine:
 a. role objective and responsibilities.
 
 b. principal duties and supporting tasks, i.e. the Performance and the Knowledge, Skills and Attitudes required to perform the Role.
@@ -451,7 +452,7 @@ j. Role-related factors influencing knowledge and skill fade (or competence rete
 
 
 16Task is a major component of a Role or duty that can be produced, compiled, achieved and/or accomplished by itself.
-17 A ëjobí can be made up of many Roles. Therefore, it can be argued that jobs (in the traditional sense of a person conducting a single task requiring a single skill, for example) seldom exist. Accordingly, it is more appropriate to analyse a Role that a person will fulfil. An example would be a RN Catering Services rating, who is trained in the primary Role but routinely has other Roles and duties aboard ship that are not related to the primary role (such as firefighting and First Aid). Training that person for the job of Catering Services/Fire Fighter/First Aider is impractical, but training that person for the primary Role , then the Role of fire fighter and the First Aider makes more sense. Thus RA is a more logical term than Job Analysis and more reflective of what this analysis actually does.
+17 A ‚Äòjob‚Äô can be made up of many Roles. Therefore, it can be argued that jobs (in the traditional sense of a person conducting a single task requiring a single skill, for example) seldom exist. Accordingly, it is more appropriate to analyse a Role that a person will fulfil. An example would be a RN Catering Services rating, who is trained in the primary Role but routinely has other Roles and duties aboard ship that are not related to the primary role (such as firefighting and First Aid). Training that person for the job of Catering Services/Fire Fighter/First Aider is impractical, but training that person for the primary Role , then the Role of fire fighter and the First Aider makes more sense. Thus RA is a more logical term than Job Analysis and more reflective of what this analysis actually does.
 
 5.2 Identification of Role
 
@@ -466,7 +467,7 @@ c. internal context, such as organisational structures, Role dependencies, relat
 
 a. Role objectives.
 
-(1) Main. A short, concise statement of the main objective of the Role, phrased in terms of the Performance expected. It should begin with a verb denoting action. Vague terms such as ëto knowí or ëto understandí should be avoided.
+(1) Main. A short, concise statement of the main objective of the Role, phrased in terms of the Performance expected. It should begin with a verb denoting action. Vague terms such as ‚Äòto know‚Äô or ‚Äòto understand‚Äô should be avoided.
 
 (2) Subsidiary. Written in the same format, these either amplify the main objective by showing what must be done to achieve it or indicate additional areas of Performance within the Role.
 b. Duties and tasks. Duties are the principal activities of the Role holder, are directly related to the Role and are subordinate to the overall Role objectives. They can then be broken down into their component tasks, sub-tasks and task-elements. This is achieved through the Production of a Role Scalar which is discussed later.
@@ -474,10 +475,10 @@ b. Duties and tasks. Duties are the principal activities of the Role holder, are
 c. Standards. The Standards necessary for the satisfactory Role Performance should be considered and recorded.
 d. Conditions. The Conditions under which the Role is performed. An exhaustive list of every trivial condition is not necessary and only the important Conditions should
 
-18 TAFMIS has forms entitled ëRole Specificationí and ëRole Descriptioní to assist with this process.
+18 TAFMIS has forms entitled ‚ÄòRole Specification‚Äô and ‚ÄòRole Description‚Äô to assist with this process.
 
-be recorded. The breakdown of Conditions into categories of ëphysicalí, ëintrinsicí, ësocialí and ëpsychologicalí may be used.
-e. Responsibilities. Responsibilities should be listed under the headings of ëto superiorsí and ëfor subordinatesí. It would also be convenient to include under ëresponsibilitiesí information to the degree of supervision exercised over the Role holder and the extent to which they would be held accountable for their own work or the work of others. This helps set the context.
+be recorded. The breakdown of Conditions into categories of ‚Äòphysical‚Äô, ‚Äòintrinsic‚Äô, ‚Äòsocial‚Äô and ‚Äòpsychological‚Äô may be used.
+e. Responsibilities. Responsibilities should be listed under the headings of ‚Äòto superiors‚Äô and ‚Äòfor subordinates‚Äô. It would also be convenient to include under ‚Äòresponsibilities‚Äô information to the degree of supervision exercised over the Role holder and the extent to which they would be held accountable for their own work or the work of others. This helps set the context.
 f. Difficulties and distastes. This information can indicate the areas that need to be emphasised in training.
 g. Criticality. The relative criticality of a task within a given Role should be listed using pre-defined categories (e.g. high, moderate, low). This information can be used to inform risk management activities and decision-making relating to refresher training requirements.
 h. Role-related factors influencing skill fade. An identification of key factors influencing skill fade. It will be useful to consider both positive and negative influences on skill fade so that the impact of changes to the design of the Role (e.g. increased or reduced complexity, modifications to equipment design and associated resources) can be assessed. This information, along with the KSA, Difficulty, Importance, Frequency (DIF) and criticality analyses will help to inform the identification of appropriate training Methods & Media for both the acquisition and refreshment of Role-related skills and knowledge.
@@ -485,7 +486,7 @@ h. Role-related factors influencing skill fade. An identification of key factors
 5.7	Production of Role Scalar
 
 
-4. A Role Scalar is produced by analysing the duties, tasks, sub-tasks and task-elements (Performance) that have to be performed and recording them diagrammatically. The Production of the Role Scalar is a key part of the RA process as it defines the minimum Performance to be achieved in the Defence environment. Tasks within a Role should contain an object, a verb19 and sometimes a qualifier. An example of a task statement would be: 'perform a daily routine service on a diesel engineí. A task can be defined as:
+4. A Role Scalar is produced by analysing the duties, tasks, sub-tasks and task-elements (Performance) that have to be performed and recording them diagrammatically. The Production of the Role Scalar is a key part of the RA process as it defines the minimum Performance to be achieved in the Defence environment. Tasks within a Role should contain an object, a verb19 and sometimes a qualifier. An example of a task statement would be: 'perform a daily routine service on a diesel engine‚Äô. A task can be defined as:
 a. a specific action.
 
 b. performed by an individual.
@@ -540,28 +541,140 @@ e. the production of a Role PS, Framework(s) and TOs.
 
 10. DIF Analysis is a method of analysing Role information through the Difficulty, Importance and Frequency (DIF) of tasks and sub-tasks, with the aim of enabling early training decisions, such as the generation of Initial Training Categories20. DIF Analysis provides an indication of the priority and standard to be applied to the training. The DIF Analysis assesses the difficulty, importance and frequency of tasks using a simple algorithm, which is shown in Table 1.
 
-DifficultyImportanceFrequencyTraining Category
+Difficulty
+Importance
+Frequency
+Training Category
 
 
 
-Very Difficult
-Very ImportantVery Frequent2Moderately Frequent1Infrequent1
-Moderately ImportantVery Frequent2Moderately Frequent2Infrequent1
-Not ImportantVery Frequent3Moderately Frequent3Infrequent2
+
+Very Difficult
+
+Very Important
+Very Frequent
+2
+
+
+Moderately Frequent
+1
+
+
+Infrequent
+1
+
+
+Moderately Important
+Very Frequent
+2
+
+
+Moderately Frequent
+2
+
+
+Infrequent
+1
+
+
+Not Important
+Very Frequent
+3
+
+
+Moderately Frequent
+3
+
+
+Infrequent
+2
 
 
 
-Moderately Difficult
-Very ImportantVery Frequent2Moderately Frequent2Infrequent2
-Moderately ImportantVery Frequent3Moderately Frequent2Infrequent2
-Not ImportantVery Frequent3Moderately Frequent4Infrequent5
+
+Moderately Difficult
+
+Very Important
+Very Frequent
+2
+
+
+Moderately Frequent
+2
+
+
+Infrequent
+2
+
+
+Moderately Important
+Very Frequent
+3
+
+
+Moderately Frequent
+2
+
+
+Infrequent
+2
+
+
+Not Important
+Very Frequent
+3
+
+
+Moderately Frequent
+4
+
+
+Infrequent
+5
 
 
 
-Not Difficult
-Very ImportantVery Frequent3Moderately Frequent3Infrequent2
-Moderately ImportantVery Frequent3Moderately Frequent4Infrequent4
-Not ImportantVery Frequent5Moderately Frequent6Infrequent6
+
+Not Difficult
+
+Very Important
+Very Frequent
+3
+
+
+Moderately Frequent
+3
+
+
+Infrequent
+2
+
+
+Moderately Important
+Very Frequent
+3
+
+
+Moderately Frequent
+4
+
+
+Infrequent
+4
+
+
+Not Important
+Very Frequent
+5
+
+
+Moderately Frequent
+6
+
+
+Infrequent
+6
+
 Table 1: A DIF Analysis Algorithm
 
 
@@ -570,10 +683,10 @@ Table 1: A DIF Analysis Algorithm
 
 11. As DIF Analysis relies on subjective data it is essential that each level is clearly defined to try and increase the reliability of the data. Suggested definitions used within the DIF Analysis are as follows:
 
-a. Difficulty assesses the chance of performance error by asking the question: ìWhat is the possibility of inadequate performance from the average job holder?î The range can be defined by using two extreme statements, namely, ëThe task is easily performed once learntí to, ëThe task requires constant practice and supervisioní.
-b. Importance, assumes that performance error is made and assesses the impact of the error by asking the following question: ìWhat is the impact/consequence to operational capability, safety, lost revenue and public relations if the task is performed inadequately?î Once again the range can be defined by using two extreme statements, for example, ëFailure is unlikely to have any impact upon operational capability or well being of personnel or equipmentí to ëFailure will have an immediate and severe impact upon operational capability or risk of severe injury or damage to equipmentí.
+a. Difficulty assesses the chance of performance error by asking the question: ‚ÄúWhat is the possibility of inadequate performance from the average job holder?‚Äù The range can be defined by using two extreme statements, namely, ‚ÄòThe task is easily performed once learnt‚Äô to, ‚ÄòThe task requires constant practice and supervision‚Äô.
+b. Importance, assumes that performance error is made and assesses the impact of the error by asking the following question: ‚ÄúWhat is the impact/consequence to operational capability, safety, lost revenue and public relations if the task is performed inadequately?‚Äù Once again the range can be defined by using two extreme statements, for example, ‚ÄòFailure is unlikely to have any impact upon operational capability or well being of personnel or equipment‚Äô to ‚ÄòFailure will have an immediate and severe impact upon operational capability or risk of severe injury or damage to equipment‚Äô.
 
-c. Frequent tasks may or may not be Important or Difficult and scales may range from ëOnce or more a dayí to ëOnce a yearí to ëNeverí (if the task has changed then the requirement to carry out specific sub-tasks may have reduced to nothing). Task frequency becomes significant, however, when considering retraining, since frequently performed tasks do not require retraining if performance is adequate. The following factors may be included during analysis to collect information for future use:
+c. Frequent tasks may or may not be Important or Difficult and scales may range from ‚ÄòOnce or more a day‚Äô to ‚ÄòOnce a year‚Äô to ‚ÄòNever‚Äô (if the task has changed then the requirement to carry out specific sub-tasks may have reduced to nothing). Task frequency becomes significant, however, when considering retraining, since frequently performed tasks do not require retraining if performance is adequate. The following factors may be included during analysis to collect information for future use:
 
 (1) Relative time spent on the task (very much above average, above average, below, average, average, very much below average).
 
@@ -586,7 +699,7 @@ c. Frequent tasks may or may not be Important or Difficult and scales may range 
 5.5 Knowledge, Skills and Attitude Analysis
 
 
-13. A KSA Analysis is a systematic analysis of ëPerformanceí and/or ëStandardsí in order to identify the necessary KSA required to perform a Role. A KSA Analysis moves on from what the Role holder does (captured in the Role Scalar), to identifying the KSA that have to be learned to perform the task. The results of an Initial KSA Analysis will help with the generation of Training Objectives and Enabling Objectives and the selection of the most appropriate training Methods & Media, during Element 2 (Design). Two examples of Initial KSA Analysis relating to a Role are at Annex A.
+13. A KSA Analysis is a systematic analysis of ‚ÄòPerformance‚Äô and/or ‚ÄòStandards‚Äô in order to identify the necessary KSA required to perform a Role. A KSA Analysis moves on from what the Role holder does (captured in the Role Scalar), to identifying the KSA that have to be learned to perform the task. The results of an Initial KSA Analysis will help with the generation of Training Objectives and Enabling Objectives and the selection of the most appropriate training Methods & Media, during Element 2 (Design). Two examples of Initial KSA Analysis relating to a Role are at Annex A.
 
 14. Knowledge. Knowledge is information acquired through experience or education; the theoretical or practical understanding of a subject. Knowledge generally involves recalling information, e.g. the knowledge of rules and regulations, names, sequences, classifications, methodology, events, principles or theories. Whenever a task is performed, knowledge is required. When carrying out a task, a possible pre-requisite is knowledge of:
 
@@ -612,13 +725,17 @@ b. Physical/practical skills. These can be described as learned capabilities of 
 
 17. Attitudes. An Attitude is a way of thinking and feeling about something, often but not always demonstrated through behaviour. The identification of Standards relating to personal qualities and Attitudes is perhaps the most challenging part of the KSA Analysis. This is because Attitudes cannot always be observed directly and hence the creation of definable standards can prove difficult. Attitude is defined as a predisposition resulting in a tendency to act or react in a certain manner when confronted with another person, group, object, situation or idea. It is important to understand that this predisposition to think and feel in a certain way does not necessarily result in observable behaviours. An example of this could be an individual who holds an Attitude that all dogs are dangerous. However, this attitude may not be obvious to others when the individual is handling a dog with which they are familiar and have learned is friendly. Table 2 illustrates how Attitudes can manifest themselves.
 
-Attitudes generally:* are learned from experience (or from others);
+Attitudes generally:
+* are learned from experience (or from others);
 * may include thoughts, feelings and behaviours;
 * influence our behaviours towards people or objects;
 * may be stable and persist over time; but
-* can be changed rapidly through experiences, circumstances, education or training.Attitudes have three main components:* what we think, e.g. ëall dogs are dangerousí.
-* what we feel, ëanxiety or fear near dogsí.
-* how we act, ëavoid or approach dogsí (observable behaviour).
+* can be changed rapidly through experiences, circumstances, education or training.
+Attitudes have three main components:
+* what we think, e.g. ‚Äòall dogs are dangerous‚Äô.
+* what we feel, ‚Äòanxiety or fear near dogs‚Äô.
+* how we act, ‚Äòavoid or approach dogs‚Äô (observable behaviour).
+
 Table 2: Attitudes
 
 18. Within each role there are tasks that have an attitudinal component related to their performance. Initial KSA Analysis identifies Attitudes associated with role performance to determine the required direction of that attitude. At this stage the Analysis of Attitude can
@@ -628,7 +745,47 @@ be quite high level. The depth of the analysis within the attitudinal domain wil
 19. To assess an attitude, behaviour must be observed, possibly over a period of time. To assist subjective judgements on attitude an objective criteria should, where possible, be used to support the decision. Defining the negative, what is unacceptable behaviour, can result in a simpler and more precise Standard. A Behaviourally Anchored Rating Scale (BARS) is an example of a tool which can be used to assess observable behaviour objectively. Although a BARS (Table 3) can be used to measure attitude indirectly through observing behaviour, much care is needed when inferring Attitudes from observable behaviours alone. Attitudes may also be directly measured using validated questionnaires or other psychometric instruments21. Some examples are presented in Table 3. Note that whilst BARS is predominantly a tool used in the training environment, forming part of the ASpec if appropriate, it is mentioned here because it is useful to bear it in mind at the RA stage.
 COMMUNICATION
 
-RatingTickBehavioural IndicatorsUnsatisfactory (-1)Speaks to others in an aggressive manner.Fails to listen effectivelyIgnores the opinions of his/her peersDoes not articulate logically or clearlyMeets expectations (+1)Can adapt style of communication appropriatelyCommunicates clearly and logically so others understandActively takes part in group discussionsDemonstrates active listening skillsExceeds expectations (+2)Leads group discussions effectively and appropriatelyChooses specific language and detail to capture and maintain attention of othersDemonstrates appropriate confidence and assertion without arroganceCan present arguments logically and clearly without aggressionOverall Score obtained during observation =
+Rating
+Tick
+Behavioural Indicators
+Unsatisfactory (-1)
+
+Speaks to others in an aggressive manner.
+
+
+Fails to listen effectively
+
+
+Ignores the opinions of his/her peers
+
+
+Does not articulate logically or clearly
+Meets expectations (+1)
+
+Can adapt style of communication appropriately
+
+
+Communicates clearly and logically so others understand
+
+
+Actively takes part in group discussions
+
+
+Demonstrates active listening skills
+Exceeds expectations (+2)
+
+Leads group discussions effectively and appropriately
+
+
+Chooses specific language and detail to capture and maintain attention of others
+
+
+Demonstrates appropriate confidence and assertion without arrogance
+
+
+Can present arguments logically and clearly without aggression
+Overall Score obtained during observation =
+
 Table 3: Behaviourally Anchored Rating Scale
 20. Although Attitudes may be inferred from observable behaviours this is prone to biases (e.g. a group of soldiers may set up an Observation Point (OP) with no attempt to camouflage their position.  This might infer that they do not care (Attitude) about
 
@@ -636,58 +793,142 @@ Table 3: Behaviourally Anchored Rating Scale
 
 concealment. However, they may simply not know (Knowledge), or have forgotten about concealment rather than not care about it. Similarly, they may lack the ability (Skill) to properly conceal their OP). Before remedial training is implemented, identifying the correct domain is critical. Targeting an Attitude may be inappropriate if the knowledge or practical Skill is lacking.
 
-21. In order to develop an optimised training system it is important to consider both how Knowledge, Skills and Attitudes are acquired and how they are retained over time. Understanding the rate at which different types of Knowledge and Skills fade can inform training design and the setting of refresher training intervals. In order to conduct refresher training interval analysis, it can be useful to use a more detailed breakdown of Knowledge and Skills than that discussed in DSAT activity ñ Initial Knowledge, Skills, Attitudes (KSA) Analysis. Literature from psychology and cognitive science suggests that Knowledge and Skills can be broken down as shown in Table 4.
+21. In order to develop an optimised training system it is important to consider both how Knowledge, Skills and Attitudes are acquired and how they are retained over time. Understanding the rate at which different types of Knowledge and Skills fade can inform training design and the setting of refresher training intervals. In order to conduct refresher training interval analysis, it can be useful to use a more detailed breakdown of Knowledge and Skills than that discussed in DSAT activity ‚Äì Initial Knowledge, Skills, Attitudes (KSA) Analysis. Literature from psychology and cognitive science suggests that Knowledge and Skills can be broken down as shown in Table 4.
 
-TypeDescriptionTask ExamplesContinuous
-Psychomotor SkillsThe ability to perform (repeated) motor
-actions that do not have distinct beginnings or endings.Flying aircraft, driving, soldering and welding.Discrete PsychomotorThe ability to conduct physical tasks with discrete beginnings and endings. These physical tasks have a
-procedural element.Weapon handling e.g. assembling and dis-assembling a rifle; exchange steering box
-assembly.Explicit KnowledgeExplicit knowledge required to conduct a task such as facts, principles, concepts, and theories.Quality and engineering hygiene measures; safety regulations; knowledge of how to use hand
-tools and testing equipment.Decision MakingApplication of cognitive processes such as judgement, problem solving, reasoning
-and analysis in order for an individual to arrive at a decision.Fault diagnosisProcedural SkillsAbility to remember a sequence of steps and their order so as to execute a task. Application of this type of skill relies on the working memory capacity of an individual, and hence the procedural aspect of the execution of the task is inherently cognitive in nature. Motor or
-physical elements are minimal.Fault finding; Navigating through menus and submenus on a digital Battlefield Management System to execute a command.
+Type
+Description
+Task Examples
+Continuous
+Psychomotor Skills
+The ability to perform (repeated) motor
+actions that do not have distinct beginnings or endings.
+Flying aircraft, driving, soldering and welding.
+Discrete Psychomotor
+The ability to conduct physical tasks with discrete beginnings and endings. These physical tasks have a
+procedural element.
+Weapon handling e.g. assembling and dis-assembling a rifle; exchange steering box
+assembly.
+Explicit Knowledge
+Explicit knowledge required to conduct a task such as facts, principles, concepts, and theories.
+Quality and engineering hygiene measures; safety regulations; knowledge of how to use hand
+tools and testing equipment.
+Decision Making
+Application of cognitive processes such as judgement, problem solving, reasoning
+and analysis in order for an individual to arrive at a decision.
+Fault diagnosis
+Procedural Skills
+Ability to remember a sequence of steps and their order so as to execute a task. Application of this type of skill relies on the working memory capacity of an individual, and hence the procedural aspect of the execution of the task is inherently cognitive in nature. Motor or
+physical elements are minimal.
+Fault finding; Navigating through menus and submenus on a digital Battlefield Management System to execute a command.
+
 Table 4: Knowledge and Skills Domains
 22. Without practice, continuous psychomotor skills and explicit knowledge are retained for the longest; discrete psychomotor and decision-making skills have moderate retention over time and procedural skills fade the most quickly. The retention of Knowledge and Skills over time is moderated or influenced by how often the task is performed or practised. Table 5 shows the impact of task performance frequency on the retention of the different types of Knowledge and Skills. For example, if discrete psychomotor skills are performed very frequently then the retention level is High. However, if performed infrequently then the retention level is reduced to moderate.
 
-TypeFrequency of task performanceRetention levelContinuous Psychomotor skills
-Explicit KnowledgeVery FrequentHighModerately FrequentHighInfrequentHighDiscrete psychomotor skills Decision- making skillsVery FrequentHighModerately FrequentModerateInfrequentModerateProcedural skillsVery FrequentModerateModerately FrequentLowInfrequentLow
+Type
+Frequency of task performance
+Retention level
+Continuous Psychomotor skills
+Explicit Knowledge
+Very Frequent
+High
+
+Moderately Frequent
+High
+
+Infrequent
+High
+Discrete psychomotor skills Decision- making skills
+Very Frequent
+High
+
+Moderately Frequent
+Moderate
+
+Infrequent
+Moderate
+Procedural skills
+Very Frequent
+Moderate
+
+Moderately Frequent
+Low
+
+Infrequent
+Low
+
 Table 5: Effect of Task Frequency on Knowledge/Skill Retention
 
 23. The retention level of the Knowledge and Skills for a given task should be taken into account when setting refresher training intervals. It is important to note that a number of role-related factors (in addition to frequency of task performance) can also influence Knowledge and Skill fade, e.g. designing equipment, job aids and operating procedures in accordance with good practice (which includes built-in user feedback for equipment and interfaces, logical steps within procedures).
 
-24. Training methods, media and assessment regimes which ensure the effective acquisition of knowledge and skills in the first place also help to reduce skill fade. Table 6 provides a summary of training ëstrategiesí which can be used to improve knowledge and skill retention. The first column indicates which types of knowledge and skill the strategy is relevant to.
+24. Training methods, media and assessment regimes which ensure the effective acquisition of knowledge and skills in the first place also help to reduce skill fade. Table 6 provides a summary of training ‚Äòstrategies‚Äô which can be used to improve knowledge and skill retention. The first column indicates which types of knowledge and skill the strategy is relevant to.
 
-Training StrategiesDescriptionJob aids
-(Relevant to all knowledge and skill types)Provision of a job aid. Job aids can reduce operator memory load and the likelihood of skill fade. Their influence depends on their quality and practicality.Feedback
-(Relevant to all knowledge and skill types)Provision of quality feedback. Detailed feedback stemming from a learnerís performance, combined with a chance to improve performance, is important to skills acquisition. Reducing the frequency of feedback during training promotes long term
-retention and skill transfer.Communicate utility of training
-(Relevant to all knowledge and skill types)Training is perceived as having high utility when a link is perceived between required performance and outcomes valued by trainees. Those who perceive training as valuable are more likely to apply newly acquired knowledge, skills and behaviours to the job than
-trainees who do not.Assessment enhanced learning
-(Relevant to all knowledge and skill types)Assessment enhances retention, whereas continuous training without assessment has a limited effect on retention. When used frequently during initial training, assessment of performance enhances skill acquisition and retention. Assessment combined
-with the provision of feedback on performance assists learning and retention.Provision of recognition cues
-(Procedural skill type)Providing recognition cues to learners has been shown to have a beneficial effect on learning and retention, particularly in the
-retrieval of aspects of long, complex or procedural tasks.  For
-example, recognition cues can be used to ëpromptí a user as to
-what the next step should be in a task performed on a digital Battlefield Information Management System (BIMS).Part-task training
-(e.g. continuous and discrete psychomotor and procedural skill types)Tasks can be decomposed into components e.g. subtasks. Part- task training involves trainees learning and practising these task components in isolation. Once mastered the whole task should be practised.  This strategy is particularly beneficial for very
-complex tasks with cognitive (e.g. procedural) and psychomotor components.Appropriate simulation fidelity
+Training Strategies
+Description
+Job aids
+(Relevant to all knowledge and skill types)
+Provision of a job aid. Job aids can reduce operator memory load and the likelihood of skill fade. Their influence depends on their quality and practicality.
+Feedback
+(Relevant to all knowledge and skill types)
+Provision of quality feedback. Detailed feedback stemming from a learner‚Äôs performance, combined with a chance to improve performance, is important to skills acquisition. Reducing the frequency of feedback during training promotes long term
+retention and skill transfer.
+Communicate utility of training
+(Relevant to all knowledge and skill types)
+Training is perceived as having high utility when a link is perceived between required performance and outcomes valued by trainees. Those who perceive training as valuable are more likely to apply newly acquired knowledge, skills and behaviours to the job than
+trainees who do not.
+Assessment enhanced learning
+(Relevant to all knowledge and skill types)
+Assessment enhances retention, whereas continuous training without assessment has a limited effect on retention. When used frequently during initial training, assessment of performance enhances skill acquisition and retention. Assessment combined
+with the provision of feedback on performance assists learning and retention.
+Provision of recognition cues
+(Procedural skill type)
+Providing recognition cues to learners has been shown to have a beneficial effect on learning and retention, particularly in the
+retrieval of aspects of long, complex or procedural tasks.  For
+
+
+example, recognition cues can be used to ‚Äòprompt‚Äô a user as to
+what the next step should be in a task performed on a digital Battlefield Information Management System (BIMS).
+Part-task training
+(e.g. continuous and discrete psychomotor and procedural skill types)
+Tasks can be decomposed into components e.g. subtasks. Part- task training involves trainees learning and practising these task components in isolation. Once mastered the whole task should be practised.  This strategy is particularly beneficial for very
+complex tasks with cognitive (e.g. procedural) and psychomotor components.
+Appropriate simulation fidelity
 (e.g. continuous and discrete psychomotor, procedural, and decision-
-making skill types)When the acquisition of cognitive skills (procedural/decision making) is required, it is the psychological fidelity of a task and not its physical fidelity that drives skill acquisition and consolidation. However, where cognitive and psychomotor skills are combined high fidelity simulation helps the consolidation of skills.Procedural instructions
-(Procedural skill type)Structure instructions in a way that will induce learners to expend the cognitive effort needed for effective learning. Inclusion of more general steps helps learning transfer; they force the learner to try to understand the system or domain and engage in effortful cognitive strategies. Inclusion of examples with general instructions supports initial performance, because it helps the
-learner understand what they needed to do.Refresher Assessment (e.g. discrete psychomotor, procedural and decision- making skill type)Assessment of core knowledge, skills and behaviours reduces the burden on refresher training. Training is only required for those task components where performance is below the required level of proficiency. This can exploit advances in new training technologies for the assessment of core knowledge, skills and behaviours at any point in time. Decision-making skills can be
-assessed using novel scenarios.Standardised and recorded assessment
-(Relevant to all knowledge and skill types)Recording trainee performance helps trainers in making objective assessments of learnersí skill acquisition and in targeting the provision of feedback.Match between training and operational environment
-(Relevant to all knowledge and skill types)Retention is enhanced if the training context and situational cues are similar to those which are experienced in the operational environment. Individuals should be exposed to as many different situations and content-based scenarios as possible to promote
-knowledge and skill transfer.Overlearning (overtraining) (e.g. discrete and
-continuous psychomotor, and procedural skill types)Overlearning refers to the continuation of practising a task after error free performance has been achieved. It can enhance speed of performance after accuracy has reached a ceiling. Effective for both psychomotor and cognitive skills, although any benefits provided are stronger for tasks with a cognitive element (e.g. memory for procedures).  Overlearning can benefit, e.g. the
-acquisition and retention of safety critical drills which can be proceduralised. It has little effect on long-term retention.Variable practice training (Relevant to all knowledge and skill types)Varying the practice of knowledge and different skills so that items are intermixed across the training programme rather than repeated in concentrated blocks; this enhances long term retention after extended periods of no practice. Acquisition can take less total time and the retention can be 50% better. The optimal inter study interval in distributed training protocols lies between 10-30% of the retention interval with longer inter-study intervals enhancing retention more than shorter inter-study interval.  A longer-than-optimal spacing is better than shorter-
-than-optimal spacing.
-Active learning (Procedural and decision- making skill types)Active learning can be more effective than guided learning. The instructor creates a training environment in which the trainee can:
+making skill types)
+When the acquisition of cognitive skills (procedural/decision making) is required, it is the psychological fidelity of a task and not its physical fidelity that drives skill acquisition and consolidation. However, where cognitive and psychomotor skills are combined high fidelity simulation helps the consolidation of skills.
+Procedural instructions
+(Procedural skill type)
+Structure instructions in a way that will induce learners to expend the cognitive effort needed for effective learning. Inclusion of more general steps helps learning transfer; they force the learner to try to understand the system or domain and engage in effortful cognitive strategies. Inclusion of examples with general instructions supports initial performance, because it helps the
+learner understand what they needed to do.
+Refresher Assessment (e.g. discrete psychomotor, procedural and decision- making skill type)
+Assessment of core knowledge, skills and behaviours reduces the burden on refresher training. Training is only required for those task components where performance is below the required level of proficiency. This can exploit advances in new training technologies for the assessment of core knowledge, skills and behaviours at any point in time. Decision-making skills can be
+assessed using novel scenarios.
+Standardised and recorded assessment
+(Relevant to all knowledge and skill types)
+Recording trainee performance helps trainers in making objective assessments of learners‚Äô skill acquisition and in targeting the provision of feedback.
+Match between training and operational environment
+(Relevant to all knowledge and skill types)
+Retention is enhanced if the training context and situational cues are similar to those which are experienced in the operational environment. Individuals should be exposed to as many different situations and content-based scenarios as possible to promote
+knowledge and skill transfer.
+Overlearning (overtraining) (e.g. discrete and
+continuous psychomotor, and procedural skill types)
+Overlearning refers to the continuation of practising a task after error free performance has been achieved. It can enhance speed of performance after accuracy has reached a ceiling. Effective for both psychomotor and cognitive skills, although any benefits provided are stronger for tasks with a cognitive element (e.g. memory for procedures).  Overlearning can benefit, e.g. the
+acquisition and retention of safety critical drills which can be proceduralised. It has little effect on long-term retention.
+Variable practice training (Relevant to all knowledge and skill types)
+Varying the practice of knowledge and different skills so that items are intermixed across the training programme rather than repeated in concentrated blocks; this enhances long term retention after extended periods of no practice. Acquisition can take less total time and the retention can be 50% better. The optimal inter study interval in distributed training protocols lies between 10-30% of the retention interval with longer inter-study intervals enhancing retention more than shorter inter-study interval.  A longer-than-optimal spacing is better than shorter-
+than-optimal spacing.
+
+Active learning (Procedural and decision- making skill types)
+Active learning can be more effective than guided learning. The instructor creates a training environment in which the trainee can:
 i) learn to organise new information into existing mental frameworks which hold prior knowledge in order to generate new knowledge about the context; and ii) practise the application of newly acquired knowledge and skills. Knowledge, skills and behaviours attained at a higher (cognitive) level are retained for longer. An example is error management training where trainees are given the opportunity to make errors and learn from them. Trainers should do the following: i) Present trainees with a series of practice examples illustrating the range of different conditions that they may subsequently encounter in the field including any unusual situations; and ii) Encourage trainees to think about these situations, make errors and learn from them.
 Guided training can be blended with active learning for complex tasks by directing trainees in how to explore training resources and make errors so that it is clear that they are an expected aspect of training. This ensures that trainees experience the same set of
-errors and do not feel responsible for them.Task-oriented training (e.g. knowledge and decision-making skill types)Use the context of a given task to train the knowledge, cognitive skills and behaviours required instead of teaching material at an abstract level without reference to how it will be applied on the job.
-This strategy optimises the level of original learning and retention.Standard training scenario (Relevant to all knowledge and skill types)Use of standard scenarios that are progressive in difficulty would allow students to build on knowledge and skills already gained. Standardisation also enables comparisons to be made between students and training facilities as all trainees would have a
-standard background.
+errors and do not feel responsible for them.
+Task-oriented training (e.g. knowledge and decision-making skill types)
+Use the context of a given task to train the knowledge, cognitive skills and behaviours required instead of teaching material at an abstract level without reference to how it will be applied on the job.
+This strategy optimises the level of original learning and retention.
+Standard training scenario (Relevant to all knowledge and skill types)
+Use of standard scenarios that are progressive in difficulty would allow students to build on knowledge and skills already gained. Standardisation also enables comparisons to be made between students and training facilities as all trainees would have a
+standard background.
+
 Table 6: Training Strategies to Improve Retention of Knowledge and Skills
 
 5.6 Initial Training Categorisation
@@ -695,8 +936,22 @@ Table 6: Training Strategies to Improve Retention of Knowledge and Skills
 
 25. A thoroughly conducted RA will be wide ranging and will include consideration of levels of supervision, work conditions, task criticality, difficulties and distastes, frequency of task performance, Role-related skill fade factors, percentage of personnel performing the Role and consequences of inadequate performance. All of this information, in conjunction with information on trainee entry standards, trainee throughput and knowledge of the likely training environment, can lead to conclusions regarding the balance between training delivered as part of the TPS and training delivered as part of the WTS. These conclusions are expressed through the use of training categories. A number of techniques may be used to derive training categories, with the main analytical tool being the DIF Analysis already conducted. Training categories are defined in Table 7.
 
-Training CategoryDefinition1By the end of the training activity the trainees will have performed the whole task several times, to the full Role Standard, and under realistic scenarios and conditions in which the physical, functional and environmental fidelities were accurately reproduced. The trainee will be able to perform the task competently, immediately on arrival in the workplace.2By the end of the training activity the trainee will have performed the whole task at least once to full Role Standards, under realistic physical, functional and environmental conditions and in a realistic scenario. The trainee should be able to perform the task on arrival in the workplace.3By the end of the training activity the trainee will have performed the whole
-task in a training environment to a lesser Standard than required in the Role (safety Standards to be met in full).4By the end of the training activity the trainee will have demonstrated an adequate level of underpinning Knowledge and principles required but will not have applied it to develop the Skills required to perform the task.5All training delivered in, or under the auspices of, the workplace.6Trainees do not require any training.
+Training Category
+Definition
+1
+By the end of the training activity the trainees will have performed the whole task several times, to the full Role Standard, and under realistic scenarios and conditions in which the physical, functional and environmental fidelities were accurately reproduced. The trainee will be able to perform the task competently, immediately on arrival in the workplace.
+2
+By the end of the training activity the trainee will have performed the whole task at least once to full Role Standards, under realistic physical, functional and environmental conditions and in a realistic scenario. The trainee should be able to perform the task on arrival in the workplace.
+3
+By the end of the training activity the trainee will have performed the whole
+task in a training environment to a lesser Standard than required in the Role (safety Standards to be met in full).
+4
+By the end of the training activity the trainee will have demonstrated an adequate level of underpinning Knowledge and principles required but will not have applied it to develop the Skills required to perform the task.
+5
+All training delivered in, or under the auspices of, the workplace.
+6
+Trainees do not require any training.
+
 Table 7: Training Category Definitions22
 
 26. Other criteria influencing training categories. Once a suggested training category has been selected (using information from the DIF Analysis), it should be subject to further review as other factors may result in an increase or decrease in category. Other criteria that may influence the training categories that relate to the Role environment are listed below:
@@ -724,7 +979,7 @@ g. Legally mandated civilian accreditation. The inclusion of training for a task
 
 a. Role Scalar. Carry across the duty, task and, if appropriate, sub-task statements from the Role Scalar. The numbering system used should be used on the Role PS to ensure the two documents are linked.
 
-b. Conditions. Identify and list the important Conditions under which the tasks will be performed (an exhaustive list of every trivial condition is not necessary). The Conditions statements should specify the physical location, level of supervision and any other particular environmental factors associated with the task. It may be helpful to breakdown the Conditions into categories of ëphysicalí, ëintrinsicí, ësocialí and ëpsychologicalí.
+b. Conditions. Identify and list the important Conditions under which the tasks will be performed (an exhaustive list of every trivial condition is not necessary). The Conditions statements should specify the physical location, level of supervision and any other particular environmental factors associated with the task. It may be helpful to breakdown the Conditions into categories of ‚Äòphysical‚Äô, ‚Äòintrinsic‚Äô, ‚Äòsocial‚Äô and ‚Äòpsychological‚Äô.
 
 c. Standards. Identify and list the Standards to which the tasks will be performed. They will be either:
 
@@ -734,7 +989,7 @@ c. Standards. Identify and list the Standards to which the tasks will be perform
 
 may include a reference to this. If not, these steps may be given as process Standards and are the essential sub-tasks and task-elements from the HRA.
 
-(3) Combination of Process and Product Standards. Where Standards are defined in more detail in other documents, the references should be in full and include the issue number and date. Where publications change frequently reference may be made to the ëmost recent issueí23.
+(3) Combination of Process and Product Standards. Where Standards are defined in more detail in other documents, the references should be in full and include the issue number and date. Where publications change frequently reference may be made to the ‚Äòmost recent issue‚Äô23.
 
 2. Training category. As covered in training categorisation (Section 3.3), this states the training level required to achieve the task Performance and the balance between training to be managed and/or delivered by the TDA (e.g. in a training establishment) and training conducted in the workplace. Tasks not requiring any training should also be identified.
 
@@ -747,7 +1002,7 @@ may include a reference to this. If not, these steps may be given as process Sta
 
 2. Competency & Competence. The human element of operational capability is a complex area to analyse. It is, however, important to understand both the people and training aspects, as different methodologies of analysis fit different needs, and, within the Defence context, they are sometimes confused. The relationship between competency, competence and performance needs to be understood in a consistent manner:
 
-a. Competency (plural: competencies) is the underlying characteristic(s) of an individual which results in effective and/or superior performance within a Role. OJAR/SJAR is an example of an organisational level competency framework that is common to all Service personnel. Professional competency frameworks can also be used in order to provide guidance to defined professional groups, such as the Royal Navyís Command Competency Framework, where there is a need for longer term individual professional development and/or selection.
+a. Competency (plural: competencies) is the underlying characteristic(s) of an individual which results in effective and/or superior performance within a Role. OJAR/SJAR is an example of an organisational level competency framework that is common to all Service personnel. Professional competency frameworks can also be used in order to provide guidance to defined professional groups, such as the Royal Navy‚Äôs Command Competency Framework, where there is a need for longer term individual professional development and/or selection.
 
 b. Competence (plural: competences) is the measured ability of an individual to consistently perform a particular occupational skill or range of skills to a required Standard, under prescribed Conditions. The Role PS serves as the statement of the
 
@@ -770,7 +1025,7 @@ What they are like	What they can do
 Select & Develop
 COMPETENCY
 
-Source: Young, M. (2005). ëA model linking competency, competence and performanceí.
+Source: Young, M. (2005). ‚ÄòA model linking competency, competence and performance‚Äô.
 Competency and Emotional Intelligence. Summer 2005.
 
 Figure 4: Relationships between Competency, Competence and Performance
@@ -784,7 +1039,7 @@ framework for particular professions/trades in Defence. The use of an establishe
 
 5.8.2 Competency Frameworks
 
-6. Similarly, competency frameworks are also used outside of Defence as they are recognised to have applications across a whole range of developmental activities, including training. Competency frameworks are now seen as an essential vehicle for achieving organisational performance through the development of ëhuman capitalí by reviewing individual capability and potential. Essentially, competency frameworks are a human resource tool and are generally used at organisational or functional level and can be used in selection, performance development and training. Competency frameworks are used to document required organisational behaviours, under grouped competency areas; such as Leadership, Communication, Problem-solving and Team-working. Where competency frameworks exist, it is acceptable to use them within DSAT, if the behavioural descriptors are appropriate within the context of Defence.
+6. Similarly, competency frameworks are also used outside of Defence as they are recognised to have applications across a whole range of developmental activities, including training. Competency frameworks are now seen as an essential vehicle for achieving organisational performance through the development of ‚Äòhuman capital‚Äô by reviewing individual capability and potential. Essentially, competency frameworks are a human resource tool and are generally used at organisational or functional level and can be used in selection, performance development and training. Competency frameworks are used to document required organisational behaviours, under grouped competency areas; such as Leadership, Communication, Problem-solving and Team-working. Where competency frameworks exist, it is acceptable to use them within DSAT, if the behavioural descriptors are appropriate within the context of Defence.
 
 8.7  Recommended Further Reading
 5.8.3 Competence Retention Analysis Handbook.
@@ -836,15 +1091,22 @@ f. Whilst the TNA is designed to look at the gap that cannot be delivered by exi
 
 4. The three component parts of a TO are summarised in Table 9:
 
-Individual Training Objectives (three part format)PerformanceConditionsStandardWhat the trainee should be able to Do after training...
+Individual Training Objectives (three part format)
+Performance
+Conditions
+Standard
+What the trainee should be able to Do after training...
 
-Use an observable and measurable action verbÖwith What and Where...
+Use an observable and measurable action verb
+‚Ä¶with What and Where...
 
 
-Specify the circumstances of the PerformanceÖand How well.
+Specify the circumstances of the Performance
+‚Ä¶and How well.
 
 
-State the Standard to be achieved for the Performance
+State the Standard to be achieved for the Performance
+
 Table 8: Individual Training Objectives (Performance, Conditions, Standards)
 
 
@@ -872,7 +1134,7 @@ d. Support. People, agencies, orders, standard and emergency operating procedure
 9. Determining the Standard of Performance required for all training environments is difficult. The nature of the Performance (which could be dangerous, critical, or an emergency task), the consequence of not meeting the Standard and/or the training category should be considered. The Standard required will ultimately affect how that Performance is
 
 26 Derived from the task but not always a directly matching the task.
-27 Verbs such as ëknowí or ëunderstandí do not adequately define an action on the part of the trainee and are not observable or measurable. ëDiagnoseí, ëassessí, ëselectí, ëidentifyí, ëdistinguishí are much more readily witnessed and can be assessed more easily.
+27 Verbs such as ‚Äòknow‚Äô or ‚Äòunderstand‚Äô do not adequately define an action on the part of the trainee and are not observable or measurable. ‚ÄòDiagnose‚Äô, ‚Äòassess‚Äô, ‚Äòselect‚Äô, ‚Äòidentify‚Äô, ‚Äòdistinguish‚Äô are much more readily witnessed and can be assessed more easily.
 
 taught and how the trainee is assessed. For example, if a very high Standard is required, the trainee will receive a large amount of training for the Performance (creating the possibility of becoming over-trained) and may be subject to strict assessment, such as no mistakes. The Standard should be accurate. Some Performances may be subject to external rules and regulations, i.e. the Standard is dictated such as28:
 a. Health and Safety.
@@ -891,7 +1153,13 @@ e. Legal requirements, both national and international.
 
 12. TO Tagging and Numbering. TOs should be tagged to identify them as a Core (training) requirement, Legal requirement and/or Accreditation requirement, which is denoted using a letter (C, L, A) or a mark in the relevant column on the training statements with amplifying comments if appropriate. To ensure that training is allocated to all tasks, the link between tasks and TOs should be shown through an auditable numbering/identification system. This can be achieved by using the task numbers from the Role PS to identify their dependent TOs. An example is at Table 10.
 
-Original task number:2.1Single TO derived from one task:TO 2.1Multiple TOs derived from one task:TO 2.1a TO 2.1b
+Original task number:
+2.1
+Single TO derived from one task:
+TO 2.1
+Multiple TOs derived from one task:
+TO 2.1a TO 2.1b
+
 Table 9: Task Numbering System
 
 
@@ -900,7 +1168,7 @@ Table 9: Task Numbering System
 
 
 
-28 If a performance is affected by such factors, the document or regulation should be clearly referenced in the Standards element, such as, ìin accordance with publication/law/act, section X, paragraph Y, date and version.î
+28 If a performance is affected by such factors, the document or regulation should be clearly referenced in the Standards element, such as, ‚Äúin accordance with publication/law/act, section X, paragraph Y, date and version.‚Äù
 
 8 Training Options Analysis
 8.1 Introduction
@@ -911,7 +1179,7 @@ Table 9: Task Numbering System
 8.2 Fidelity Analysis
 
 
-2. The term ëfidelityí denotes how closely a set of procedures were implemented as they were supposed to have been30. Fidelity can be defined as, ëthe exact correspondence with fact or with a given quality, condition, or event; accuracy (e.g. the fidelity of the movie to the book or the degree to which an electronic system accurately reproduces the sound or image of its input signalí). This analysis should be conducted as a result of the production of a Role PS derived from the RA and include any existing Training Performance Standards. Fidelity Analysis considers each relevant Performance objective in the Role PS to assess the extent to which the training environment should replicate the workplace (real) environment to enable training to be effective. Decisions made at this stage can have a significant impact on the nature and cost of training solutions, as fidelity can be a significant cost driver, so it is important not to ëgold plateí the fidelity requirements, but instead determine the appropriate level of fidelity that is essential to achieve the desired training effect. The results of Fidelity Analysis will help inform the Conditions under which training should be conducted to adequately prepare trainees for their future Roles.
+2. The term ‚Äòfidelity‚Äô denotes how closely a set of procedures were implemented as they were supposed to have been30. Fidelity can be defined as, ‚Äòthe exact correspondence with fact or with a given quality, condition, or event; accuracy (e.g. the fidelity of the movie to the book or the degree to which an electronic system accurately reproduces the sound or image of its input signal‚Äô). This analysis should be conducted as a result of the production of a Role PS derived from the RA and include any existing Training Performance Standards. Fidelity Analysis considers each relevant Performance objective in the Role PS to assess the extent to which the training environment should replicate the workplace (real) environment to enable training to be effective. Decisions made at this stage can have a significant impact on the nature and cost of training solutions, as fidelity can be a significant cost driver, so it is important not to ‚Äògold plate‚Äô the fidelity requirements, but instead determine the appropriate level of fidelity that is essential to achieve the desired training effect. The results of Fidelity Analysis will help inform the Conditions under which training should be conducted to adequately prepare trainees for their future Roles.
 
 3. Categories. Fidelity can be divided into four categories and sub-categories, combinations of which may apply to each Role PS task / Competence / Competency being analysed.
 
@@ -935,7 +1203,7 @@ b. Functional fidelity. Functional fidelity is useful in providing trainees with
 
 (3) Response. Data change rate and display response times.
 
-c. Environmental fidelity. Environmental fidelity can be useful in preparing or ëacclimatisingí trainees for the conditions they will be operating under and simulating some of the conditions that can hinder Performance. It can be easy to ëgold plateí environmental fidelity requirements beyond what is essential to provide the necessary cues, stimuli and responses, but high levels of environmental fidelity can be beneficial in exposing trainees to complex operating environments and ëfog of warí type issues. Environmental fidelity can be broken down into these sub-categories:
+c. Environmental fidelity. Environmental fidelity can be useful in preparing or ‚Äòacclimatising‚Äô trainees for the conditions they will be operating under and simulating some of the conditions that can hinder Performance. It can be easy to ‚Äògold plate‚Äô environmental fidelity requirements beyond what is essential to provide the necessary cues, stimuli and responses, but high levels of environmental fidelity can be beneficial in exposing trainees to complex operating environments and ‚Äòfog of war‚Äô type issues. Environmental fidelity can be broken down into these sub-categories:
 
 (1) Sound. Background noise, conversation and sympathetic resonance.
 
@@ -944,7 +1212,7 @@ c. Environmental fidelity. Environmental fidelity can be useful in preparing or 
 (3) Ambience. Heat, light, smell, smoke, humidity etc.
 
 (4) Geographic features. Effects on sensors, infrastructure, SOPs etc.
-d. Tactical and cultural31 fidelity. Tactical and cultural fidelity will help identify requirements that enable individuals and teams to train as they intend to operate. Exposing trainees to the types of units, threats, allies (including neutral or ëwhiteí forces), cultural issues and geographical locations that they will experience on operations, can also be used for mission rehearsal training or tactical development. Modern training technology, particularly simulation, enables accurate representations to be included in training quickly and cheaply. Tactical and cultural fidelity can be broken down into these sub-categories:
+d. Tactical and cultural31 fidelity. Tactical and cultural fidelity will help identify requirements that enable individuals and teams to train as they intend to operate. Exposing trainees to the types of units, threats, allies (including neutral or ‚Äòwhite‚Äô forces), cultural issues and geographical locations that they will experience on operations, can also be used for mission rehearsal training or tactical development. Modern training technology, particularly simulation, enables accurate representations to be included in training quickly and cheaply. Tactical and cultural fidelity can be broken down into these sub-categories:
 
 31 To succeed on many operations, UK Armed Forces will need to understand and interpret the nuances of local cultures with and within which they will be operating. Introducing cultural elements into training will be essential in many cases - Future Operating Environment 2035, Development, Concepts and Doctrine Centre, 2015.
 
@@ -962,9 +1230,29 @@ Fidelity Requirements
 
 5. Team/collective performance. Analysts should also consider the fidelity requirements of any team/collective Performance criteria that have been established in support of the new or revised capability, to contextualise the individual training need.
 
-6. Fidelity factor levels. Table 11 defines 4 levels against which each of the fidelity sub-categories can be measured for each task/sub-task. However, analysts should not state fidelity requirements simply as ëhigh, medium, low, noneí as this is unquantifiable and gives no meaningful guidance to designers of the eventual training solution. Users should also include specifics of the fidelity requirements for each Performance criteria within each applicable category and sub-category.
+6. Fidelity factor levels. Table 11 defines 4 levels against which each of the fidelity sub-categories can be measured for each task/sub-task. However, analysts should not state fidelity requirements simply as ‚Äòhigh, medium, low, none‚Äô as this is unquantifiable and gives no meaningful guidance to designers of the eventual training solution. Users should also include specifics of the fidelity requirements for each Performance criteria within each applicable category and sub-category.
 
-FactorIndicatorDefinitionImpact0NoneNot applicableHas no impact on training1LowReplication not importantLittle impact would be made on training except to add realism2MediumReplication moderately importantSignificant impact would be made on the training. The task contains elements which requires exact replication3HighExact replication importantHas a significant impact and is essential to training
+Factor
+Indicator
+Definition
+Impact
+0
+None
+Not applicable
+Has no impact on training
+1
+Low
+Replication not important
+Little impact would be made on training except to add realism
+2
+Medium
+Replication moderately important
+Significant impact would be made on the training. The task contains elements which requires exact replication
+3
+High
+Exact replication important
+Has a significant impact and is essential to training
+
 Table 10: Levels of Fidelity
 
 8.3 Location / Environment Implications
@@ -1003,7 +1291,7 @@ Learning factors.
 Trainee characteristics.
 12. Motivation. Learners are motivated to learn when they know the relevance of the learning, and when they are enabled to learn through a learner-centric way. For knowledge acquisition, motivation best comes through a flipped classroom, where the learners are required to access the learning (through e-learning for example) before they consolidate and reflect on what they have learnt, in the classroom.
 
-13. Literacy level. Information should only be presented to learners in a form they can cope with. Information should not be at a level that they cannot comprehend, nor should it be at a level which will patronise. Key questions should include ëWhat is the literacy level of the trainees?í and ëWhat is the most appropriate language for passing information?í
+13. Literacy level. Information should only be presented to learners in a form they can cope with. Information should not be at a level that they cannot comprehend, nor should it be at a level which will patronise. Key questions should include ‚ÄòWhat is the literacy level of the trainees?‚Äô and ‚ÄòWhat is the most appropriate language for passing information?‚Äô
 
 14. Numbers. How many trainees should there be in each group? A large group will make trainer demonstrations difficult to plan. A small group will limit trainee discussions and peer learning.
 
@@ -1031,7 +1319,7 @@ b. Creation of a DLE front page for every course iteration.
 c. For any NTS training design, key training design personnel should be invited to the TNA WG during TOA and TNR stage to plan for TEL interventions.
 d. Training Providers/3rd Party Contractors to develop a training designer training strategy and plan to enable training designers to intelligently utilise TEL to facilitate a blended learning approach as to optimise efficiencies. This should be followed by ongoing coaching CPD to ensure training designers maintain TEL and blended learning currency.
 
-e. Where applicable, ensure that Training Providersí/3rd Party Contractorsí training designers are provided with OEM Train the Trainer (TtT) training prior to RFTD for all NTS capabilities.
+e. Where applicable, ensure that Training Providers‚Äô/3rd Party Contractors‚Äô training designers are provided with OEM Train the Trainer (TtT) training prior to RFTD for all NTS capabilities.
 
 f. Ensure the training designers are provided with all OEM TEL training documentation (hardcopy, electronic (Word, PDF, Interactive Electronic Training Manuals/Publications (IETM/Ps), media prior to any training design.
 
@@ -1067,9 +1355,9 @@ b. Optional Media characteristics. Optional Media characteristics improve the qu
 
 (1) attractiveness to the learner: colour, animation, illustration.
 
-(2) the traineesí study habits.
+(2) the trainees‚Äô study habits.
 
-(3) the trainersí style, habits and Skills.
+(3) the trainers‚Äô style, habits and Skills.
 (4) media that, from experience and research, improves learning efficiency.
 
 (5) media that allows the efficient management of training.
@@ -1105,8 +1393,36 @@ f. Flexibility, or the ease with which the new training can be integrated with e
 
 24. It will typically be appropriate for the options evaluation to be undertaken in consultation with SMEs before presentation to the TNASG for endorsement. Table 12 provides an example format:
 
-OptionMeets the requirementThrough- life CostImplementation timeTrainer loadRiskFlexibilityOption 1 (baseline)Option 2
-Option 3
+Option
+Meets the requirement
+Through- life Cost
+Implementation time
+Trainer load
+Risk
+Flexibility
+Option 1 (baseline)
+
+
+
+
+
+
+Option 2
+
+
+
+
+
+
+
+Option 3
+
+
+
+
+
+
+
 Table 11: Example of an Options Evaluation Table
 
 
@@ -1123,7 +1439,7 @@ Table 11: Example of an Options Evaluation Table
 This guidebook is intended to support staff in the MOD, and contractors working for the MOD, in the challenges faced in understanding the effectiveness of training prior to it being delivered. The aim of the Guidebook is to review the range of tools, methods and approaches that is available and recommend the most suitable approach.
 Part 7 of the handbook provides checklists for training fidelity and instructional features to assist the training designer.
 
-Link: Guidebook of Decision Support Tools for Training Design and Delivery ñ Part 7 Fidelity Analysis
+Link: Guidebook of Decision Support Tools for Training Design and Delivery ‚Äì Part 7 Fidelity Analysis
 
 9 Training Needs Report
 
@@ -1147,7 +1463,7 @@ g. The TNASG endorsed training solution, resulting from the CBA and final select
 10 Annexes
 A - Initial KSA Analysis (KSA) Example
 B - Role Performance Statement (Role PS) Example
-C ñ Fidelity Analysis Example
+C ‚Äì Fidelity Analysis Example
 
 ANNEX A TO
 DTSM 2
@@ -1156,9 +1472,63 @@ DTSM 2
 Initial KSA Analysis (KSA) Example
 PDF / WORD Formats
 
-ROLE TITLEMotivational Outreach Team (MOT)ID NUMBERTRAInspectorate of RecruitingROLE PS NUMBER123/01TDAISSUE STATUSV1-00Performance (number)TASKUnderpinning KnowledgeSkillsAttitudesAttributes1Advertise and market the RAFKnowledge of the RAF trades, branches, entry procedures and entry requirementsAbility to communicate effectively with members of the public; adjusting communication style depending on audience.With due regard for AP1 Ethos, Core Values and
-StandardsWith positivity, enthusiasm and tact.
-ROLE TITLEID NUMBERTRAROLE PS NUMBERTDAISSUE STATUSPerformance (number)TASKUnderpinning KnowledgeSkillsAttitudesAttributes1Conduct immediate aircrew actionsKnowledge of SE, SSLR and MSLR (as necessary), content of survival kits and winchman procedure.Ability to apply sea survival procedures to reduce risk of exposure and drowning whilst awaiting rescue from SAR helicopter or boat. If SAR helicopter, there is a need to apply suitable procedures to assist a winchmanWith due regard to all safety and survival procedures within time constraints.Determination, confidence of own and team and ability.
+ROLE TITLE
+Motivational Outreach Team (MOT)
+ID NUMBER
+
+
+TRA
+Inspectorate of Recruiting
+ROLE PS NUMBER
+
+123/01
+TDA
+
+ISSUE STATUS
+
+V1-00
+Performance (number)
+TASK
+Underpinning Knowledge
+Skills
+Attitudes
+Attributes
+1
+Advertise and market the RAF
+Knowledge of the RAF trades, branches, entry procedures and entry requirements
+Ability to communicate effectively with members of the public; adjusting communication style depending on audience.
+With due regard for AP1 Ethos, Core Values and
+Standards
+With positivity, enthusiasm and tact.
+
+ROLE TITLE
+
+ID NUMBER
+
+
+TRA
+
+ROLE PS NUMBER
+
+
+TDA
+
+ISSUE STATUS
+
+
+Performance (number)
+TASK
+Underpinning Knowledge
+Skills
+Attitudes
+Attributes
+1
+Conduct immediate aircrew actions
+Knowledge of SE, SSLR and MSLR (as necessary), content of survival kits and winchman procedure.
+Ability to apply sea survival procedures to reduce risk of exposure and drowning whilst awaiting rescue from SAR helicopter or boat. If SAR helicopter, there is a need to apply suitable procedures to assist a winchman
+With due regard to all safety and survival procedures within time constraints.
+Determination, confidence of own and team and ability.
+
 ANNEX B TO
 DTSM 2
 2023 EDITION, V1.0
@@ -1166,8 +1536,155 @@ DTSM 2
 Role Performance Statement (Role PS) Example
 PDF / WORD Formats
 
-OFFICIALJOB NUMBER (S):2008/JUL/001ROLE TITLE(S):Weapon Technician Tradesmen For Initial EmploymentDUTY NUMBER:13.0DUTY TITLE:Carry out Aircraft Area Based MaintenanceRPS REFERENCE:76/09TRA:Engineering Branch & Trades SponsorISSUE STATUS:Version 3-00Task/
-Sub Task NumberPerformanceConditionStandardTraining CategoryNotes13.34Carry out bomb1. Work in all Theatres1. MAP-01.3loading onIn times of conflictaircraft.2. During times of Peace, peace support2. MAP-02.operations, peace enforcementoperations, and transition to war3. JSP 375.3. Work in extreme heat and cold4. Work effectively while fatigued4. JSP 418.5. In Chemical, Biological Radiological &Nuclear (CBRN) environment.5. DSA 03 - OME Part 2 - Defence6. Working in hangers, Hardened AircraftCode of Practice (DCOP) andShelters, Flight line.Guidance Material for In-Service and7. Access to all relevant publications andOperational Safety Management ofreferences.OME (Replaced JSP 482)8. Access to all relevant equipment.9. Access to all relevant tools.6. DSA01.1 Defence Policy for Health,10. Access to all relevant spares.Safety and Environmental Protection.7. AP100B-01.8. In accordance with all relevantaircraft Maintenance Manuals.9. Tornado AP101B-4104-5A6A.10. Typhoon AP101B-5400-5A6A.
+OFFICIAL
+JOB NUMBER (S):
+2008/JUL/001
+ROLE TITLE(S):
+Weapon Technician Tradesmen For Initial Employment
+DUTY NUMBER:
+13.0
+DUTY TITLE:
+Carry out Aircraft Area Based Maintenance
+RPS REFERENCE:
+76/09
+TRA:
+Engineering Branch & Trades Sponsor
+ISSUE STATUS:
+Version 3-00
+Task/
+Sub Task Number
+Performance
+Condition
+Standard
+Training Category
+Notes
+13.34
+Carry out bomb
+1. Work in all Theatres
+1. MAP-01.
+3
+
+
+loading on
+In times of conflict
+
+
+
+
+aircraft.
+2. During times of Peace, peace support
+2. MAP-02.
+
+
+
+
+operations, peace enforcement
+
+
+
+
+
+operations, and transition to war
+3. JSP 375.
+
+
+
+
+3. Work in extreme heat and cold
+
+
+
+
+
+4. Work effectively while fatigued
+4. JSP 418.
+
+
+
+
+5. In Chemical, Biological Radiological &
+
+
+
+
+
+Nuclear (CBRN) environment.
+5. DSA 03 - OME Part 2 - Defence
+
+
+
+
+6. Working in hangers, Hardened Aircraft
+Code of Practice (DCOP) and
+
+
+
+
+Shelters, Flight line.
+Guidance Material for In-Service and
+
+
+
+
+7. Access to all relevant publications and
+Operational Safety Management of
+
+
+
+
+references.
+OME (Replaced JSP 482)
+
+
+
+
+8. Access to all relevant equipment.
+
+
+
+
+
+9. Access to all relevant tools.
+6. DSA01.1 Defence Policy for Health,
+
+
+
+
+10. Access to all relevant spares.
+Safety and Environmental Protection.
+
+
+
+
+
+7. AP100B-01.
+
+
+
+
+
+8. In accordance with all relevant
+
+
+
+
+
+aircraft Maintenance Manuals.
+
+
+
+
+
+9. Tornado AP101B-4104-5A6A.
+
+
+
+
+
+10. Typhoon AP101B-5400-5A6A.
+
+
+
 ANNEX C TO
 DTSM 2
 2023 EDITION, V1.0
@@ -1175,17 +1692,117 @@ DTSM 2
 Fidelity Analysis Example
 PDF / WORD Formats
 
-Training Task5.3 Use FCC ControlsSub-task (if applicable)5.3.3 Manually guides the weapon using the FCC controls and light pen to input guidance data for the weaponPhysical Fidelity RequirementsSubcategoryFidelity FactorJustificationLayout2Controls and switches must be in the correct position in relation to the operatorís positionLook1Actual feel of controls is not required for trainingFeel1Appearance not important to training but spatial representation of the console is requiredFunctional Fidelity RequirementsSubcategoryFidelity FactorJustificationFormat3Essential that data displayed is an accurate representation to provide the correct cues to the operatorContent3Essential that the content of the data is accurate to ensure correct interpretation of the dataResponse3Essential that response is exact to ensure correct identification of faults and interpretation of dataEnvironmental Fidelity RequirementsSubcategoryFidelity FactorJustificationSound1Typical control room sounds would enhance realismMotion0Not applicableAmbience0Not applicableGeographic Areas0Not applicableTactical/Cultural Fidelity RequirementsSubcategoryFidelity FactorJustificationThreats3Essential that all threats be realistically portrayedAllies/Neutrals3Essential that all Allies/Neutrals be realistically portrayedConflict Character/ Location1Actual conflict character and location not importantTeam Interactions2Interaction with team through radio communications only
-FactorIndicatorDefinitionImpact0NoneNot applicableHas no impact on training1LowReplication not importantLittle impact would be made on training except to add realism2MediumReplication moderately importantSignificant impact would be made on the training. The task contains elements which requires exact replication3HighExact replication importantHas a significant impact and is essential to training
+Training Task
+5.3 Use FCC Controls
+Sub-task (if applicable)
+5.3.3 Manually guides the weapon using the FCC controls and light pen to input guidance data for the weapon
+Physical Fidelity Requirements
+Subcategory
+Fidelity Factor
+Justification
+Layout
+2
+Controls and switches must be in the correct position in relation to the operator‚Äôs position
+Look
+1
+Actual feel of controls is not required for training
+Feel
+1
+Appearance not important to training but spatial representation of the console is required
+Functional Fidelity Requirements
+Subcategory
+Fidelity Factor
+Justification
+Format
+3
+Essential that data displayed is an accurate representation to provide the correct cues to the operator
+Content
+3
+Essential that the content of the data is accurate to ensure correct interpretation of the data
+Response
+3
+Essential that response is exact to ensure correct identification of faults and interpretation of data
+Environmental Fidelity Requirements
+Subcategory
+Fidelity Factor
+Justification
+Sound
+1
+Typical control room sounds would enhance realism
+Motion
+0
+Not applicable
+Ambience
+0
+Not applicable
+Geographic Areas
+0
+Not applicable
+Tactical/Cultural Fidelity Requirements
+Subcategory
+Fidelity Factor
+Justification
+Threats
+3
+Essential that all threats be realistically portrayed
+Allies/Neutrals
+3
+Essential that all Allies/Neutrals be realistically portrayed
+Conflict Character/ Location
+1
+Actual conflict character and location not important
+Team Interactions
+2
+Interaction with team through radio communications only
+
+Factor
+Indicator
+Definition
+Impact
+0
+None
+Not applicable
+Has no impact on training
+1
+Low
+Replication not important
+Little impact would be made on training except to add realism
+2
+Medium
+Replication moderately important
+Significant impact would be made on the training. The task contains elements which requires exact replication
+3
+High
+Exact replication important
+Has a significant impact and is essential to training
+
 11 Document Information
 11.1 Document Coverage
 
 This DTSM supersedes all previous DTSMs on Analysis of Individual Training The totality of DTSMs included in the DTSMs Suite, of which this document is a part, are listed on the DTSMs SharePoint site
 11.2 Document Information
 
-Filename:Analysis of Individual TrainingDocument ID:DTSM 2Owning Function / Team:Talent, Skills, Learning and Development (TSLD)Service Owner (1*):People-TSLD-Hd OF611.3 Document Editions / Versions
+Filename:
+Analysis of Individual Training
+Document ID:
+DTSM 2
+Owning Function / Team:
+Talent, Skills, Learning and Development (TSLD)
+Service Owner (1*):
+People-TSLD-Hd OF6
+11.3 Document Editions / Versions
 
-EditionEdition VersionPublication DateRevision HistoryRevised Pages20231.017/10/2023First EditionN/A
+Edition
+Edition Version
+Publication Date
+Revision History
+Revised Pages
+2023
+1.0
+17/10/2023
+First Edition
+N/A
+
 Annual editions of this DTSM will be published every December in time for upcoming year relevant to the DTSM. Throughout the year, different versions of the current edition may also be published. When every new edition is published, the versions will reset to 1.
 
 
