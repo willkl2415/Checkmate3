@@ -8,7 +8,7 @@ INPUT_FILE = "docs/DTSM 2 Analysis of Individual Training 2023 Edition V1.0.txt"
 OUTPUT_FILE = "data/chunks.json"
 DOCUMENT_NAME = "DTSM 2 Analysis of Individual Training 2023 Edition V1.0"
 MAX_PARAGRAPHS_PER_CHUNK = 3
-SECTION_PATTERN = re.compile(r"^(\d{1,2}(?:\.\d{1,2})*)\s+(.+)$")  # e.g., 1.1 Introduction
+SECTION_PATTERN = re.compile(r"^(\d{1,2}(?:\.\d{1,2})*)[\t ]+(.+)$")  # e.g., 1.1 Introduction
 
 # === CLEANING UTILITY (used by answer_engine.py) ===
 def clean_text(text: str) -> str:
