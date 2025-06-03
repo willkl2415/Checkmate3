@@ -1,11 +1,12 @@
-# answer_engine.py
 import json
 import tiktoken
 from preprocess_pipeline import clean_text
 
+# Load chunks from file
 with open("data/chunks.json", "r", encoding="utf-8") as f:
     chunks_data = json.load(f)
 
+# Token encoding setup
 encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
 
 def num_tokens_from_string(string: str) -> int:
@@ -16,13 +17,20 @@ def get_answer(question, filters=None):
         return []
 
     question = question.strip().lower()
-
     filtered_chunks = []
+
     for chunk in chunks_data:
         if filters:
-            doc_match = not filters.get("document") or chunk["document"] == filters["document"]
-            section_match = not filters.get("section") or chunk.get("section", "") == filters["section"]
+            doc_match = (
+                filters.get("document") in [None, "", "All Documents"]
+                or chunk["document"] == filters["document"]
+            )
+            section_match = (
+                filters.get("section") in [None, "", "All Sections"]
+                or chunk.get("section", "") == filters["section"]
+            )
             subsection = filters.get("include_subsections", False)
+
             if not subsection and not section_match:
                 continue
             if not (doc_match and section_match):
