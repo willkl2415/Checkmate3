@@ -1,14 +1,34 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Check-Mate</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        const sectionMap = {{ document_sections | tojson }};
+        function updateSections() {
+            const docSelect = document.getElementById("document");
+            const sectionSelect = document.getElementById("section");
+            const selectedDoc = docSelect.value;
+            const sections = sectionMap[selectedDoc] || [];
+
+            sectionSelect.innerHTML = "";
+            const defaultOpt = document.createElement("option");
+            defaultOpt.text = "All Sections";
+            sectionSelect.appendChild(defaultOpt);
+
+            sections.forEach(function (s) {
+                const opt = document.createElement("option");
+                opt.text = s;
+                sectionSelect.appendChild(opt);
+            });
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <div class="left-panel">
-            <img src="{{ url_for('static', filename='checkmate.png') }}" class="logo" alt="Check-Mate Logo">
+            <img src="{{ url_for('static', filename='checkmate.png') }}" class="logo">
             <h2>Welcome to Check-Mate</h2>
             <p><strong>Check-Mate</strong> is a go-to application for Training Consultants, Analysts, Designers, and Decision-Makers who demand accuracy, assurance, and speed – without compromise.</p>
             <p><strong>Check-Mate</strong> is a cutting-edge AI solution built to deliver instant clarity in high-complexity environments – especially those shaped by Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
@@ -16,64 +36,35 @@
         </div>
 
         <div class="right-panel">
-            <form method="post">
-                <input type="text" name="question" placeholder="Type your question..." value="{{ question or '' }}" required>
-
-                <select name="document" id="document-select">
-                    <option value="">All Documents</option>
+            <form method="POST">
+                <input type="text" name="question" placeholder="Type your question..." value="{{ question }}">
+                <select name="document" id="document" onchange="updateSections()">
                     {% for doc in documents %}
-                        <option value="{{ doc }}" {% if selected_document == doc %}selected{% endif %}>{{ doc }}</option>
+                        <option value="{{ doc }}" {% if selected_doc == doc %}selected{% endif %}>{{ doc }}</option>
                     {% endfor %}
                 </select>
-
-                <select name="section" id="section-select">
-                    <option value="">All Sections</option>
-                    {% if selected_document in document_sections %}
-                        {% for section in document_sections[selected_document] %}
-                            <option value="{{ section }}" {% if selected_section == section %}selected{% endif %}>{{ section }}</option>
-                        {% endfor %}
-                    {% endif %}
+                <select name="section" id="section">
+                    {% for sec in sections %}
+                        <option value="{{ sec }}" {% if selected_section == sec %}selected{% endif %}>{{ sec }}</option>
+                    {% endfor %}
                 </select>
-
-                <label>
-                    <input type="checkbox" name="include_subsections" {% if include_subsections %}checked{% endif %}>
-                    Include Subsections
-                </label>
-
+                <label><input type="checkbox" name="include_subsections" {% if include_subsections %}checked{% endif %}> Include Subsections</label>
                 <button type="submit">Ask Check-Mate</button>
-                <button type="submit" name="clear">Clear Search</button>
+                <button type="submit" name="clear" value="clear">Clear Search</button>
             </form>
 
-            <div class="results">
-                <h2>Check-Mate’s Response ({{ results|length }} results)</h2>
+            <div class="response-box">
+                <h3>Check-Mate’s Response ({{ answer|length }} result{{ '' if answer|length == 1 else 's' }})</h3>
                 <p>Use the document filter to view all matches.</p>
-                {% for result in results %}
-                    <div class="result-box">
-                        <p><strong>Document:</strong> {{ result.document }}</p>
-                        <p><strong>Section:</strong> {{ result.section or "Uncategorised" }}</p>
-                        <p>{{ result.content }}</p>
+                {% for res in answer %}
+                    <div class="result">
+                        <p><strong>Document:</strong> {{ res.document }}</p>
+                        <p><strong>Section:</strong> {{ res.section }}</p>
+                        <p>{{ res.content }}</p>
                     </div>
                 {% endfor %}
             </div>
         </div>
     </div>
-
-    <script>
-        const sectionMap = {{ document_sections | tojson }};
-        const docSelect = document.getElementById("document-select");
-        const sectionSelect = document.getElementById("section-select");
-
-        docSelect.addEventListener("change", function () {
-            const selectedDoc = docSelect.value;
-            const sections = sectionMap[selectedDoc] || [];
-            sectionSelect.innerHTML = '<option value="">All Sections</option>';
-            sections.forEach(function (section) {
-                const option = document.createElement("option");
-                option.value = section;
-                option.textContent = section;
-                sectionSelect.appendChild(option);
-            });
-        });
-    </script>
 </body>
 </html>
