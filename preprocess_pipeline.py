@@ -48,9 +48,24 @@ def extract_text_from_docx(file_path):
 
 def clean_text(text):
     """
-    Removes Word-style footnote markers like [1], [12], etc.
+    Cleans up extracted DOCX text:
+    - Removes Word-style footnote markers like [1], [12], etc.
+    - Removes Word-style comment markers like "Commented [X1]"
+    - Strips excessive whitespace and MS Word formatting remnants
     """
-    return re.sub(r"\[\d{1,3}\]", "", text)
+    # Remove numeric footnotes like [1], [23]
+    text = re.sub(r"\[\d{1,3}\]", "", text)
+
+    # Remove Word comment references like "Commented [X1]" or "Commented [AB2]"
+    text = re.sub(r"Commented\s*\[\w{1,3}\d{1,3}\]", "", text)
+
+    # Remove residual bracketed notes with letters only e.g. [Note], [Ref]
+    text = re.sub(r"\[\w{2,10}\]", "", text)
+
+    # Remove stray soft line breaks and clean extra whitespace
+    text = re.sub(r"\s+", " ", text)
+
+    return text.strip()
 
 def chunk_text(text, max_chunk_size=800):
     paragraphs = text.split("\n")
