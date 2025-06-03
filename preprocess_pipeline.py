@@ -1,63 +1,61 @@
+import re
 import os
 import json
 import uuid
-import re
 
-# === CONFIGURATION ===
-INPUT_FILE = "docs/DTSM 2 Analysis of Individual Training 2023 Edition V1.0.txt"
-OUTPUT_FILE = "data/chunks.json"
-DOCUMENT_NAME = "DTSM 2 Analysis of Individual Training 2023 Edition V1.0"
+DOCUMENT_NAME = "DTSM 2 Analysis of Individual Training 2023 Edition V1.0.txt"
 MAX_PARAGRAPHS_PER_CHUNK = 3
-SECTION_PATTERN = re.compile(r"^(\d{1,2}(?:\.\d{1,2})*)[\t ]+(.+)$")  # matches tabs or spaces
 
-# === CLEANING UTILITY (used by answer_engine.py) ===
-def clean_text(text: str) -> str:
-    text = re.sub(r"\[\d+\]", "", text)
-    text = re.sub(r"\s+", " ", text)
-    return text.strip()
+INPUT_PATH = f"./docs/{DOCUMENT_NAME}"
+OUTPUT_PATH = "./data/chunks.json"
 
-# === LOAD AND CLEAN TEXT ===
-def load_cleaned_paragraphs(file_path):
-    with open(file_path, "r", encoding="utf-8") as f:
-        raw_text = f.read()
-    cleaned = clean_text(raw_text)
-    paragraphs = re.split(r"\n\s*\n", cleaned)
-    return [p.strip() for p in paragraphs if p.strip()]
+SECTION_PATTERN = re.compile(r"^(\d+(?:\.\d+)*)(?:\s+)(.+)$")
 
-# === CHUNKING LOGIC WITH SMART SECTION START ===
-def generate_chunks(paragraphs):
+def clean_text(text):
+    return re.sub(r'\s+', ' ', text.strip())
+
+def load_and_merge_headings(lines):
+    """Handle lines like `2` followed by `Title` into `2 Title`."""
+    merged_lines = []
+    buffer = None
+    for line in lines:
+        if re.match(r"^\d+(\.\d+)*$", line.strip()):
+            buffer = line.strip()
+        elif buffer:
+            if line.strip():
+                merged_lines.append(f"{buffer} {line.strip()}")
+                buffer = None
+        else:
+            merged_lines.append(line.strip())
+    return merged_lines
+
+def split_into_chunks(lines):
     chunks = []
-    current_section = None
     buffer = []
-    section_started = False
+    current_section = None
 
-    for para in paragraphs:
-        match = SECTION_PATTERN.match(para)
+    for line in lines:
+        match = SECTION_PATTERN.match(line)
         if match:
             if buffer:
                 chunks.append({
                     "id": str(uuid.uuid4()),
-                    "document": DOCUMENT_NAME,  # ✅ .docx extension removed
+                    "document": DOCUMENT_NAME,
                     "section": current_section if current_section else "Uncategorised",
                     "content": " ".join(buffer)
                 })
                 buffer = []
             current_section = f"{match.group(1)} {match.group(2)}"
-            section_started = True
-            continue
-
-        if not section_started:
-            continue  # skip all text until the first valid heading
-
-        buffer.append(para)
-        if len(buffer) >= MAX_PARAGRAPHS_PER_CHUNK:
-            chunks.append({
-                "id": str(uuid.uuid4()),
-                "document": DOCUMENT_NAME,
-                "section": current_section if current_section else "Uncategorised",
-                "content": " ".join(buffer)
-            })
-            buffer = []
+        elif current_section:
+            buffer.append(clean_text(line))
+            if len(buffer) >= MAX_PARAGRAPHS_PER_CHUNK:
+                chunks.append({
+                    "id": str(uuid.uuid4()),
+                    "document": DOCUMENT_NAME,
+                    "section": current_section,
+                    "content": " ".join(buffer)
+                })
+                buffer = []
 
     if buffer:
         chunks.append({
@@ -69,14 +67,16 @@ def generate_chunks(paragraphs):
 
     return chunks
 
-# === MAIN SCRIPT ===
-def main():
-    os.makedirs("data", exist_ok=True)
-    paragraphs = load_cleaned_paragraphs(INPUT_FILE)
-    chunks = generate_chunks(paragraphs)
+def preprocess():
+    with open(INPUT_PATH, "r", encoding="utf-8") as f:
+        raw_lines = f.readlines()
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+    merged = load_and_merge_headings(raw_lines)
+    chunks = split_into_chunks(merged)
+
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(chunks, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
-    main()
+    preprocess()
