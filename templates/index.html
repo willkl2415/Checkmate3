@@ -1,72 +1,63 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Check-Mate</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <div class="container">
     <div class="left-panel">
-        <img src="/static/checkmate.png" class="logo" alt="Check-Mate Logo">
+        <img src="{{ url_for('static', filename='checkmate.png') }}" alt="Check-Mate Logo" class="logo">
         <h2>Welcome to Check-Mate</h2>
         <p><strong>Check-Mate</strong> is a go-to application for Training Consultants, Analysts, Designers, and Decision-Makers who demand accuracy, assurance, and speed – without compromise.</p>
         <p><strong>Check-Mate</strong> is a cutting-edge AI solution built to deliver instant clarity in high-complexity environments – especially those shaped by Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
         <p>Ask a question. Get an answer. Not in 30 minutes – but in 5 seconds.</p>
     </div>
-
     <div class="right-panel">
         <form method="POST">
             <input type="text" name="question" placeholder="Type your question..." value="{{ question }}">
-            <select name="document" id="documentSelect">
-                <option value="All Documents">All Documents</option>
+            <select name="document" id="documentDropdown">
+                <option value="">All Documents</option>
                 {% for doc in documents %}
-                    <option value="{{ doc }}" {% if selected_doc == doc %}selected{% endif %}>{{ doc }}</option>
+                <option value="{{ doc }}" {% if doc == selected_doc %}selected{% endif %}>{{ doc }}</option>
                 {% endfor %}
             </select>
-            <select name="section" id="sectionSelect">
-                <option value="All Sections">All Sections</option>
-                {% if selected_doc in document_sections %}
-                    {% for section in document_sections[selected_doc] %}
-                        <option value="{{ section }}" {% if selected_section == section %}selected{% endif %}>{{ section }}</option>
-                    {% endfor %}
+            <select name="section" id="sectionDropdown">
+                <option value="">All Sections</option>
+                {% if selected_doc and selected_doc in document_sections %}
+                {% for section in document_sections[selected_doc] %}
+                <option value="{{ section }}" {% if section == selected_section %}selected{% endif %}>{{ section }}</option>
+                {% endfor %}
                 {% endif %}
             </select>
             <label><input type="checkbox" name="include_subsections" {% if include_subsections %}checked{% endif %}> Include Subsections</label>
             <button type="submit">Ask Check-Mate</button>
-            <button type="button" onclick="window.location.href='/'">Clear Search</button>
+            <button type="button" onclick="window.location='/'">Clear Search</button>
         </form>
 
-        <div class="response-panel">
-            <h2>Check-Mate’s Response ({{ filtered_chunks|length }} result{{ '' if filtered_chunks|length == 1 else 's' }})</h2>
-            <p>Use the document filter to view all matches.</p>
-            {% for chunk in filtered_chunks %}
-                <div class="result-box">
-                    <p><strong>Document:</strong> {{ chunk.document }}</p>
-                    <p><strong>Section:</strong> {{ chunk.section }}</p>
-                    <p><strong>Result {{ loop.index }}:</strong><br>{{ chunk.content }}</p>
-                </div>
-            {% endfor %}
+        <div class="response">
+            {{ answer|safe }}
         </div>
     </div>
 </div>
 
 <script>
     const sectionMap = {{ document_sections | tojson }};
-    const docSelect = document.getElementById("documentSelect");
-    const sectionSelect = document.getElementById("sectionSelect");
+    const docDropdown = document.getElementById("documentDropdown");
+    const sectionDropdown = document.getElementById("sectionDropdown");
 
-    docSelect.addEventListener("change", function () {
-        const selected = this.value;
-        sectionSelect.innerHTML = '<option value="All Sections">All Sections</option>';
-        if (sectionMap[selected]) {
-            sectionMap[selected].forEach(function (section) {
-                const opt = document.createElement("option");
-                opt.value = section;
-                opt.text = section;
-                sectionSelect.appendChild(opt);
-            });
-        }
+    docDropdown.addEventListener("change", function () {
+        const selectedDoc = this.value;
+        const sections = sectionMap[selectedDoc] || [];
+
+        sectionDropdown.innerHTML = '<option value="">All Sections</option>';
+        sections.forEach(function (section) {
+            const option = document.createElement("option");
+            option.value = section;
+            option.textContent = section;
+            sectionDropdown.appendChild(option);
+        });
     });
 </script>
 </body>
