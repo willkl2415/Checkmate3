@@ -1,4 +1,3 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,15 +18,15 @@
         <div class="right-panel">
             <form method="post">
                 <input type="text" name="question" placeholder="Type your question..." value="{{ question or '' }}" required>
-                
-                <select name="document">
+
+                <select name="document" id="document-select">
                     <option value="">All Documents</option>
                     {% for doc in documents %}
                         <option value="{{ doc }}" {% if selected_document == doc %}selected{% endif %}>{{ doc }}</option>
                     {% endfor %}
                 </select>
 
-                <select name="section">
+                <select name="section" id="section-select">
                     <option value="">All Sections</option>
                     {% if selected_document in document_sections %}
                         {% for section in document_sections[selected_document] %}
@@ -36,7 +35,10 @@
                     {% endif %}
                 </select>
 
-                <label><input type="checkbox" name="include_subsections" {% if include_subsections %}checked{% endif %}> Include Subsections</label>
+                <label>
+                    <input type="checkbox" name="include_subsections" {% if include_subsections %}checked{% endif %}>
+                    Include Subsections
+                </label>
 
                 <button type="submit">Ask Check-Mate</button>
                 <button type="submit" name="clear">Clear Search</button>
@@ -45,7 +47,6 @@
             <div class="results">
                 <h2>Check-Mate’s Response ({{ results|length }} results)</h2>
                 <p>Use the document filter to view all matches.</p>
-                
                 {% for result in results %}
                     <div class="result-box">
                         <p><strong>Document:</strong> {{ result.document }}</p>
@@ -59,13 +60,12 @@
 
     <script>
         const sectionMap = {{ document_sections | tojson }};
-        const docSelect = document.querySelector("select[name='document']");
-        const sectionSelect = document.querySelector("select[name='section']");
+        const docSelect = document.getElementById("document-select");
+        const sectionSelect = document.getElementById("section-select");
 
         docSelect.addEventListener("change", function () {
             const selectedDoc = docSelect.value;
             const sections = sectionMap[selectedDoc] || [];
-
             sectionSelect.innerHTML = '<option value="">All Sections</option>';
             sections.forEach(function (section) {
                 const option = document.createElement("option");
