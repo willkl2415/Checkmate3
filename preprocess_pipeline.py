@@ -1,148 +1,69 @@
-import re
 import os
 import json
-import docx
 import uuid
-from docx.table import _Cell
-from docx.text.paragraph import Paragraph
-from typing import Union
+import re
 
-from bs4 import BeautifulSoup
+# === CONFIGURATION ===
+INPUT_FILE = "docs/DTSM 2 Analysis of Individual Training 2023 Edition V1.0.txt"
+OUTPUT_FILE = "data/chunks.json"
+DOCUMENT_NAME = "DTSM 2 Analysis of Individual Training 2023 Edition V1.0"
+MAX_PARAGRAPHS_PER_CHUNK = 3
+SECTION_PATTERN = re.compile(r"^(\d{1,2}(?:\.\d{1,2})*)\s+(.+)$")  # e.g., 2.1 Introduction
 
-def get_text_from_paragraph(paragraph):
-    return paragraph.text.strip()
+# === LOAD AND CLEAN TEXT ===
+def load_cleaned_paragraphs(file_path):
+    with open(file_path, "r", encoding="utf-8") as f:
+        raw_text = f.read()
 
-def get_text_from_cell(cell):
-    return "\n".join(get_text_from_paragraph(p) for p in cell.paragraphs)
+    # Replace footnote markers like [1], [12], etc.
+    cleaned = re.sub(r"\[\d+\]", "", raw_text)
+    cleaned = re.sub(r"\s+", " ", cleaned)
 
-def iter_block_items(parent):
-    if isinstance(parent, docx.document.Document):
-        parent_elm = parent._element.body
-    elif isinstance(parent, _Cell):
-        parent_elm = parent._tc
-    else:
-        raise ValueError("Unsupported parent type")
+    # Split on paragraph-like breaks
+    paras = re.split(r"\n\s*\n", cleaned)
+    return [p.strip() for p in paras if p.strip()]
 
-    for child in parent_elm.iterchildren():
-        if child.tag.endswith('}p'):
-            yield Paragraph(child, parent)
-        elif child.tag.endswith('}tbl'):
-            yield docx.table.Table(child, parent)
-
-def extract_text_from_docx(file_path):
-    doc = docx.Document(file_path)
-    text_blocks = []
-
-    for block in iter_block_items(doc):
-        if isinstance(block, Paragraph):
-            text = get_text_from_paragraph(block)
-            if text:
-                text_blocks.append(text)
-        elif isinstance(block, docx.table.Table):
-            for row in block.rows:
-                row_text = " | ".join(get_text_from_cell(cell) for cell in row.cells)
-                if row_text:
-                    text_blocks.append(row_text)
-
-    return "\n".join(text_blocks)
-
-def clean_text(text):
-    """
-    Cleans up extracted DOCX text:
-    - Removes Word-style footnote markers like [1], [12], etc.
-    - Removes Word-style comment markers like "Commented [X1]"
-    - Strips excessive whitespace and MS Word formatting remnants
-    """
-    # Remove numeric footnotes like [1], [23]
-    text = re.sub(r"\[\d{1,3}\]", "", text)
-
-    # Remove Word comment references like "Commented [X1]" or "Commented [AB2]"
-    text = re.sub(r"Commented\s*\[\w{1,3}\d{1,3}\]", "", text)
-
-    # Remove residual bracketed notes with letters only e.g. [Note], [Ref]
-    text = re.sub(r"\[\w{2,10}\]", "", text)
-
-    # Remove stray soft line breaks and clean extra whitespace
-    text = re.sub(r"\s+", " ", text)
-
-    return text.strip()
-
-def chunk_text(text, max_chunk_size=800):
-    paragraphs = text.split("\n")
+# === CHUNKING LOGIC ===
+def generate_chunks(paragraphs):
     chunks = []
-    current_chunk = ""
-
-    for para in paragraphs:
-        if not para.strip():
-            continue
-
-        if len(current_chunk) + len(para) + 1 <= max_chunk_size:
-            current_chunk += "\n" + para if current_chunk else para
-        else:
-            if current_chunk:
-                chunks.append(current_chunk.strip())
-            current_chunk = para
-
-    if current_chunk:
-        chunks.append(current_chunk.strip())
-
-    return chunks
-
-def extract_section_from_text(text):
-    section_match = re.match(r"^\s*(\d+(\.\d+)*)(\s+|\.)(.*)", text)
-    if section_match:
-        return section_match.group(1).strip()
-    return "Uncategorised"
-
-def preprocess_document(file_path, max_chunk_size=800):
-    raw_text = extract_text_from_docx(file_path)
-    cleaned_text = clean_text(raw_text)
-    paragraphs = cleaned_text.split("\n")
-
-    chunks = []
-    current_chunk = ""
     current_section = "Uncategorised"
+    buffer = []
 
     for para in paragraphs:
-        if not para.strip():
+        # If it looks like a heading, treat it as a section
+        match = SECTION_PATTERN.match(para)
+        if match:
+            current_section = f"{match.group(1)} {match.group(2)}"
             continue
 
-        section = extract_section_from_text(para)
-        if section != "Uncategorised":
-            current_section = section
+        buffer.append(para)
+        if len(buffer) >= MAX_PARAGRAPHS_PER_CHUNK:
+            chunks.append({
+                "id": str(uuid.uuid4()),
+                "document": DOCUMENT_NAME,
+                "section": current_section,
+                "content": " ".join(buffer)
+            })
+            buffer = []
 
-        if len(current_chunk) + len(para) + 1 <= max_chunk_size:
-            current_chunk += "\n" + para if current_chunk else para
-        else:
-            if current_chunk:
-                chunks.append({
-                    "id": str(uuid.uuid4()),
-                    "text": current_chunk.strip(),
-                    "section": current_section
-                })
-            current_chunk = para
-
-    if current_chunk:
+    if buffer:
         chunks.append({
             "id": str(uuid.uuid4()),
-            "text": current_chunk.strip(),
-            "section": current_section
+            "document": DOCUMENT_NAME,
+            "section": current_section,
+            "content": " ".join(buffer)
         })
 
     return chunks
 
-def save_chunks_to_json(chunks, output_path):
-    with open(output_path, "w", encoding="utf-8") as f:
+# === MAIN SCRIPT ===
+def main():
+    os.makedirs("data", exist_ok=True)
+    paragraphs = load_cleaned_paragraphs(INPUT_FILE)
+    chunks = generate_chunks(paragraphs)
+
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(chunks, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
-    import sys
-    if len(sys.argv) != 3:
-        print("Usage: python preprocess_pipeline.py <input_docx_path> <output_json_path>")
-        sys.exit(1)
-
-    input_docx = sys.argv[1]
-    output_json = sys.argv[2]
-
-    chunks = preprocess_document(input_docx)
-    save_chunks_to_json(chunks, output_json)
+    main()
