@@ -1,4 +1,3 @@
-# app.py
 import os
 import json
 from flask import Flask, render_template, request
@@ -6,10 +5,14 @@ from answer_engine import get_answer
 
 app = Flask(__name__)
 
+# Load chunk data
 with open("data/chunks.json", "r", encoding="utf-8") as f:
     chunks_data = json.load(f)
 
+# Get list of all documents
 documents = sorted(set(chunk["document"] for chunk in chunks_data))
+
+# Group sections by document
 document_sections = {}
 for chunk in chunks_data:
     doc = chunk["document"]
@@ -17,38 +20,45 @@ for chunk in chunks_data:
     if doc not in document_sections:
         document_sections[doc] = set()
     document_sections[doc].add(section)
-document_sections = {k: sorted(v) for k, v in document_sections.items()}
+
+# Sort sections
+for doc in document_sections:
+    document_sections[doc] = sorted(document_sections[doc])
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    answer = ""
+    answer = []
     question = ""
-    selected_doc = "All Documents"
-    selected_section = "All Sections"
+    selected_doc = ""
+    selected_section = ""
     include_subsections = False
+    sections = []
 
     if request.method == "POST":
-        question = request.form["question"]
-        selected_doc = request.form["document"]
-        selected_section = request.form["section"]
+        question = request.form.get("question", "")
+        selected_doc = request.form.get("document", "")
+        selected_section = request.form.get("section", "")
         include_subsections = request.form.get("include_subsections") == "on"
 
         filters = {
             "document": selected_doc,
             "section": selected_section,
-            "include_subsections": include_subsections,
+            "include_subsections": include_subsections
         }
 
-        results = get_answer(question, filters=filters)
-        answer = results
+        answer = get_answer(question, filters)
+
+    if selected_doc in document_sections:
+        sections = ["All Sections"] + document_sections[selected_doc]
+    else:
+        sections = ["All Sections"]
 
     return render_template(
         "index.html",
-        answer=answer,
         question=question,
+        answer=answer,
         documents=["All Documents"] + documents,
-        sections=["All Sections"],
-        document_sections=document_sections,
+        sections=sections,
         selected_doc=selected_doc,
         selected_section=selected_section,
         include_subsections=include_subsections
