@@ -1,49 +1,58 @@
 # answer_engine.py
+
 import json
 import re
-import tiktoken
+from difflib import SequenceMatcher
 
 with open("data/chunks.json", "r", encoding="utf-8") as f:
     chunks_data = json.load(f)
 
-def count_tokens(text):
-    enc = tiktoken.get_encoding("cl100k_base")
-    return len(enc.encode(text))
+def clean_text(text):
+    # Basic cleaner to normalise whitespace
+    return re.sub(r"\s+", " ", text.strip().lower())
 
-def get_answer(question, selected_doc, selected_section, include_subsections):
+def matches_filter(chunk, filters):
+    if not filters:
+        return True
+
+    doc_match = True
+    sec_match = True
+
+    if "document" in filters and filters["document"]:
+        doc_match = chunk["document"] == filters["document"]
+
+    if "section" in filters and filters["section"]:
+        # Standard or subsection match
+        if filters.get("include_subsections"):
+            sec_match = chunk["section"].startswith(filters["section"])
+        else:
+            sec_match = chunk["section"] == filters["section"]
+
+    return doc_match and sec_match
+
+def get_answer(question, filters=None):
+    if not question.strip():
+        return []
+
+    cleaned_question = clean_text(question)
     matches = []
 
     for chunk in chunks_data:
-        if selected_doc != "All Documents" and chunk["document"] != selected_doc:
+        if not matches_filter(chunk, filters):
             continue
-        if selected_section != "All Sections":
-            chunk_section = chunk.get("section", "Uncategorised")
-            if include_subsections:
-                if not chunk_section.startswith(selected_section):
-                    continue
-            else:
-                if chunk_section != selected_section:
-                    continue
-        if question.lower() in chunk["content"].lower():
-            matches.append(chunk)
 
-    if not matches:
-        return {
-            "answer": "Check-Mate’s Response (0 results)",
-            "matches": [],
-            "message": "Use the document filter to view all matches."
-        }
+        chunk_text = clean_text(chunk["text"])
+        similarity = SequenceMatcher(None, cleaned_question, chunk_text).ratio()
 
-    matches.sort(key=lambda x: x["content"].lower().find(question.lower()))
-    context = "\n\n".join([m["content"] for m in matches[:3]])
-    references = [{
-        "document": m["document"],
-        "section": m.get("section", "Uncategorised"),
-        "content": m["content"]
-    } for m in matches]
+        if (
+            cleaned_question in chunk_text
+            or chunk_text in cleaned_question
+            or similarity > 0.45
+        ):
+            matches.append({
+                "document": chunk.get("document", "Unknown Document"),
+                "section": chunk.get("section", "Uncategorised"),
+                "text": chunk.get("text", ""),
+            })
 
-    return {
-        "answer": f"Check-Mate’s Response ({len(matches)} results)",
-        "matches": references,
-        "message": "Use the document filter to view all matches."
-    }
+    return matches
