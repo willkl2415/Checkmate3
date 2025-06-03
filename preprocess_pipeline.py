@@ -8,7 +8,7 @@ INPUT_FILE = "docs/DTSM 2 Analysis of Individual Training 2023 Edition V1.0.txt"
 OUTPUT_FILE = "data/chunks.json"
 DOCUMENT_NAME = "DTSM 2 Analysis of Individual Training 2023 Edition V1.0"
 MAX_PARAGRAPHS_PER_CHUNK = 3
-SECTION_PATTERN = re.compile(r"^(\d{1,2}(?:\.\d{1,2})*)[\t ]+(.+)$")  # e.g., 1.1 Introduction
+SECTION_PATTERN = re.compile(r"^(\d{1,2}(?:\.\d{1,2})*)[\t ]+(.+)$")  # matches tabs or spaces
 
 # === CLEANING UTILITY (used by answer_engine.py) ===
 def clean_text(text: str) -> str:
@@ -37,7 +37,7 @@ def generate_chunks(paragraphs):
             if buffer:
                 chunks.append({
                     "id": str(uuid.uuid4()),
-                    "document": DOCUMENT_NAME,
+                    "document": DOCUMENT_NAME,  # ✅ .docx extension removed
                     "section": current_section if current_section else "Uncategorised",
                     "content": " ".join(buffer)
                 })
