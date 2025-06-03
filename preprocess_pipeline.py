@@ -10,18 +10,19 @@ DOCUMENT_NAME = "DTSM 2 Analysis of Individual Training 2023 Edition V1.0"
 MAX_PARAGRAPHS_PER_CHUNK = 3
 SECTION_PATTERN = re.compile(r"^(\d{1,2}(?:\.\d{1,2})*)\s+(.+)$")  # e.g., 2.1 Introduction
 
+# === CLEANING UTILITY (required by answer_engine.py) ===
+def clean_text(text: str) -> str:
+    text = re.sub(r"\[\d+\]", "", text)
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
+
 # === LOAD AND CLEAN TEXT ===
 def load_cleaned_paragraphs(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         raw_text = f.read()
-
-    # Replace footnote markers like [1], [12], etc.
-    cleaned = re.sub(r"\[\d+\]", "", raw_text)
-    cleaned = re.sub(r"\s+", " ", cleaned)
-
-    # Split on paragraph-like breaks
-    paras = re.split(r"\n\s*\n", cleaned)
-    return [p.strip() for p in paras if p.strip()]
+    cleaned = clean_text(raw_text)
+    paragraphs = re.split(r"\n\s*\n", cleaned)
+    return [p.strip() for p in paragraphs if p.strip()]
 
 # === CHUNKING LOGIC ===
 def generate_chunks(paragraphs):
@@ -30,7 +31,6 @@ def generate_chunks(paragraphs):
     buffer = []
 
     for para in paragraphs:
-        # If it looks like a heading, treat it as a section
         match = SECTION_PATTERN.match(para)
         if match:
             current_section = f"{match.group(1)} {match.group(2)}"
