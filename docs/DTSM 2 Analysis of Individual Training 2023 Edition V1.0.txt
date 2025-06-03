@@ -22,7 +22,7 @@ Contents
 5	Role Analysis	21
 5.1	Introduction	21
 5.2	Identification of Role	22
-5.7	Production of Role Scalar	23
+5.3	Production of Role Scalar	23
 5.4	DIF Analysis	26
 5.5	Knowledge, Skills and Attitude Analysis	28
 5.6	Initial Training Categorisation	34
