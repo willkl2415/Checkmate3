@@ -1,6 +1,6 @@
 # app.py
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from answer_engine import get_answer
 import json
 
@@ -13,29 +13,26 @@ documents = sorted(set(chunk["document"] for chunk in chunks_data))
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    primary_question = ""
-    refined_query = ""
-    selected_document = ""
+    question = ""
+    selected_doc = ""
+    refine_query = ""
     answer = []
 
     if request.method == "POST":
-        primary_question = request.form.get("question", "").strip()
-        refined_query = request.form.get("refine", "").strip()
-        selected_document = request.form.get("document", "")
+        if "clear" in request.form:
+            return redirect("/")
+        question = request.form.get("question", "")
+        selected_doc = request.form.get("document", "")
+        refine_query = request.form.get("refine_query", "")
 
-        filters = {}
-        if selected_document and selected_document != "All Documents":
-            filters["document"] = selected_document
+        filters = {
+            "document": selected_doc,
+            "refine_query": refine_query
+        }
 
-        query_to_use = refined_query if refined_query else primary_question
-        answer = get_answer(query_to_use, filters)
+        answer = get_answer(question, filters)
 
-    return render_template(
-        "index.html",
-        documents=documents,
-        answer=answer,
-        question=primary_question,
-        refine=refined_query,
-        selected_document=selected_document,
-        total_results=len(answer)
-    )
+    return render_template("index.html", question=question, selected_doc=selected_doc, refine_query=refine_query, answer=answer, documents=documents)
+
+if __name__ == "__main__":
+    app.run(debug=True)
