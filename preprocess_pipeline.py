@@ -3,93 +3,65 @@ import json
 import uuid
 import re
 import docx
+from docx.table import _Cell
 from docx.text.paragraph import Paragraph
+from typing import Union
 
 # === CONFIGURATION ===
-INPUT_FILE = "docs/DTSM 2 Analysis of Individual Training 2023 Edition V1.0.docx"
+INPUT_FILE = "docs/JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx"
 OUTPUT_FILE = "data/chunks.json"
-DOCUMENT_NAME = "DTSM 2 Analysis of Individual Training 2023 Edition V1.0"
+DOCUMENT_NAME = "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training"
 MAX_PARAGRAPHS_PER_CHUNK = 3
+SECTION_PATTERN = re.compile(r"^(\d{1,2}(?:\.\d{1,2})*)\s+(.+)$")
 
-# === OFFICIAL TOC MAP (provided manually) ===
-TOC_MAP = {
-    "1": "How to use this Manual",
-    "2": "Introduction to Analysis of Training",
-    "2.1": "Training Needs Analysis",
-    "3": "TNA Governance",
-    "3.1": "Introduction",
-    "3.2": "Training Support Plan",
-    "4": "Scoping Exercise",
-    "4.1": "Introduction",
-    "4.3": "TNA Terms of References",
-    "4.3a": "TNA Plan",
-    "4.4": "Training Audience (and Throughput) Description",
-    "4.5": "Constraints Analysis",
-    "4.6": "The Scoping Exercise Report",
-    "5": "Role Analysis",
-    "5.1": "Introduction",
-    "5.2": "Identification of Role",
-    "5.3": "Production of Role Scalar",
-    "5.4": "DIF Analysis",
-    "5.5": "Knowledge, Skills and Attitude Analysis",
-    "5.6": "Initial Training Categorisation",
-    "5.7": "Role Performance Statement",
-    "5.8": "Frameworks",
-    "5.9": "Recommended Further Reading",
-    "6": "Training Gap Analysis",
-    "6.1": "Introduction",
-    "6.2": "Statement of Training Gaps",
-    "7": "Training Objectives",
-    "8": "Training Options Analysis",
-    "8.1": "Introduction",
-    "8.2": "Fidelity Analysis",
-    "8.3": "Location / Environment Implications",
-    "8.4": "Methods and Media Options",
-    "8.5": "Cost Benefit Analysis",
-    "8.6": "Options Evaluation",
-    "8.7": "Recommended Further Reading",
-    "9": "Training Needs Report",
-    "10": "Annexes",
-    "A": "Initial KSA Analysis (KSA) Example",
-    "B": "Role Performance Statement (Role PS) Example",
-    "C": "Fidelity Analysis Example",
-    "11": "Document Information",
-    "11.1": "Document Coverage",
-    "11.2": "Document Information",
-    "11.3": "Document Editions / Versions"
-}
+# === UTILITIES ===
+def get_text_from_paragraph(paragraph):
+    return paragraph.text.strip()
 
-# === REGEX TO MATCH SECTION HEADINGS ===
-SECTION_PATTERN = re.compile(r"^(\d{1,2}(?:\.\d{1,2})?|[A-C])\s{1,3}(.+)$")
+def get_text_from_cell(cell):
+    return "\n".join(get_text_from_paragraph(p) for p in cell.paragraphs)
 
-def clean_text(text):
-    return re.sub(r"\s+", " ", text).strip()
+def iter_block_items(parent):
+    if isinstance(parent, docx.document.Document):
+        parent_elm = parent._element.body
+    elif isinstance(parent, _Cell):
+        parent_elm = parent._tc
+    else:
+        raise ValueError("Unsupported parent type")
 
-def extract_paragraphs(docx_file):
-    doc = docx.Document(docx_file)
-    return [clean_text(p.text) for p in doc.paragraphs if p.text.strip()]
+    for child in parent_elm.iterchildren():
+        if child.tag.endswith('}p'):
+            yield Paragraph(child, parent)
+        elif child.tag.endswith('}tbl'):
+            yield child
 
+# === CLEAN TEXT + FOOTNOTE SCRUBBER ===
+def clean_text(text: str) -> str:
+    text = re.sub(r"\[\d+\]", "", text)  # footnote markers
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
+
+# === PARAGRAPH EXTRACTOR ===
+def load_paragraphs_from_docx(doc_path):
+    doc = docx.Document(doc_path)
+    paragraphs = []
+    for block in iter_block_items(doc):
+        if isinstance(block, Paragraph):
+            cleaned = clean_text(block.text)
+            if cleaned:
+                paragraphs.append(cleaned)
+    return paragraphs
+
+# === CHUNKING FUNCTION ===
 def generate_chunks(paragraphs):
     chunks = []
-    buffer = []
     current_section = None
-    section_count = {}
+    buffer = []
+    section_started = False
 
     for para in paragraphs:
         match = SECTION_PATTERN.match(para)
         if match:
-            raw_num = match.group(1)
-            title = match.group(2).strip()
-
-            if raw_num in section_count:
-                # disambiguate duplicate e.g. 4.3, 4.3a, 4.3b, etc.
-                suffix = chr(ord('a') + section_count[raw_num])
-                raw_num += suffix
-                section_count[raw_num[:-1]] += 1
-            else:
-                section_count[raw_num] = 1
-
-            section_title = TOC_MAP.get(raw_num, title)
             if buffer:
                 chunks.append({
                     "id": str(uuid.uuid4()),
@@ -98,11 +70,11 @@ def generate_chunks(paragraphs):
                     "content": " ".join(buffer)
                 })
                 buffer = []
-
-            current_section = f"{raw_num} {section_title}"
+            current_section = f"{match.group(1)} {match.group(2)}"
+            section_started = True
             continue
 
-        if current_section is None:
+        if not section_started:
             continue
 
         buffer.append(para)
@@ -110,7 +82,7 @@ def generate_chunks(paragraphs):
             chunks.append({
                 "id": str(uuid.uuid4()),
                 "document": DOCUMENT_NAME,
-                "section": current_section,
+                "section": current_section if current_section else "Uncategorised",
                 "content": " ".join(buffer)
             })
             buffer = []
@@ -125,10 +97,12 @@ def generate_chunks(paragraphs):
 
     return chunks
 
+# === MAIN ===
 def main():
     os.makedirs("data", exist_ok=True)
-    paragraphs = extract_paragraphs(INPUT_FILE)
+    paragraphs = load_paragraphs_from_docx(INPUT_FILE)
     chunks = generate_chunks(paragraphs)
+
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(chunks, f, indent=2, ensure_ascii=False)
 
