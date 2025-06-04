@@ -1,5 +1,14 @@
 # app.py
 import os
+
+# Automatically run chunk generation if missing or corrupted
+try:
+    if not os.path.exists("data/chunks.json") or os.path.getsize("data/chunks.json") < 100:
+        from generate_chunks import main as generate_chunks_main
+        generate_chunks_main()
+except Exception as e:
+    print(f"[ERROR] Could not generate chunks: {e}")
+
 import json
 from flask import Flask, render_template, request
 from answer_engine import get_answer
