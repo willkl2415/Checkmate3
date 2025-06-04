@@ -5,18 +5,17 @@
     <title>Check-Mate</title>
     <link rel="stylesheet" href="/static/style.css" />
     <script>
-        // Delay auto-submit on refine input
-        let typingTimer;
-        function debounceSubmit() {
-            clearTimeout(typingTimer);
-            typingTimer = setTimeout(() => {
-                document.querySelector("form").submit();
-            }, 300);
-        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const refineInput = document.querySelector("input[name='refine_query']");
+            let timeout = null;
+            refineInput.addEventListener("input", () => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => refineInput.form.submit(), 600);  // Delay auto-submit
+            });
 
-        function autoSubmit() {
-            document.querySelector("form").submit();
-        }
+            const docSelect = document.querySelector("select[name='document']");
+            docSelect.addEventListener("change", () => docSelect.form.submit());
+        });
     </script>
 </head>
 <body>
@@ -36,13 +35,12 @@
     <div class="right-panel">
         <form method="post">
             <input type="text" name="question" placeholder="Type your question..." value="{{ question }}" />
-            <select name="document" onchange="autoSubmit()">
-                <option value="All Documents">All Documents</option>
+            <select name="document">
                 {% for doc in documents %}
                     <option value="{{ doc }}" {% if doc == selected_doc %}selected{% endif %}>{{ doc }}</option>
                 {% endfor %}
             </select>
-            <input type="text" name="refine_query" placeholder="Refine your search..." value="{{ refine_query }}" oninput="debounceSubmit()" />
+            <input type="text" name="refine_query" placeholder="Refine your search..." value="{{ refine_query }}" />
             <button type="submit" class="green-button"><strong>Ask Check-Mate</strong></button>
             <button type="submit" name="clear" value="1" class="red-button"><strong>Clear Search</strong></button>
         </form>
