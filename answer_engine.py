@@ -11,26 +11,22 @@ encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
 def num_tokens_from_string(string: str) -> int:
     return len(encoding.encode(string))
 
-def get_answer(query, filters=None):
-    if not query:
+def get_answer(question, filters=None):
+    if not question:
         return []
 
-    query = query.lower().strip()
+    question = question.strip().lower()
     filtered_chunks = []
 
     selected_doc = filters.get("document") if filters else None
+    refine_query = filters.get("refine_query", "").strip().lower() if filters else ""
 
     for chunk in chunks_data:
-        doc_match = (
-            selected_doc in [None, "", "All Documents"] or
-            chunk["document"] == selected_doc
-        )
-
-        if not doc_match:
+        if selected_doc and selected_doc not in ["", "All Documents"] and chunk["document"] != selected_doc:
             continue
 
-        text = clean_text(chunk["content"])
-        if query in text.lower():
+        chunk_text = clean_text(chunk["content"])
+        if question in chunk_text.lower() or refine_query in chunk_text.lower():
             filtered_chunks.append(chunk)
 
     return filtered_chunks
