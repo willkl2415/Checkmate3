@@ -5,6 +5,15 @@
     <title>Check-Mate</title>
     <link rel="stylesheet" href="/static/style.css" />
     <script>
+        // Delay auto-submit on refine input
+        let typingTimer;
+        function debounceSubmit() {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(() => {
+                document.querySelector("form").submit();
+            }, 300);
+        }
+
         function autoSubmit() {
             document.querySelector("form").submit();
         }
@@ -33,7 +42,7 @@
                     <option value="{{ doc }}" {% if doc == selected_doc %}selected{% endif %}>{{ doc }}</option>
                 {% endfor %}
             </select>
-            <input type="text" name="refine_query" placeholder="Refine your search..." value="{{ refine_query }}" oninput="autoSubmit()" />
+            <input type="text" name="refine_query" placeholder="Refine your search..." value="{{ refine_query }}" oninput="debounceSubmit()" />
             <button type="submit" class="green-button"><strong>Ask Check-Mate</strong></button>
             <button type="submit" name="clear" value="1" class="red-button"><strong>Clear Search</strong></button>
         </form>
