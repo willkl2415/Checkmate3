@@ -1,59 +1,49 @@
 <!-- templates/index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Check-Mate</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
 <div class="container">
     <div class="left-panel">
-        <h2 style="text-align: center;"><strong>Welcome to Check-Mate</strong></h2>
-        <img src="/static/checkmate.png" class="logo">
+        <h2 class="text-center">Welcome to Check-Mate</h2>
+        <img src="/static/checkmate.png" class="logo" />
         <p><strong>Check-Mate</strong> is a go-to application for Training Consultants, Analysts, Designers, and Decision-Makers who demand accuracy, assurance, and speed – without compromise.</p>
         <p><strong>Check-Mate</strong> is a cutting-edge AI solution built to deliver instant clarity in high-complexity environments – especially those shaped by Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
         <p>Inspired by the finality of the phrase in chess, <strong>Check-Mate</strong> empowers you to instantly search, filter, and interrogate massive volumes of structured documentation – training, guidance, standards, and more – using OpenAI’s natural language and intelligent keyword filters.</p>
-        <p><strong>Ask a question. Get an answer. Not in 30 minutes—but in 5 seconds.</strong></p>
+        <p>Ask a question. Get an answer. Not in 30 minutes—but in 5 seconds.</p>
         <p>Drawn directly from authoritative sources, every response is precise, context-rich, and ready for action.</p>
         <p><strong>Check-Mate</strong> doesn’t just speed things up—it delivers time savings of up to 99.7%, transforming slow, manual searches into rapid, evidence-based decisions.</p>
-        <p><strong>Check-Mate isn’t just a nice to have. It’s your final move.</strong></p>
+        <p><strong>Check-Mate</strong> isn’t just a nice to have. It’s your final move.</p>
     </div>
 
     <div class="right-panel">
-        <form method="POST">
-            <label for="question"><strong>Ask Check-Mate</strong></label><br>
-            <input type="text" name="question" id="question" value="{{ question }}" class="full-width"><br><br>
-
-            <label for="document"><strong>Filter by Document</strong></label><br>
-            <select name="document" id="document" onchange="this.form.submit()">
-                <option value="All Documents">All Documents</option>
+        <form method="post">
+            <input type="text" name="question" placeholder="Type your question..." value="{{ question }}" />
+            <select name="document">
                 {% for doc in documents %}
                     <option value="{{ doc }}" {% if doc == selected_doc %}selected{% endif %}>{{ doc }}</option>
                 {% endfor %}
-            </select><br><br>
-
-            <label for="subquery"><strong>Refine Your Search</strong></label><br>
-            <input type="text" name="subquery" id="subquery" value="{{ subquery }}" class="full-width"><br><br>
-
+            </select>
+            <input type="text" name="refine_query" placeholder="Refine your search..." value="{{ refine_query }}" />
             <button type="submit" class="green-button"><strong>Ask Check-Mate</strong></button>
-            <button type="submit" name="clear" value="true" class="red-button"><strong>Clear Search</strong></button>
+            <button type="submit" name="clear" value="1" class="red-button"><strong>Clear Search</strong></button>
         </form>
 
+        <h3>Check-Mate’s Response ({{ answer|length }} results)</h3>
         {% if answer %}
-            <div class="results">
-                <h3>Check-Mate’s Response</h3>
-                <p><em>Use the document filter to view all matches.</em></p>
-                <ul>
-                {% for chunk in answer %}
-                    <li>
-                        <strong>Document:</strong> {{ chunk.document }}<br>
-                        <strong>Section:</strong> {{ chunk.section }}<br>
-                        {{ chunk.content }}
-                    </li>
-                {% endfor %}
-                </ul>
-            </div>
+        <ul>
+            {% for chunk in answer %}
+            <li>
+                <strong>{{ chunk.document }}</strong> — {{ chunk.section }}<br/>
+                {{ chunk.content }}
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Use the document filter to view all matches.</p>
         {% endif %}
     </div>
 </div>
