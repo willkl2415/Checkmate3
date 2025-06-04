@@ -1,8 +1,8 @@
 # app.py
 import os
+import json
 from flask import Flask, render_template, request
 from answer_engine import get_answer
-import json
 
 app = Flask(__name__)
 
@@ -13,20 +13,26 @@ documents = sorted(set(chunk["document"] for chunk in chunks_data))
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    answer = []
     question = ""
-    subquery = ""
-    selected_doc = None
+    refine_query = ""
+    answer = []
 
     if request.method == "POST":
-        if request.form.get("clear"):
-            return render_template("index.html", answer=[], question="", subquery="", documents=documents, selected_doc=None)
-
-        question = request.form.get("question", "")
-        subquery = request.form.get("subquery", "")
-        selected_doc = request.form.get("document")
-
+        question = request.form.get("question", "").strip()
+        selected_doc = request.form.get("document", "")
+        refine_query = request.form.get("refine_query", "").strip()
         filters = {"document": selected_doc}
-        answer = get_answer(question, filters, subquery)
+        combined_query = f"{question} {refine_query}".strip()
+        answer = get_answer(combined_query, filters)
 
-    return render_template("index.html", answer=answer, question=question, subquery=subquery, documents=documents, selected_doc=selected_doc)
+    return render_template(
+        "index.html",
+        question=question,
+        refine_query=refine_query,
+        documents=["All Documents"] + documents,
+        selected_doc=request.form.get("document", "All Documents"),
+        answer=answer
+    )
+
+if __name__ == "__main__":
+    app.run(debug=True)
