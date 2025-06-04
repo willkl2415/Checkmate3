@@ -1,17 +1,8 @@
 # app.py
 import os
-
-# Automatically run chunk generation if missing or corrupted
-try:
-    if not os.path.exists("data/chunks.json") or os.path.getsize("data/chunks.json") < 100:
-        from generate_chunks import main as generate_chunks_main
-        generate_chunks_main()
-except Exception as e:
-    print(f"[ERROR] Could not generate chunks: {e}")
-
-import json
 from flask import Flask, render_template, request
 from answer_engine import get_answer
+import json
 
 app = Flask(__name__)
 
@@ -22,26 +13,29 @@ documents = sorted(set(chunk["document"] for chunk in chunks_data))
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    question = ""
-    refine_query = ""
+    primary_question = ""
+    refined_query = ""
+    selected_document = ""
     answer = []
 
     if request.method == "POST":
-        question = request.form.get("question", "").strip()
-        selected_doc = request.form.get("document", "")
-        refine_query = request.form.get("refine_query", "").strip()
-        filters = {"document": selected_doc}
-        combined_query = f"{question} {refine_query}".strip()
-        answer = get_answer(combined_query, filters)
+        primary_question = request.form.get("question", "").strip()
+        refined_query = request.form.get("refine", "").strip()
+        selected_document = request.form.get("document", "")
+
+        filters = {}
+        if selected_document and selected_document != "All Documents":
+            filters["document"] = selected_document
+
+        query_to_use = refined_query if refined_query else primary_question
+        answer = get_answer(query_to_use, filters)
 
     return render_template(
         "index.html",
-        question=question,
-        refine_query=refine_query,
-        documents=["All Documents"] + documents,
-        selected_doc=request.form.get("document", "All Documents"),
-        answer=answer
+        documents=documents,
+        answer=answer,
+        question=primary_question,
+        refine=refined_query,
+        selected_document=selected_document,
+        total_results=len(answer)
     )
-
-if __name__ == "__main__":
-    app.run(debug=True)
