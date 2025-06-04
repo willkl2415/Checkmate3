@@ -3,6 +3,7 @@ import json
 import tiktoken
 from preprocess_pipeline import clean_text
 
+# Load chunks
 with open("data/chunks.json", "r", encoding="utf-8") as f:
     chunks_data = json.load(f)
 
@@ -11,22 +12,16 @@ encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
 def num_tokens_from_string(string: str) -> int:
     return len(encoding.encode(string))
 
-def get_answer(question, filters=None):
+def get_answer(question, chunks_subset):
     if not question:
         return []
 
     question = question.strip().lower()
-    filtered_chunks = []
+    results = []
 
-    selected_doc = filters.get("document") if filters else None
-    refine_query = filters.get("refine_query", "").strip().lower() if filters else ""
-
-    for chunk in chunks_data:
-        if selected_doc and selected_doc not in ["", "All Documents"] and chunk["document"] != selected_doc:
-            continue
-
+    for chunk in chunks_subset:
         chunk_text = clean_text(chunk["content"])
-        if question in chunk_text.lower() or refine_query in chunk_text.lower():
-            filtered_chunks.append(chunk)
+        if question in chunk_text.lower():
+            results.append(chunk)
 
-    return filtered_chunks
+    return results
