@@ -1,20 +1,16 @@
 import os
 import json
-import uuid
 import re
 import docx
-from docx.table import _Cell
+import uuid
 from docx.text.paragraph import Paragraph
+from docx.table import _Cell
 from typing import Union
+from bs4 import BeautifulSoup
 
-# === CONFIGURATION ===
-INPUT_FILE = "docs/JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training.docx"
-OUTPUT_FILE = "data/chunks.json"
-DOCUMENT_NAME = "JSP 822 V7.0 Vol 2 V3.0 Defence Individual Training"
-MAX_PARAGRAPHS_PER_CHUNK = 3
-SECTION_PATTERN = re.compile(r"^(\d{1,2}(?:\.\d{1,2})*)\s+(.+)$")
+MAX_CHUNK_LENGTH = 1000
+OVERLAP = 100
 
-# === UTILITIES ===
 def get_text_from_paragraph(paragraph):
     return paragraph.text.strip()
 
@@ -32,79 +28,77 @@ def iter_block_items(parent):
     for child in parent_elm.iterchildren():
         if child.tag.endswith('}p'):
             yield Paragraph(child, parent)
-        elif child.tag.endswith('}tbl'):
-            yield child
 
-# === CLEAN TEXT + FOOTNOTE SCRUBBER ===
-def clean_text(text: str) -> str:
-    text = re.sub(r"\[\d+\]", "", text)  # footnote markers
-    text = re.sub(r"\s+", " ", text)
-    return text.strip()
+def extract_text_from_docx(file_path):
+    doc = docx.Document(file_path)
+    full_text = []
+    for para in iter_block_items(doc):
+        full_text.append(get_text_from_paragraph(para))
+    return "\n".join(full_text)
 
-# === PARAGRAPH EXTRACTOR ===
-def load_paragraphs_from_docx(doc_path):
-    doc = docx.Document(doc_path)
-    paragraphs = []
-    for block in iter_block_items(doc):
-        if isinstance(block, Paragraph):
-            cleaned = clean_text(block.text)
-            if cleaned:
-                paragraphs.append(cleaned)
-    return paragraphs
+def remove_footnotes(text):
+    # Remove manually written footnote markers or definitions (basic heuristic)
+    text = re.sub(r"\b\d{1,3}\b(?=\s[a-z])", "", text)
+    text = re.sub(r"(Footnote|Note|Ref)[\s\d\-:]+.*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\s*\[\d{1,3}\]", "", text)
+    return text
 
-# === CHUNKING FUNCTION ===
-def generate_chunks(paragraphs):
+def split_into_chunks(text, max_length=MAX_CHUNK_LENGTH, overlap=OVERLAP):
+    words = text.split()
     chunks = []
-    current_section = None
-    buffer = []
-    section_started = False
-
-    for para in paragraphs:
-        match = SECTION_PATTERN.match(para)
-        if match:
-            if buffer:
-                chunks.append({
-                    "id": str(uuid.uuid4()),
-                    "document": DOCUMENT_NAME,
-                    "section": current_section if current_section else "Uncategorised",
-                    "content": " ".join(buffer)
-                })
-                buffer = []
-            current_section = f"{match.group(1)} {match.group(2)}"
-            section_started = True
-            continue
-
-        if not section_started:
-            continue
-
-        buffer.append(para)
-        if len(buffer) >= MAX_PARAGRAPHS_PER_CHUNK:
-            chunks.append({
-                "id": str(uuid.uuid4()),
-                "document": DOCUMENT_NAME,
-                "section": current_section if current_section else "Uncategorised",
-                "content": " ".join(buffer)
-            })
-            buffer = []
-
-    if buffer:
-        chunks.append({
-            "id": str(uuid.uuid4()),
-            "document": DOCUMENT_NAME,
-            "section": current_section if current_section else "Uncategorised",
-            "content": " ".join(buffer)
-        })
-
+    start = 0
+    while start < len(words):
+        end = min(start + max_length, len(words))
+        chunk = " ".join(words[start:end])
+        chunks.append(chunk)
+        start += max_length - overlap
     return chunks
 
-# === MAIN ===
-def main():
-    os.makedirs("data", exist_ok=True)
-    paragraphs = load_paragraphs_from_docx(INPUT_FILE)
-    chunks = generate_chunks(paragraphs)
+def extract_section(text):
+    match = re.match(r"^(\d+(\.\d+)*)\s+", text.strip())
+    return match.group(1) if match else "Uncategorised"
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(chunks, f, indent=2, ensure_ascii=False)
+def clean_text(text):
+    return re.sub(r"\s+", " ", text.strip())
+
+def generate_chunks():
+    output = []
+    docs_path = "docs"
+    for filename in os.listdir(docs_path):
+        if not filename.endswith(".docx"):
+            continue
+        document_path = os.path.join(docs_path, filename)
+        raw_text = extract_text_from_docx(document_path)
+        scrubbed_text = remove_footnotes(raw_text)
+        paragraphs = [p for p in scrubbed_text.split("\n") if p.strip()]
+        buffer = ""
+        for para in paragraphs:
+            buffer += " " + para
+            if len(buffer) > MAX_CHUNK_LENGTH:
+                chunks = split_into_chunks(buffer)
+                for chunk in chunks:
+                    section = extract_section(chunk)
+                    output.append({
+                        "id": str(uuid.uuid4()),
+                        "document": filename.replace(".docx", ""),
+                        "section": section,
+                        "content": clean_text(chunk)
+                    })
+                buffer = ""
+        if buffer.strip():
+            chunks = split_into_chunks(buffer)
+            for chunk in chunks:
+                section = extract_section(chunk)
+                output.append({
+                    "id": str(uuid.uuid4()),
+                    "document": filename.replace(".docx", ""),
+                    "section": section,
+                    "content": clean_text(chunk)
+                })
+
+    os.makedirs("data", exist_ok=True)
+    with open("data/chunks.json", "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
-    main()
+    generate_chunks()
