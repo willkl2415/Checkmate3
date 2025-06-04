@@ -3,7 +3,7 @@ services:
     name: checkmate3
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    startCommand: python run_preprocess.py
     envVars:
       - key: PYTHONUNBUFFERED
         value: "true"
