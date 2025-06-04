@@ -1,41 +1,36 @@
-import re
 import os
 import json
 import uuid
+import re
+import docx
+from docx.text.paragraph import Paragraph
 
-DOCUMENT_NAME = "DTSM 2 Analysis of Individual Training 2023 Edition V1.0.txt"
+# === CONFIGURATION ===
+INPUT_FILE = "docs/DTSM 2 Analysis of Individual Training 2023 Edition V1.0.docx"
+OUTPUT_FILE = "data/chunks.json"
+DOCUMENT_NAME = "DTSM 2 Analysis of Individual Training 2023 Edition V1.0"
 MAX_PARAGRAPHS_PER_CHUNK = 3
+SECTION_PATTERN = re.compile(r"^(\d{1,2}(?:\.\d{1,2})*)\s+(.+)$")  # e.g., 2.1 Introduction
 
-INPUT_PATH = f"./docs/{DOCUMENT_NAME}"
-OUTPUT_PATH = "./data/chunks.json"
-
-SECTION_PATTERN = re.compile(r"^(\d+(?:\.\d+)*)(?:\s+)(.+)$")
-
+# === CLEAN TEXT ===
 def clean_text(text):
-    return re.sub(r'\s+', ' ', text.strip())
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
 
-def load_and_merge_headings(lines):
-    """Handle lines like `2` followed by `Title` into `2 Title`."""
-    merged_lines = []
-    buffer = None
-    for line in lines:
-        if re.match(r"^\d+(\.\d+)*$", line.strip()):
-            buffer = line.strip()
-        elif buffer:
-            if line.strip():
-                merged_lines.append(f"{buffer} {line.strip()}")
-                buffer = None
-        else:
-            merged_lines.append(line.strip())
-    return merged_lines
+# === EXTRACT PARAGRAPHS ===
+def extract_paragraphs_from_docx(file_path):
+    doc = docx.Document(file_path)
+    return [clean_text(p.text) for p in doc.paragraphs if p.text.strip()]
 
-def split_into_chunks(lines):
+# === CHUNKING LOGIC ===
+def generate_chunks(paragraphs):
     chunks = []
-    buffer = []
     current_section = None
+    buffer = []
+    section_started = False
 
-    for line in lines:
-        match = SECTION_PATTERN.match(line)
+    for para in paragraphs:
+        match = SECTION_PATTERN.match(para)
         if match:
             if buffer:
                 chunks.append({
@@ -45,17 +40,23 @@ def split_into_chunks(lines):
                     "content": " ".join(buffer)
                 })
                 buffer = []
-            current_section = f"{match.group(1)} {match.group(2)}"
-        elif current_section:
-            buffer.append(clean_text(line))
-            if len(buffer) >= MAX_PARAGRAPHS_PER_CHUNK:
-                chunks.append({
-                    "id": str(uuid.uuid4()),
-                    "document": DOCUMENT_NAME,
-                    "section": current_section,
-                    "content": " ".join(buffer)
-                })
-                buffer = []
+
+            current_section = match.group(1) + " " + match.group(2)
+            section_started = True
+            continue
+
+        if not section_started:
+            continue
+
+        buffer.append(para)
+        if len(buffer) >= MAX_PARAGRAPHS_PER_CHUNK:
+            chunks.append({
+                "id": str(uuid.uuid4()),
+                "document": DOCUMENT_NAME,
+                "section": current_section if current_section else "Uncategorised",
+                "content": " ".join(buffer)
+            })
+            buffer = []
 
     if buffer:
         chunks.append({
@@ -67,16 +68,14 @@ def split_into_chunks(lines):
 
     return chunks
 
-def preprocess():
-    with open(INPUT_PATH, "r", encoding="utf-8") as f:
-        raw_lines = f.readlines()
+# === MAIN SCRIPT ===
+def main():
+    os.makedirs("data", exist_ok=True)
+    paragraphs = extract_paragraphs_from_docx(INPUT_FILE)
+    chunks = generate_chunks(paragraphs)
 
-    merged = load_and_merge_headings(raw_lines)
-    chunks = split_into_chunks(merged)
-
-    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(chunks, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
-    preprocess()
+    main()
