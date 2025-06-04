@@ -4,6 +4,11 @@
 <head>
     <title>Check-Mate</title>
     <link rel="stylesheet" href="/static/style.css" />
+    <script>
+        function autoSubmit() {
+            document.querySelector("form").submit();
+        }
+    </script>
 </head>
 <body>
 <div class="container">
@@ -22,12 +27,13 @@
     <div class="right-panel">
         <form method="post">
             <input type="text" name="question" placeholder="Type your question..." value="{{ question }}" />
-            <select name="document">
+            <select name="document" onchange="autoSubmit()">
+                <option value="All Documents">All Documents</option>
                 {% for doc in documents %}
-                    <option value="{{ doc }}" {% if doc == selected_document %}selected{% endif %}>{{ doc }}</option>
+                    <option value="{{ doc }}" {% if doc == selected_doc %}selected{% endif %}>{{ doc }}</option>
                 {% endfor %}
             </select>
-            <input type="text" name="refine" placeholder="Refine your search..." value="{{ refine }}" />
+            <input type="text" name="refine_query" placeholder="Refine your search..." value="{{ refine_query }}" oninput="autoSubmit()" />
             <button type="submit" class="green-button"><strong>Ask Check-Mate</strong></button>
             <button type="submit" name="clear" value="1" class="red-button"><strong>Clear Search</strong></button>
         </form>
