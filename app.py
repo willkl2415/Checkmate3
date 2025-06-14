@@ -14,7 +14,7 @@ documents = sorted(set(chunk["document"] for chunk in chunks_data))
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-   question = request.form.get("question", "").strip().lower()
+    question = request.form.get("question", "").strip().lower()
     selected_doc = request.form.get("document", "")
     refine_query = request.form.get("refine_query", "")
     answer = []
@@ -23,6 +23,7 @@ def index():
         return redirect(url_for("index"))
 
     filtered_chunks = chunks_data
+
     if selected_doc and selected_doc != "All Documents":
         filtered_chunks = [chunk for chunk in filtered_chunks if chunk["document"] == selected_doc]
 
