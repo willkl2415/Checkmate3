@@ -14,7 +14,7 @@ documents = sorted(set(chunk["document"] for chunk in chunks_data))
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    question = request.form.get("question", "")
+   question = request.form.get("question", "").strip().lower()
     selected_doc = request.form.get("document", "")
     refine_query = request.form.get("refine_query", "")
     answer = []
