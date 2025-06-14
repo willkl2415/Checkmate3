@@ -1,4 +1,11 @@
+import json
+import re
 
+# Load chunks
+with open("data/chunks.json", "r", encoding="utf-8") as f:
+    chunks_data = json.load(f)
+
+# Priority logic
 def get_priority(doc_title):
     title = doc_title.lower()
     if "jsp 822" in title:
@@ -12,31 +19,43 @@ def get_priority(doc_title):
     else:
         return 5
 
-# answer_engine.py
-import json
-import tiktoken
-from preprocess_pipeline import clean_text
+# Basic scoring function used AFTER refine search
+def rank_results(results, refine_keywords):
+    def score(chunk):
+        text = chunk["text"].lower()
+        keyword_hits = sum(text.count(word.lower()) for word in refine_keywords)
+        first_pos = min([text.find(word.lower()) for word in refine_keywords if word.lower() in text] or [9999])
+        priority = get_priority(chunk["document"])
+        return (priority, -keyword_hits, first_pos)  # Lower values are better
 
-# Load chunks
-with open("data/chunks.json", "r", encoding="utf-8") as f:
-    chunks_data = json.load(f)
+    results.sort(key=score)
+    return results
 
-encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
+# Main answer function
+def get_answer(question, selected_documents=None, refine_keywords=None):
+    question_lower = question.lower()
+    refine_keywords = [w.strip() for w in refine_keywords] if refine_keywords else []
 
-def num_tokens_from_string(string: str) -> int:
-    return len(encoding.encode(string))
-
-def get_answer(question, chunks_subset):
-    if not question:
-        return []
-
-    question = question.strip().lower()
     results = []
 
-    for chunk in chunks_subset:
-        chunk_text = clean_text(chunk["content"])
-        if question in chunk_text.lower():
-            results.append(chunk)
+    for chunk in chunks_data:
+        text = chunk["text"].lower()
+        if all(q in text for q in question_lower.split()):
+            if selected_documents and chunk["document"] not in selected_documents:
+                continue
+            results.append({
+                "text": chunk["text"],
+                "document": chunk["document"],
+                "section": chunk["section"] if chunk["section"] != "Uncategorised" else ""
+            })
 
-    results.sort(key=lambda x: get_priority(x['document']))
+    # Apply refine search if keywords exist
+    if refine_keywords:
+        results = [
+            r for r in results
+            if all(word.lower() in r["text"].lower() for word in refine_keywords)
+        ]
+        # Apply ranking only AFTER refine search
+        results = rank_results(results, refine_keywords)
+
     return results
