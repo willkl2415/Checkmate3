@@ -38,4 +38,5 @@ def get_answer(question, chunks_subset):
         if question in chunk_text.lower():
             results.append(chunk)
 
+    results.sort(key=lambda x: get_priority(x['document']))
     return results
