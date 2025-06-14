@@ -55,6 +55,20 @@ def get_answer(question, selected_documents=None, refine_keywords=None):
 
         results = []
 
+        # 🔍 DEBUG BLOCK: live verification of Analysis/KSA/etc. presence
+        matches_found = 0
+        print(f"DEBUG INSPECTION: Total Chunks = {len(chunks_data)}")
+        for chunk in chunks_data:
+            try:
+                text = chunk.get("text", "")
+                if any(term in text for term in ["Analysis", "analysis", "KSA", "ksa", "DIF", "dif"]):
+                    matches_found += 1
+                    if matches_found <= 10:
+                        print(f"[MATCHED CHUNK {matches_found}]: {text[:250]}...")
+            except Exception as e:
+                print(f"ERROR inspecting chunk: {e}")
+        print(f"DEBUG: Found {matches_found} chunks containing Analysis/KSA/DIF")
+
         for chunk in chunks_data:
             try:
                 text = chunk.get("text", "")
