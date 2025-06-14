@@ -43,10 +43,6 @@ def calculate_score(chunk, query_words):
     except:
         return 9999
 
-# Tokenizer (basic)
-def tokenize(text):
-    return re.findall(r"\b\w+\b", text.lower())
-
 # Main answer logic
 def get_answer(question, selected_documents=None, refine_keywords=None):
     try:
@@ -65,14 +61,14 @@ def get_answer(question, selected_documents=None, refine_keywords=None):
         for chunk in chunks_data:
             try:
                 text = chunk.get("text", "")
-                tokens = tokenize(text)
+                text_lower = text.lower()
                 doc = chunk.get("document", "")
                 section = chunk.get("section", "")
 
                 if selected_documents and doc not in selected_documents:
                     continue
 
-                if not any(word in tokens for word in query_words):
+                if not any(word in text_lower for word in query_words):
                     continue
 
                 matched_count += 1
@@ -89,7 +85,7 @@ def get_answer(question, selected_documents=None, refine_keywords=None):
         if refine_keywords:
             results = [
                 r for r in results
-                if all(word in tokenize(r["text"]) for word in refine_keywords)
+                if all(word in r["text"].lower() for word in refine_keywords)
             ]
 
         results.sort(key=lambda r: r["score"])
