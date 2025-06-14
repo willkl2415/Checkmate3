@@ -1,12 +1,12 @@
 import json
 from rapidfuzz import fuzz
 
-# Load data
+# Load chunks
 try:
     with open("data/chunks.json", "r", encoding="utf-8") as f:
         chunks_data = json.load(f)
 except Exception as e:
-    print(f"Error loading chunks.json: {e}")
+    print(f"ERROR loading chunks.json: {e}")
     chunks_data = []
 
 # Priority logic
@@ -26,7 +26,7 @@ def get_priority(doc_title):
     except Exception:
         return 5
 
-# Ranking logic for refine
+# Ranking logic
 def rank_results(results, refine_keywords):
     try:
         def score(chunk):
@@ -38,10 +38,10 @@ def rank_results(results, refine_keywords):
         results.sort(key=score)
         return results
     except Exception as e:
-        print(f"Ranking error: {e}")
+        print(f"RANKING ERROR: {e}")
         return results
 
-# Main search function with fuzzy matching
+# Main answer engine with hard fail protections
 def get_answer(question, selected_documents=None, refine_keywords=None):
     try:
         question_clean = question.strip().lower()
@@ -49,7 +49,7 @@ def get_answer(question, selected_documents=None, refine_keywords=None):
         selected_documents = set(selected_documents) if selected_documents else None
 
         results = []
-        match_threshold = 70  # fuzzy match score threshold (0–100)
+        threshold = 60 if len(question_clean) < 8 else 70  # dynamic match score
 
         for chunk in chunks_data:
             text = chunk.get("text", "")
@@ -57,27 +57,30 @@ def get_answer(question, selected_documents=None, refine_keywords=None):
             section = chunk.get("section", "")
             text_lower = text.lower()
 
-            # ✅ Fuzzy match using rapidfuzz
+            if selected_documents and doc not in selected_documents:
+                continue
+
             match_score = fuzz.partial_ratio(question_clean, text_lower)
-            if match_score >= match_threshold:
-                if selected_documents and doc not in selected_documents:
-                    continue
+            if match_score >= threshold:
                 results.append({
                     "text": text,
                     "document": doc,
                     "section": section if section != "Uncategorised" else ""
                 })
 
-        # Apply refine + rerank
+        print(f"DEBUG: {len(results)} results after fuzzy match for: '{question_clean}'")
+
+        # Refine + rerank
         if refine_keywords:
             results = [
                 r for r in results
                 if all(word.lower() in r["text"].lower() for word in refine_keywords)
             ]
             results = rank_results(results, refine_keywords)
+            print(f"DEBUG: {len(results)} results after refine filter")
 
         return results
 
     except Exception as e:
-        print(f"Search error: {e}")
+        print(f"FATAL ERROR in get_answer: {e}")
         return []
