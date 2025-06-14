@@ -1,6 +1,7 @@
 import json
+from rapidfuzz import fuzz
 
-# Load data safely
+# Load data
 try:
     with open("data/chunks.json", "r", encoding="utf-8") as f:
         chunks_data = json.load(f)
@@ -8,7 +9,7 @@ except Exception as e:
     print(f"Error loading chunks.json: {e}")
     chunks_data = []
 
-# Priority ranking
+# Priority logic
 def get_priority(doc_title):
     try:
         title = doc_title.lower()
@@ -23,9 +24,9 @@ def get_priority(doc_title):
         else:
             return 5
     except Exception:
-        return 5  # fallback
+        return 5
 
-# Ranking function after refine search
+# Ranking logic for refine
 def rank_results(results, refine_keywords):
     try:
         def score(chunk):
@@ -34,38 +35,40 @@ def rank_results(results, refine_keywords):
             first_pos = min([text.find(word.lower()) for word in refine_keywords if word.lower() in text] or [9999])
             priority = get_priority(chunk.get("document", ""))
             return (priority, -keyword_hits, first_pos)
-
         results.sort(key=score)
         return results
     except Exception as e:
         print(f"Ranking error: {e}")
         return results
 
-# Main search logic
+# Main search function with fuzzy matching
 def get_answer(question, selected_documents=None, refine_keywords=None):
     try:
-        question_lower = question.lower().strip()
+        question_clean = question.strip().lower()
         refine_keywords = [w.strip() for w in (refine_keywords or []) if w.strip()]
         selected_documents = set(selected_documents) if selected_documents else None
 
         results = []
+        match_threshold = 70  # fuzzy match score threshold (0–100)
 
         for chunk in chunks_data:
-            text = chunk.get("text", "").lower()
+            text = chunk.get("text", "")
             doc = chunk.get("document", "")
             section = chunk.get("section", "")
+            text_lower = text.lower()
 
-            if all(q in text for q in question_lower.split()):
+            # ✅ Fuzzy match using rapidfuzz
+            match_score = fuzz.partial_ratio(question_clean, text_lower)
+            if match_score >= match_threshold:
                 if selected_documents and doc not in selected_documents:
                     continue
-
                 results.append({
-                    "text": chunk.get("text", ""),
+                    "text": text,
                     "document": doc,
                     "section": section if section != "Uncategorised" else ""
                 })
 
-        # Refine search and rank only after refinement
+        # Apply refine + rerank
         if refine_keywords:
             results = [
                 r for r in results
