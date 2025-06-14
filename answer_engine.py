@@ -4,6 +4,7 @@ import json
 try:
     with open("data/chunks.json", "r", encoding="utf-8") as f:
         chunks_data = json.load(f)
+    print(f"DEBUG INSPECTION: Total Chunks = {len(chunks_data)}")
 except Exception as e:
     print(f"ERROR loading chunks.json: {e}")
     chunks_data = []
@@ -45,8 +46,8 @@ def calculate_score(chunk, query_words):
 def get_answer(question, selected_documents=None, refine_keywords=None):
     try:
         question_clean = (question or "").strip()
-        query_words = [w for w in question_clean.split() if w]
-        refine_keywords = [w.strip() for w in (refine_keywords or []) if w.strip()]
+        query_words = [w.lower() for w in question_clean.split() if w]  # ⬅️ lowercase query
+        refine_keywords = [w.strip().lower() for w in (refine_keywords or []) if w.strip()]
 
         try:
             selected_documents = set(doc.get("label") for doc in selected_documents) if selected_documents else None
@@ -54,55 +55,44 @@ def get_answer(question, selected_documents=None, refine_keywords=None):
             selected_documents = None
 
         results = []
-
-        # 🔍 DEBUG BLOCK: live verification of Analysis/KSA/etc. presence
-        matches_found = 0
-        print(f"DEBUG INSPECTION: Total Chunks = {len(chunks_data)}")
-        for chunk in chunks_data:
-            try:
-                text = chunk.get("text", "")
-                if any(term in text for term in ["Analysis", "analysis", "KSA", "ksa", "DIF", "dif"]):
-                    matches_found += 1
-                    if matches_found <= 10:
-                        print(f"[MATCHED CHUNK {matches_found}]: {text[:250]}...")
-            except Exception as e:
-                print(f"ERROR inspecting chunk: {e}")
-        print(f"DEBUG: Found {matches_found} chunks containing Analysis/KSA/DIF")
+        matched_count = 0
 
         for chunk in chunks_data:
             try:
                 text = chunk.get("text", "")
+                text_lc = text.lower()
                 doc = chunk.get("document", "")
                 section = chunk.get("section", "")
 
                 if selected_documents and doc not in selected_documents:
                     continue
 
-                # 🛡️ HARD MATCH – raw word presence, case-insensitive
-                if not any(word.lower() in text.lower() for word in query_words):
+                if not any(word in text_lc for word in query_words):
                     continue
 
+                matched_count += 1
                 results.append({
                     "text": text,
                     "document": doc,
                     "section": section if section != "Uncategorised" else "",
-                    "score": calculate_score(chunk, [w.lower() for w in query_words])
+                    "score": calculate_score(chunk, query_words)
                 })
 
             except:
                 continue
 
-        # Refine logic
+        # Optional keyword refinement
         if refine_keywords:
             results = [
                 r for r in results
-                if all(word.lower() in r["text"].lower() for word in refine_keywords)
+                if all(word in r["text"].lower() for word in refine_keywords)
             ]
 
         results.sort(key=lambda r: r["score"])
         for r in results:
             r.pop("score", None)
 
+        print(f"DEBUG: Found {matched_count} chunks containing {'/'.join(query_words)}")
         print(f"DEBUG: {len(results)} results for query: '{question}'")
         return results
 
