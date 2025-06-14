@@ -1,42 +1,44 @@
-from flask import Flask, render_template, request
-import json
 import os
+from flask import Flask, render_template, request
+from answer_engine import get_answer
+import json
 
 app = Flask(__name__)
 
-# Correct path to the chunks file
-CHUNKS_PATH = os.path.join("data", "chunks.json")
-with open(CHUNKS_PATH, "r", encoding="utf-8") as f:
-    chunks = json.load(f)
+with open("data/chunks.json", "r", encoding="utf-8") as f:
+    chunks_data = json.load(f)
 
-# Build dropdown values
-documents = sorted(set(chunk.get("document", "Unknown") for chunk in chunks))
-refine_options = sorted(set(chunk.get("section", "Uncategorised") for chunk in chunks if chunk.get("section")))
+documents = sorted(set(chunk["document"] for chunk in chunks_data))
+document_sections = {}
+for chunk in chunks_data:
+    doc = chunk["document"]
+    section = chunk.get("section", "Uncategorised")
+    if doc not in document_sections:
+        document_sections[doc] = set()
+    document_sections[doc].add(section)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    answer = ""
     question = ""
-    results = []
+    selected_doc = request.form.get("document", "")
+    selected_sections = request.form.getlist("section")
+    refine_keywords = request.form.get("refine", "").split(",")
 
     if request.method == "POST":
-        question = request.form.get("question", "").strip().lower()
-        selected_doc = request.form.get("document")
-        selected_section = request.form.get("refine")
-
-        for chunk in chunks:
-            if question in chunk.get("content", "").lower():
-                if selected_doc and chunk.get("document") != selected_doc:
-                    continue
-                if selected_section and chunk.get("section") != selected_section:
-                    continue
-                results.append(chunk)
+        question = request.form.get("question", "")
+        selected = [{"label": selected_doc}] if selected_doc else None
+        answer = get_answer(question, selected, refine_keywords)
 
     return render_template(
         "index.html",
+        answer=answer,
         question=question,
-        results=results,
         documents=documents,
-        refine_options=refine_options
+        document_sections=document_sections,
+        selected_doc=selected_doc,
+        selected_sections=selected_sections,
+        refine_keywords=",".join(refine_keywords),
     )
 
 if __name__ == "__main__":
