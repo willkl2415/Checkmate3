@@ -1,58 +1,80 @@
 import json
 
-# Load chunks
-with open("data/chunks.json", "r", encoding="utf-8") as f:
-    chunks_data = json.load(f)
+# Load data safely
+try:
+    with open("data/chunks.json", "r", encoding="utf-8") as f:
+        chunks_data = json.load(f)
+except Exception as e:
+    print(f"Error loading chunks.json: {e}")
+    chunks_data = []
 
-# Priority logic
+# Priority ranking
 def get_priority(doc_title):
-    title = doc_title.lower()
-    if "jsp 822" in title:
-        return 1
-    elif "dtsm" in title:
-        return 2
-    elif "jsp" in title:
-        return 3
-    elif "mod" in title or "defence" in title:
-        return 4
-    else:
-        return 5
+    try:
+        title = doc_title.lower()
+        if "jsp 822" in title:
+            return 1
+        elif "dtsm" in title:
+            return 2
+        elif "jsp" in title:
+            return 3
+        elif "mod" in title or "defence" in title:
+            return 4
+        else:
+            return 5
+    except Exception:
+        return 5  # fallback
 
-# Ranking function
+# Ranking function after refine search
 def rank_results(results, refine_keywords):
-    def score(chunk):
-        text = chunk["text"].lower()
-        keyword_hits = sum(text.count(word.lower()) for word in refine_keywords)
-        first_pos = min([text.find(word.lower()) for word in refine_keywords if word.lower() in text] or [9999])
-        priority = get_priority(chunk["document"])
-        return (priority, -keyword_hits, first_pos)  # Lower values are better
-    results.sort(key=score)
-    return results
+    try:
+        def score(chunk):
+            text = chunk.get("text", "").lower()
+            keyword_hits = sum(text.count(word.lower()) for word in refine_keywords)
+            first_pos = min([text.find(word.lower()) for word in refine_keywords if word.lower() in text] or [9999])
+            priority = get_priority(chunk.get("document", ""))
+            return (priority, -keyword_hits, first_pos)
 
-# Main search function
+        results.sort(key=score)
+        return results
+    except Exception as e:
+        print(f"Ranking error: {e}")
+        return results
+
+# Main search logic
 def get_answer(question, selected_documents=None, refine_keywords=None):
-    question_lower = question.lower()
-    refine_keywords = [w.strip() for w in refine_keywords or []]
+    try:
+        question_lower = question.lower().strip()
+        refine_keywords = [w.strip() for w in (refine_keywords or []) if w.strip()]
+        selected_documents = set(selected_documents) if selected_documents else None
 
-    results = []
+        results = []
 
-    for chunk in chunks_data:
-        text = chunk["text"].lower()
-        if all(q in text for q in question_lower.split()):
-            if selected_documents and chunk["document"] not in selected_documents:
-                continue
-            results.append({
-                "text": chunk["text"],
-                "document": chunk["document"],
-                "section": chunk["section"] if chunk["section"] != "Uncategorised" else ""
-            })
+        for chunk in chunks_data:
+            text = chunk.get("text", "").lower()
+            doc = chunk.get("document", "")
+            section = chunk.get("section", "")
 
-    # Apply refine search if keywords exist
-    if refine_keywords:
-        results = [
-            r for r in results
-            if all(word.lower() in r["text"].lower() for word in refine_keywords)
-        ]
-        results = rank_results(results, refine_keywords)
+            if all(q in text for q in question_lower.split()):
+                if selected_documents and doc not in selected_documents:
+                    continue
 
-    return results
+                results.append({
+                    "text": chunk.get("text", ""),
+                    "document": doc,
+                    "section": section if section != "Uncategorised" else ""
+                })
+
+        # Refine search and rank only after refinement
+        if refine_keywords:
+            results = [
+                r for r in results
+                if all(word.lower() in r["text"].lower() for word in refine_keywords)
+            ]
+            results = rank_results(results, refine_keywords)
+
+        return results
+
+    except Exception as e:
+        print(f"Search error: {e}")
+        return []
