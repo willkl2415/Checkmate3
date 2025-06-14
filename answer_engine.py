@@ -1,3 +1,17 @@
+
+def get_priority(doc_title):
+    title = doc_title.lower()
+    if "jsp 822" in title:
+        return 1
+    elif "dtsm" in title:
+        return 2
+    elif "jsp" in title:
+        return 3
+    elif "mod" in title or "defence" in title:
+        return 4
+    else:
+        return 5
+
 # answer_engine.py
 import json
 import tiktoken
