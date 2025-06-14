@@ -1,5 +1,4 @@
 import json
-import re
 
 # Load chunks
 with open("data/chunks.json", "r", encoding="utf-8") as f:
@@ -19,7 +18,7 @@ def get_priority(doc_title):
     else:
         return 5
 
-# Basic scoring function used AFTER refine search
+# Ranking function
 def rank_results(results, refine_keywords):
     def score(chunk):
         text = chunk["text"].lower()
@@ -27,14 +26,13 @@ def rank_results(results, refine_keywords):
         first_pos = min([text.find(word.lower()) for word in refine_keywords if word.lower() in text] or [9999])
         priority = get_priority(chunk["document"])
         return (priority, -keyword_hits, first_pos)  # Lower values are better
-
     results.sort(key=score)
     return results
 
-# Main answer function
+# Main search function
 def get_answer(question, selected_documents=None, refine_keywords=None):
     question_lower = question.lower()
-    refine_keywords = [w.strip() for w in refine_keywords] if refine_keywords else []
+    refine_keywords = [w.strip() for w in refine_keywords or []]
 
     results = []
 
@@ -55,7 +53,6 @@ def get_answer(question, selected_documents=None, refine_keywords=None):
             r for r in results
             if all(word.lower() in r["text"].lower() for word in refine_keywords)
         ]
-        # Apply ranking only AFTER refine search
         results = rank_results(results, refine_keywords)
 
     return results
