@@ -53,7 +53,7 @@
         <ul>
             {% for chunk in answer %}
             <li>
-                <strong>{{ chunk.document }}</strong> — {{ chunk.section }}<br/>
+                <strong>{{ chunk.document }}</strong>{% if chunk.section != "Uncategorised" %} — {{ chunk.section }}{% endif %}<br/>
                 {{ chunk.content }}
             </li>
             {% endfor %}
