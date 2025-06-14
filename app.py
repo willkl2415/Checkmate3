@@ -1,47 +1,42 @@
-# app.py
-import os
+from flask import Flask, render_template, request
 import json
-from flask import Flask, render_template, request, redirect, url_for
-from answer_engine import get_answer
+import os
 
 app = Flask(__name__)
 
-# Load chunks.json and prepare filter lists
-with open("data/chunks.json", "r", encoding="utf-8") as f:
-    chunks_data = json.load(f)
+# Correct path to the chunks file
+CHUNKS_PATH = os.path.join("data", "chunks.json")
+with open(CHUNKS_PATH, "r", encoding="utf-8") as f:
+    chunks = json.load(f)
 
-documents = sorted(set(chunk["document"] for chunk in chunks_data))
+# Build dropdown values
+documents = sorted(set(chunk.get("document", "Unknown") for chunk in chunks))
+refine_options = sorted(set(chunk.get("section", "Uncategorised") for chunk in chunks if chunk.get("section")))
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    question = request.form.get("question", "").strip().lower()
-    selected_doc = request.form.get("document", "")
-    refine_query = request.form.get("refine_query", "")
-    answer = []
+    question = ""
+    results = []
 
-    if request.form.get("clear") == "1":
-        return redirect(url_for("index"))
+    if request.method == "POST":
+        question = request.form.get("question", "").strip().lower()
+        selected_doc = request.form.get("document")
+        selected_section = request.form.get("refine")
 
-    filtered_chunks = chunks_data
-
-    if selected_doc and selected_doc != "All Documents":
-        filtered_chunks = [chunk for chunk in filtered_chunks if chunk["document"] == selected_doc]
-
-    if refine_query:
-        filtered_chunks = [chunk for chunk in filtered_chunks if refine_query.lower() in chunk["content"].lower()]
-
-    if question:
-        answer = get_answer(question, filtered_chunks)
-    elif refine_query:
-        answer = filtered_chunks
+        for chunk in chunks:
+            if question in chunk.get("content", "").lower():
+                if selected_doc and chunk.get("document") != selected_doc:
+                    continue
+                if selected_section and chunk.get("section") != selected_section:
+                    continue
+                results.append(chunk)
 
     return render_template(
         "index.html",
-        answer=answer,
         question=question,
-        documents=["All Documents"] + documents,
-        selected_doc=selected_doc,
-        refine_query=refine_query
+        results=results,
+        documents=documents,
+        refine_options=refine_options
     )
 
 if __name__ == "__main__":
